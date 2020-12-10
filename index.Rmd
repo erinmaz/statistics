@@ -4,6 +4,7 @@ author:
 - "Lead Author: Matthew J. C. Crump"
 - "Chapters 2 and 4 adapted from Navarro, D."
 - "Videos: Jeffrey Suzuki"
+- "Adapted for PSYC 292, St. Francis Xavier University, by Erin L. Mazerolle"
 date: "2018 Last Compiled `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
