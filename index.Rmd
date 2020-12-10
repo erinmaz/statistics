@@ -40,35 +40,28 @@ Last Compiled: `r Sys.Date()`
 
 ----
 
-**Online Textbook**: [https://crumplab.github.io/statistics/](https://crumplab.github.io/statistics/)
+**Online Textbook for PSYC 292**: [https://www.erinmazerolle.com/statistics/](https://www.erinmazerolle.com/statistics/)
 
-**Citation**: Crump, M. J. C., Navarro, D., & Suzuki, J. (2019, June 5). Answering Questions with Data (Textbook): Introductory Statistics for Psychology Students. https://doi.org/10.17605/OSF.IO/JZE52
+**Citation (original textbook that has been modified for PSYC 292)**: Crump, M. J. C., Navarro, D., & Suzuki, J. (2019, June 5). Answering Questions with Data (Textbook): Introductory Statistics for Psychology Students. https://doi.org/10.17605/OSF.IO/JZE52
 
 
 ## Important notes
 
 This is a free textbook teaching introductory statistics for undergraduates in Psychology. This textbook is part of a larger OER course package for teaching undergraduate statistics in Psychology, including this textbook, a lab manual, and a course website. All of the materials are free and copiable, with source code maintained in Github repositories. The links below connect to various components of the project. The main OSF project link is [https://osf.io/3s68c/](https://osf.io/3s68c/).
 
-### Textbook
+### Information on the Original Textbook
 
   - website: [https://crumplab.github.io/statistics/](https://crumplab.github.io/statistics/)
   - OSF: [https://osf.io/jze52/](https://osf.io/jze52/)
   - Github: [https://github.com/CrumpLab/statistics](https://github.com/CrumpLab/statistics)
   - DOI: 10.17605/OSF.IO/JZE52
   
-### Lab Manual
+### Lab Manual for PSYC 292
 
-  - website: [https://crumplab.github.io/statisticsLab/](https://crumplab.github.io/statisticsLab/)
-  - OSF: [https://osf.io/m2npj/](https://osf.io/m2npj/)
-  - Github: [https://github.com/CrumpLab/statisticsLab](https://github.com/CrumpLab/statisticsLab)
-  - DOI: 10.17605/OSF.IO/M2NPJ
-  
-### Course website
-
-  - website: [https://crumplab.github.io/psyc3400/](https://crumplab.github.io/psyc3400/)
-  - OSF: [https://osf.io/awxu9/](https://osf.io/awxu9/)
-  - Github: [https://github.com/CrumpLab/psyc3400](https://github.com/CrumpLab/psyc3400)
-  - DOI: 10.17605/OSF.IO/AWXU9
+  - website: [https://www.erinmazerolle.com/statisticsLab/](https://www.erinmazerolle.com/statisticsLab/)
+  - OSF (original): [https://osf.io/m2npj/](https://osf.io/m2npj/)
+  - Github: [https://github.com/erinmaz/statisticsLab](https://github.com/erinmaz/statisticsLab)
+  - DOI (original): 10.17605/OSF.IO/M2NPJ
 
 All resources are released under a creative commons licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Click the link to read more about the license, or read more below in the license section.
 
@@ -111,7 +104,8 @@ This textbook was written in R-Studio, using R Markdown, and compiled into a web
 
 All of the source code for compiling the book is available in the GitHub repository for this book:
 
-[https://github.com/CrumpLab/statistics](https://github.com/CrumpLab/statistics)
+[https://github.com/CrumpLab/statistics](https://github.com/CrumpLab/statistics) - original
+[https://github.com/erinmaz/statistics](https://github.com/erinmaz/statistics) - version for PSYC 292
 
 In principle, anybody could fork or otherwise download this repository. Load the Rproj file in R-studio, and then compile the entire book. Then, the individual .rmd files for each chapter could be edited for content and style to better suit your needs.
 
