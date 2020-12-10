@@ -358,3 +358,5 @@ factorial-null
 distributions
 normal-changing-mean
 normal-changing-sd
+information-on-the-original-textbook
+lab-manual-for-psyc-292
