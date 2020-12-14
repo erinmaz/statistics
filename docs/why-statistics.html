@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Why Statistics? | Answering questions with data</title>
   <meta name="description" content="An introductory statistics textbook for psychology students" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Why Statistics? | Answering questions with data" />
   <meta property="og:type" content="book" />
@@ -24,6 +24,7 @@
 <meta name="author" content="Lead Author: Matthew J. C. Crump" />
 <meta name="author" content="Chapters 2 and 4 adapted from Navarro, D." />
 <meta name="author" content="Videos: Jeffrey Suzuki" />
+<meta name="author" content="Adapted for PSYC 292, St. Francis Xavier University, by Erin L. Mazerolle." />
 
 
 
@@ -51,7 +52,8 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79429674-3"></script>
 <script>
@@ -69,68 +71,41 @@ mattcrump=1;
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="tufte.css" type="text/css" />
@@ -151,12 +126,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i><b>0.1</b> Important notes</a><ul>
-<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#textbook"><i class="fa fa-check"></i><b>0.1.1</b> Textbook</a></li>
-<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#lab-manual"><i class="fa fa-check"></i><b>0.1.2</b> Lab Manual</a></li>
-<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#course-website"><i class="fa fa-check"></i><b>0.1.3</b> Course website</a></li>
-<li class="chapter" data-level="0.1.4" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>0.1.4</b> Contributors</a></li>
-<li class="chapter" data-level="0.1.5" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>0.1.5</b> Attributions</a></li>
-<li class="chapter" data-level="0.1.6" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i><b>0.1.6</b> CC BY-SA 4.0 license</a></li>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#information-on-the-original-textbook"><i class="fa fa-check"></i><b>0.1.1</b> Information on the Original Textbook</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#lab-manual-for-psyc-292"><i class="fa fa-check"></i><b>0.1.2</b> Lab Manual for PSYC 292</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>0.1.3</b> Contributors</a></li>
+<li class="chapter" data-level="0.1.4" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>0.1.4</b> Attributions</a></li>
+<li class="chapter" data-level="0.1.5" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i><b>0.1.5</b> CC BY-SA 4.0 license</a></li>
 </ul></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#copying-the-textbook"><i class="fa fa-check"></i><b>0.2</b> Copying the textbook</a><ul>
 <li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.2.1</b> Acknowledgments</a></li>
@@ -244,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.2" data-path="DescribingData.html"><a href="DescribingData.html#other-sign-inverting-operations"><i class="fa fa-check"></i><b>2.7.2</b> Other sign-inverting operations</a></li>
 </ul></li>
 <li class="chapter" data-level="2.8" data-path="DescribingData.html"><a href="DescribingData.html#remember-to-look-at-your-data"><i class="fa fa-check"></i><b>2.8</b> Remember to look at your data</a><ul>
-<li class="chapter" data-level="2.8.1" data-path="DescribingData.html"><a href="DescribingData.html#anscombes-quartet"><i class="fa fa-check"></i><b>2.8.1</b> Anscombe’s Quartet</a></li>
+<li class="chapter" data-level="2.8.1" data-path="DescribingData.html"><a href="DescribingData.html#anscombes-quartet"><i class="fa fa-check"></i><b>2.8.1</b> Anscombe's Quartet</a></li>
 <li class="chapter" data-level="2.8.2" data-path="DescribingData.html"><a href="DescribingData.html#datasaurus-dozen"><i class="fa fa-check"></i><b>2.8.2</b> Datasaurus Dozen</a></li>
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="DescribingData.html"><a href="DescribingData.html#videos-1"><i class="fa fa-check"></i><b>2.9</b> Videos</a><ul>
@@ -260,12 +234,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.2" data-path="Correlation.html"><a href="Correlation.html#scatter-plots"><i class="fa fa-check"></i><b>3.1.2</b> Scatter plots</a></li>
 <li class="chapter" data-level="3.1.3" data-path="Correlation.html"><a href="Correlation.html#positive-negative-and-no-correlation"><i class="fa fa-check"></i><b>3.1.3</b> Positive, Negative, and No-Correlation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="Correlation.html"><a href="Correlation.html#pearsons-r"><i class="fa fa-check"></i><b>3.2</b> Pearson’s r</a><ul>
+<li class="chapter" data-level="3.2" data-path="Correlation.html"><a href="Correlation.html#pearsons-r"><i class="fa fa-check"></i><b>3.2</b> Pearson's r</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="Correlation.html"><a href="Correlation.html#the-idea-of-co-variance"><i class="fa fa-check"></i><b>3.2.1</b> The idea of co-variance</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="Correlation.html"><a href="Correlation.html#turning-the-numbers-into-a-measure-of-co-variance"><i class="fa fa-check"></i><b>3.3</b> Turning the numbers into a measure of co-variance</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="Correlation.html"><a href="Correlation.html#co-variance-the-measure"><i class="fa fa-check"></i><b>3.3.1</b> Co-variance, the measure</a></li>
-<li class="chapter" data-level="3.3.2" data-path="Correlation.html"><a href="Correlation.html#pearsons-r-we-there-yet"><i class="fa fa-check"></i><b>3.3.2</b> Pearson’s r we there yet</a></li>
+<li class="chapter" data-level="3.3.2" data-path="Correlation.html"><a href="Correlation.html#pearsons-r-we-there-yet"><i class="fa fa-check"></i><b>3.3.2</b> Pearson's r we there yet</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="Correlation.html"><a href="Correlation.html#examples-with-data"><i class="fa fa-check"></i><b>3.4</b> Examples with Data</a></li>
 <li class="chapter" data-level="3.5" data-path="Correlation.html"><a href="Correlation.html#regression-a-mini-intro"><i class="fa fa-check"></i><b>3.5</b> Regression: A mini intro</a><ul>
@@ -285,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#what-does-probability-mean"><i class="fa fa-check"></i><b>4.2</b> What does probability mean?</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#the-frequentist-view"><i class="fa fa-check"></i><b>4.2.1</b> The frequentist view</a></li>
 <li class="chapter" data-level="4.2.2" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#the-bayesian-view"><i class="fa fa-check"></i><b>4.2.2</b> The Bayesian view</a></li>
-<li class="chapter" data-level="4.2.3" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#whats-the-difference-and-who-is-right"><i class="fa fa-check"></i><b>4.2.3</b> What’s the difference? And who is right?</a></li>
+<li class="chapter" data-level="4.2.3" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#whats-the-difference-and-who-is-right"><i class="fa fa-check"></i><b>4.2.3</b> What's the difference? And who is right?</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#basic-probability-theory"><i class="fa fa-check"></i><b>4.3</b> Basic probability theory</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#introducing-probability-distributions"><i class="fa fa-check"></i><b>4.3.1</b> Introducing probability distributions</a></li>
@@ -303,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.8.1" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#defining-a-population"><i class="fa fa-check"></i><b>4.8.1</b> Defining a population</a></li>
 <li class="chapter" data-level="4.8.2" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#simple-random-samples"><i class="fa fa-check"></i><b>4.8.2</b> Simple random samples</a></li>
 <li class="chapter" data-level="4.8.3" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#most-samples-are-not-simple-random-samples"><i class="fa fa-check"></i><b>4.8.3</b> Most samples are not simple random samples</a></li>
-<li class="chapter" data-level="4.8.4" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#how-much-does-it-matter-if-you-dont-have-a-simple-random-sample"><i class="fa fa-check"></i><b>4.8.4</b> How much does it matter if you don’t have a simple random sample?</a></li>
+<li class="chapter" data-level="4.8.4" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#how-much-does-it-matter-if-you-dont-have-a-simple-random-sample"><i class="fa fa-check"></i><b>4.8.4</b> How much does it matter if you don't have a simple random sample?</a></li>
 <li class="chapter" data-level="4.8.5" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#population-parameters-and-sample-statistics"><i class="fa fa-check"></i><b>4.8.5</b> Population parameters and sample statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#the-law-of-large-numbers"><i class="fa fa-check"></i><b>4.9</b> The law of large numbers</a></li>
@@ -331,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.15" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#summary-2"><i class="fa fa-check"></i><b>4.15</b> Summary</a></li>
 <li class="chapter" data-level="4.16" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#videos-2"><i class="fa fa-check"></i><b>4.16</b> Videos</a><ul>
 <li class="chapter" data-level="4.16.1" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#introduction-to-probability"><i class="fa fa-check"></i><b>4.16.1</b> Introduction to Probability</a></li>
-<li class="chapter" data-level="4.16.2" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#chebychevs-theorem"><i class="fa fa-check"></i><b>4.16.2</b> Chebychev’s Theorem</a></li>
+<li class="chapter" data-level="4.16.2" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#chebychevs-theorem"><i class="fa fa-check"></i><b>4.16.2</b> Chebychev's Theorem</a></li>
 <li class="chapter" data-level="4.16.3" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#z-scores-1"><i class="fa fa-check"></i><b>4.16.3</b> Z-scores</a></li>
 <li class="chapter" data-level="4.16.4" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#normal-distribution-i"><i class="fa fa-check"></i><b>4.16.4</b> Normal Distribution I</a></li>
 <li class="chapter" data-level="4.16.5" data-path="probability-sampling-and-estimation.html"><a href="probability-sampling-and-estimation.html#normal-distribution-ii"><i class="fa fa-check"></i><b>4.16.5</b> Normal Distribution II</a></li>
@@ -344,27 +318,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#not-all-samples-are-the-same-they-are-usually-quite-different"><i class="fa fa-check"></i><b>5.2.2</b> Not all samples are the same, they are usually quite different</a></li>
 <li class="chapter" data-level="5.2.3" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#large-samples-are-more-like-the-distribution-they-came-from"><i class="fa fa-check"></i><b>5.2.3</b> Large samples are more like the distribution they came from</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#is-there-a-difference"><i class="fa fa-check"></i><b>5.3</b> Is there a difference?</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#chance-can-produce-differences"><i class="fa fa-check"></i><b>5.3.1</b> Chance can produce differences</a></li>
-<li class="chapter" data-level="5.3.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#differences-due-to-chance-can-be-simulated"><i class="fa fa-check"></i><b>5.3.2</b> Differences due to chance can be simulated</a></li>
+<li class="chapter" data-level="5.3" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#playing-with-distributions"><i class="fa fa-check"></i><b>5.3</b> Playing with distributions</a></li>
+<li class="chapter" data-level="5.4" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#is-there-a-difference"><i class="fa fa-check"></i><b>5.4</b> Is there a difference?</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#chance-can-produce-differences"><i class="fa fa-check"></i><b>5.4.1</b> Chance can produce differences</a></li>
+<li class="chapter" data-level="5.4.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#differences-due-to-chance-can-be-simulated"><i class="fa fa-check"></i><b>5.4.2</b> Differences due to chance can be simulated</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#chance-makes-some-differences-more-likely-than-others"><i class="fa fa-check"></i><b>5.4</b> Chance makes some differences more likely than others</a></li>
-<li class="chapter" data-level="5.5" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#the-crump-test"><i class="fa fa-check"></i><b>5.5</b> The Crump Test</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#intuitive-methods"><i class="fa fa-check"></i><b>5.5.1</b> Intuitive methods</a></li>
-<li class="chapter" data-level="5.5.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-1-frequency-based-intuition-about-occurence"><i class="fa fa-check"></i><b>5.5.2</b> Part 1: Frequency based intuition about occurence</a></li>
-<li class="chapter" data-level="5.5.3" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-2-simulating-chance"><i class="fa fa-check"></i><b>5.5.3</b> Part 2: Simulating chance</a></li>
-<li class="chapter" data-level="5.5.4" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-3-judgment-and-decision-making"><i class="fa fa-check"></i><b>5.5.4</b> Part 3: Judgment and Decision-making</a></li>
-<li class="chapter" data-level="5.5.5" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-4-experiment-design"><i class="fa fa-check"></i><b>5.5.5</b> Part 4: Experiment Design</a></li>
-<li class="chapter" data-level="5.5.6" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-5-i-have-the-power"><i class="fa fa-check"></i><b>5.5.6</b> Part 5: I have the power</a></li>
-<li class="chapter" data-level="5.5.7" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#summary-of-crump-test"><i class="fa fa-check"></i><b>5.5.7</b> Summary of Crump Test</a></li>
+<li class="chapter" data-level="5.5" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#chance-makes-some-differences-more-likely-than-others"><i class="fa fa-check"></i><b>5.5</b> Chance makes some differences more likely than others</a></li>
+<li class="chapter" data-level="5.6" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#the-crump-test"><i class="fa fa-check"></i><b>5.6</b> The Crump Test</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#intuitive-methods"><i class="fa fa-check"></i><b>5.6.1</b> Intuitive methods</a></li>
+<li class="chapter" data-level="5.6.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-1-frequency-based-intuition-about-occurence"><i class="fa fa-check"></i><b>5.6.2</b> Part 1: Frequency based intuition about occurence</a></li>
+<li class="chapter" data-level="5.6.3" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-2-simulating-chance"><i class="fa fa-check"></i><b>5.6.3</b> Part 2: Simulating chance</a></li>
+<li class="chapter" data-level="5.6.4" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-3-judgment-and-decision-making"><i class="fa fa-check"></i><b>5.6.4</b> Part 3: Judgment and Decision-making</a></li>
+<li class="chapter" data-level="5.6.5" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-4-experiment-design"><i class="fa fa-check"></i><b>5.6.5</b> Part 4: Experiment Design</a></li>
+<li class="chapter" data-level="5.6.6" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#part-5-i-have-the-power"><i class="fa fa-check"></i><b>5.6.6</b> Part 5: I have the power</a></li>
+<li class="chapter" data-level="5.6.7" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#summary-of-crump-test"><i class="fa fa-check"></i><b>5.6.7</b> Summary of Crump Test</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#the-randomization-test-permutation-test"><i class="fa fa-check"></i><b>5.6</b> The randomization test (permutation test)</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#pretend-example-does-chewing-gum-improve-your-grades"><i class="fa fa-check"></i><b>5.6.1</b> Pretend example does chewing gum improve your grades?</a></li>
-<li class="chapter" data-level="5.6.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#take-homes-so-far"><i class="fa fa-check"></i><b>5.6.2</b> Take homes so far</a></li>
+<li class="chapter" data-level="5.7" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#the-randomization-test-permutation-test"><i class="fa fa-check"></i><b>5.7</b> The randomization test (permutation test)</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#pretend-example-does-chewing-gum-improve-your-grades"><i class="fa fa-check"></i><b>5.7.1</b> Pretend example does chewing gum improve your grades?</a></li>
+<li class="chapter" data-level="5.7.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#take-homes-so-far"><i class="fa fa-check"></i><b>5.7.2</b> Take homes so far</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#videos-3"><i class="fa fa-check"></i><b>5.7</b> Videos</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#null-and-alternate-hypotheses"><i class="fa fa-check"></i><b>5.7.1</b> Null and Alternate Hypotheses</a></li>
-<li class="chapter" data-level="5.7.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#types-of-errors"><i class="fa fa-check"></i><b>5.7.2</b> Types of Errors</a></li>
+<li class="chapter" data-level="5.8" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#videos-3"><i class="fa fa-check"></i><b>5.8</b> Videos</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#null-and-alternate-hypotheses"><i class="fa fa-check"></i><b>5.8.1</b> Null and Alternate Hypotheses</a></li>
+<li class="chapter" data-level="5.8.2" data-path="foundations-for-inference.html"><a href="foundations-for-inference.html#types-of-errors"><i class="fa fa-check"></i><b>5.8.2</b> Types of Errors</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="t-tests.html"><a href="t-tests.html"><i class="fa fa-check"></i><b>6</b> t-Tests</a><ul>
@@ -505,15 +480,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="simulating-data.html"><a href="simulating-data.html"><i class="fa fa-check"></i><b>11</b> Simulating Data</a><ul>
 <li class="chapter" data-level="11.1" data-path="simulating-data.html"><a href="simulating-data.html#reasons-to-simulate"><i class="fa fa-check"></i><b>11.1</b> Reasons to simulate</a></li>
 <li class="chapter" data-level="11.2" data-path="simulating-data.html"><a href="simulating-data.html#simulation-overview"><i class="fa fa-check"></i><b>11.2</b> Simulation overview</a></li>
-<li class="chapter" data-level="11.3" data-path="simulating-data.html"><a href="simulating-data.html#simulating-t-tests"><i class="fa fa-check"></i><b>11.3</b> Simulating t-tests</a></li>
-<li class="chapter" data-level="11.4" data-path="simulating-data.html"><a href="simulating-data.html#simulating-one-factor-anovas"><i class="fa fa-check"></i><b>11.4</b> Simulating one-factor ANOVAs</a></li>
-<li class="chapter" data-level="11.5" data-path="simulating-data.html"><a href="simulating-data.html#other-resources"><i class="fa fa-check"></i><b>11.5</b> Other resources</a></li>
+<li class="chapter" data-level="11.3" data-path="simulating-data.html"><a href="simulating-data.html#a-general-model"><i class="fa fa-check"></i><b>11.3</b> A general model</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="simulating-data.html"><a href="simulating-data.html#what-are-we-doing-here"><i class="fa fa-check"></i><b>11.3.1</b> What are we doing here?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="simulating-data.html"><a href="simulating-data.html#simulating-t-tests"><i class="fa fa-check"></i><b>11.4</b> Simulating t-tests</a></li>
+<li class="chapter" data-level="11.5" data-path="simulating-data.html"><a href="simulating-data.html#simulating-one-factor-anovas"><i class="fa fa-check"></i><b>11.5</b> Simulating one-factor ANOVAs</a></li>
+<li class="chapter" data-level="11.6" data-path="simulating-data.html"><a href="simulating-data.html#other-resources"><i class="fa fa-check"></i><b>11.6</b> Other resources</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html"><i class="fa fa-check"></i><b>12</b> Thinking about answering questions with data</a><ul>
 <li class="chapter" data-level="12.1" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#effect-size-and-power"><i class="fa fa-check"></i><b>12.1</b> Effect-size and power</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#chance-vs.-real-effects"><i class="fa fa-check"></i><b>12.1.1</b> Chance vs. real effects</a></li>
-<li class="chapter" data-level="12.1.2" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#effect-size-concrete-vs.-abstract-notions"><i class="fa fa-check"></i><b>12.1.2</b> Effect size: concrete vs. abstract notions</a></li>
-<li class="chapter" data-level="12.1.3" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#cohens-d"><i class="fa fa-check"></i><b>12.1.3</b> Cohen’s d</a></li>
+<li class="chapter" data-level="12.1.1" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#chance-vs.-real-effects"><i class="fa fa-check"></i><b>12.1.1</b> Chance vs. real effects</a></li>
+<li class="chapter" data-level="12.1.2" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#effect-size-concrete-vs.-abstract-notions"><i class="fa fa-check"></i><b>12.1.2</b> Effect size: concrete vs. abstract notions</a></li>
+<li class="chapter" data-level="12.1.3" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#cohens-d"><i class="fa fa-check"></i><b>12.1.3</b> Cohen's d</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#power"><i class="fa fa-check"></i><b>12.2</b> Power</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="thinking-about-answering-questions-with-data.html"><a href="thinking-about-answering-questions-with-data.html#a-digresssion-about-hypothesis-testing"><i class="fa fa-check"></i><b>12.2.1</b> A digresssion about hypothesis testing</a></li>
@@ -579,14 +557,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="why-statistics" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Why Statistics?</h1>
-<p><span class="newthought">
-To call in statisticians after the experiment is done may be no more than asking them to perform a post-mortem examination: They may be able to say what the experiment died of.
-—Sir Ronald Fisher
-</span></p>
+<p><span class="newthought"> To call in statisticians after the experiment is done may be no more than asking them to perform a post-mortem examination: They may be able to say what the experiment died of. ---Sir Ronald Fisher </span></p>
 <div id="on-the-psychology-of-statistics" class="section level2">
 <h2><span class="header-section-number">1.1</span> On the psychology of statistics</h2>
 <div class="marginnote">
-<p>Adapted nearly verbatim from Chapters 1 and 2 in Navarro, D. “Learning Statistics with R.” <a href="https://compcogscisydney.org/learning-statistics-with-r/" class="uri">https://compcogscisydney.org/learning-statistics-with-r/</a></p>
+<p>Adapted nearly verbatim from Chapters 1 and 2 in Navarro, D. &quot;Learning Statistics with R.&quot; <a href="https://compcogscisydney.org/learning-statistics-with-r/" class="uri">https://compcogscisydney.org/learning-statistics-with-r/</a></p>
 </div>
 <p>To the surprise of many students, statistics is a fairly significant part of a psychological education. To the surprise of no-one, statistics is very rarely the <em>favorite</em> part of one’s psychological education. After all, if you really loved the idea of doing statistics, you’d probably be enrolled in a statistics class right now, not a psychology class. So, not surprisingly, there’s a pretty large proportion of the student base that isn’t happy about the fact that psychology has so much statistics in it. In view of this, I thought that the right place to start might be to answer some of the more common questions that people have about stats…</p>
 <p>A big part of this issue at hand relates to the very idea of statistics. What is it? What’s it there for? And why are scientists so bloody obsessed with it? These are all good questions, when you think about it. So let’s start with the last one. As a group, scientists seem to be bizarrely fixated on running statistical tests on everything. In fact, we use statistics so often that we sometimes forget to explain to people why we do. It’s a kind of article of faith among scientists – and especially social scientists – that your findings can’t be trusted until you’ve done some stats. Undergraduate students might be forgiven for thinking that we’re all completely mad, because no-one takes the time to answer one very simple question:</p>
@@ -645,7 +620,7 @@ To call in statisticians after the experiment is done may be no more than asking
 </tbody>
 </table>
 <p>If the psychological data looked like this (or even a good approximation to this), we might feel safe in just trusting our gut instincts. That is, it’d be perfectly okay just to let scientists evaluate data based on their common sense, and not bother with all this murky statistics stuff. However, you guys have taken psych classes, and by now you probably know where this is going.</p>
-<p>In a classic study, <span class="citation">Evans, Barston, and Pollard (<a href="#ref-Evans1983" role="doc-biblioref">1983</a>)</span> ran an experiment looking at exactly this. What they found is that when pre-existing biases (i.e., beliefs) were in agreement with the structure of the data, everything went the way you’d hope:</p>
+<p>In a classic study, <span class="citation">Evans, Barston, and Pollard (<a href="#ref-Evans1983">1983</a>)</span> ran an experiment looking at exactly this. What they found is that when pre-existing biases (i.e., beliefs) were in agreement with the structure of the data, everything went the way you’d hope:</p>
 <table>
 <thead>
 <tr class="header">
@@ -658,11 +633,11 @@ To call in statisticians after the experiment is done may be no more than asking
 <tr class="odd">
 <td>argument is valid</td>
 <td align="center">92% say “valid”</td>
-<td align="center">–</td>
+<td align="center">--</td>
 </tr>
 <tr class="even">
 <td>argument is invalid</td>
-<td align="center">–</td>
+<td align="center">--</td>
 <td align="center">8% say “valid”</td>
 </tr>
 </tbody>
@@ -695,7 +670,7 @@ To call in statisticians after the experiment is done may be no more than asking
 </div>
 <div id="the-cautionary-tale-of-simpsons-paradox" class="section level2">
 <h2><span class="header-section-number">1.2</span> The cautionary tale of Simpson’s paradox</h2>
-<p>The following is a true story (I think…). In 1973, the University of California, Berkeley had some worries about the admissions of students into their postgraduate courses. Specifically, the thing that caused the problem was that the gender breakdown of their admissions, which looked like this:</p>
+<p>The following is a true story (I think...). In 1973, the University of California, Berkeley had some worries about the admissions of students into their postgraduate courses. Specifically, the thing that caused the problem was that the gender breakdown of their admissions, which looked like this:</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -704,12 +679,12 @@ To call in statisticians after the experiment is done may be no more than asking
 <td align="center">Percent admitted</td>
 </tr>
 <tr class="even">
-<td>Males</td>
+<td>Men</td>
 <td align="center">8442</td>
 <td align="center">44%</td>
 </tr>
 <tr class="odd">
-<td>Females</td>
+<td>Women</td>
 <td align="center">4321</td>
 <td align="center">35%</td>
 </tr>
@@ -719,7 +694,7 @@ To call in statisticians after the experiment is done may be no more than asking
 <div class="marginnote">
 <p>Earlier versions of these notes incorrectly suggested that they actually were sued – apparently that’s not true. There’s a nice commentary on this here: <a href="https://www.refsmmat.com/posts/2016-05-08-simpsons-paradox-berkeley.html" class="uri">https://www.refsmmat.com/posts/2016-05-08-simpsons-paradox-berkeley.html</a>. A big thank you to Wilfried Van Hirtum for pointing this out to me!</p>
 </div>
-<p>When people started looking more carefully at the admissions data <span class="citation">(Bickel, Hammel, and O’Connell <a href="#ref-Bickel1975" role="doc-biblioref">1975</a>)</span> they told a rather different story. Specifically, when they looked at it on a department by department basis, it turned out that most of the departments actually had a slightly <em>higher</em> success rate for female applicants than for male applicants. The table below shows the admission figures for the six largest departments (with the names of the departments removed for privacy reasons):</p>
+<p>When people started looking more carefully at the admissions data <span class="citation">(Bickel, Hammel, and O’Connell <a href="#ref-Bickel1975">1975</a>)</span> they told a rather different story. Specifically, when they looked at it on a department by department basis, it turned out that most of the departments actually had a slightly <em>higher</em> success rate for female applicants than for male applicants. The table below shows the admission figures for the six largest departments (with the names of the departments removed for privacy reasons):</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -774,26 +749,26 @@ To call in statisticians after the experiment is done may be no more than asking
 </tbody>
 </table>
 <p>Remarkably, most departments had a <em>higher</em> rate of admissions for females than for males! Yet the overall rate of admission across the university for females was <em>lower</em> than for males. How can this be? How can both of these statements be true at the same time?</p>
-<p>Here’s what’s going on. Firstly, notice that the departments are <em>not</em> equal to one another in terms of their admission percentages: some departments (e.g., engineering, chemistry) tended to admit a high percentage of the qualified applicants, whereas others (e.g., English) tended to reject most of the candidates, even if they were high quality. So, among the six departments shown above, notice that department A is the most generous, followed by B, C, D, E and F in that order. Next, notice that males and females tended to apply to different departments. If we rank the departments in terms of the total number of male applicants, we get <strong>A</strong><span class="math inline">\(&gt;\)</span><strong>B</strong><span class="math inline">\(&gt;\)</span>D<span class="math inline">\(&gt;\)</span>C<span class="math inline">\(&gt;\)</span>F<span class="math inline">\(&gt;\)</span>E (the “easy” departments are in bold). On the whole, males tended to apply to the departments that had high admission rates. Now compare this to how the female applicants distributed themselves. Ranking the departments in terms of the total number of female applicants produces a quite different ordering C<span class="math inline">\(&gt;\)</span>E<span class="math inline">\(&gt;\)</span>D<span class="math inline">\(&gt;\)</span>F<span class="math inline">\(&gt;\)</span><strong>A</strong><span class="math inline">\(&gt;\)</span><strong>B</strong>. In other words, what these data seem to be suggesting is that the female applicants tended to apply to “harder” departments. And in fact, if we look at all Figure <a href="why-statistics.html#fig:1simpson">1.1</a> we see that this trend is systematic, and quite striking. This effect is known as <strong>Simpson’s paradox</strong>. It’s not common, but it does happen in real life, and most people are very surprised by it when they first encounter it, and many people refuse to even believe that it’s real. It is very real. And while there are lots of very subtle statistical lessons buried in there, I want to use it to make a much more important point …doing research is hard, and there are <em>lots</em> of subtle, counterintuitive traps lying in wait for the unwary. That’s reason #2 why scientists love statistics, and why we teach research methods. Because science is hard, and the truth is sometimes cunningly hidden in the nooks and crannies of complicated data.</p>
+<p>Here’s what’s going on. Firstly, notice that the departments are <em>not</em> equal to one another in terms of their admission percentages: some departments (e.g., engineering, chemistry) tended to admit a high percentage of the qualified applicants, whereas others (e.g., English) tended to reject most of the candidates, even if they were high quality. So, among the six departments shown above, notice that department A is the most generous, followed by B, C, D, E and F in that order. Next, notice that males and females tended to apply to different departments. If we rank the departments in terms of the total number of male applicants, we get <strong>A</strong><span class="math inline">\(&gt;\)</span><strong>B</strong><span class="math inline">\(&gt;\)</span>D<span class="math inline">\(&gt;\)</span>C<span class="math inline">\(&gt;\)</span>F<span class="math inline">\(&gt;\)</span>E (the “easy” departments are in bold). On the whole, males tended to apply to the departments that had high admission rates. Now compare this to how the female applicants distributed themselves. Ranking the departments in terms of the total number of female applicants produces a quite different ordering C<span class="math inline">\(&gt;\)</span>E<span class="math inline">\(&gt;\)</span>D<span class="math inline">\(&gt;\)</span>F<span class="math inline">\(&gt;\)</span><strong>A</strong><span class="math inline">\(&gt;\)</span><strong>B</strong>. In other words, what these data seem to be suggesting is that the female applicants tended to apply to “harder” departments. And in fact, if we look at all Figure <a href="why-statistics.html#fig:1simpson">1.1</a> we see that this trend is systematic, and quite striking. This effect is known as <strong>Simpson's paradox</strong>. It’s not common, but it does happen in real life, and most people are very surprised by it when they first encounter it, and many people refuse to even believe that it’s real. It is very real. And while there are lots of very subtle statistical lessons buried in there, I want to use it to make a much more important point …doing research is hard, and there are <em>lots</em> of subtle, counterintuitive traps lying in wait for the unwary. That’s reason #2 why scientists love statistics, and why we teach research methods. Because science is hard, and the truth is sometimes cunningly hidden in the nooks and crannies of complicated data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/1Simpson.png&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:1simpson"></span>
-<img src="figures/1Simpson.png" alt="The Berkeley 1973 college admissions data. This figure plots the admission rate for the 85 departments that had at least one female applicant, as a function of the percentage of applicants that were female. The plot is a redrawing of Figure 1 from Bickel et al. (1975). Circles plot departments with more than 40 applicants; the area of the circle is proportional to the total number of applicants. The crosses plot department with fewer than 40 applicants." width="481" />
+<img src="figures/1Simpson.png" alt="The Berkeley 1973 college admissions data. This figure plots the admission rate for the 85 departments that had at least one female applicant, as a function of the percentage of applicants that were female. The plot is a redrawing of Figure 1 from Bickel et al. (1975). Circles plot departments with more than 40 applicants; the area of the circle is proportional to the total number of applicants. The crosses plot department with fewer than 40 applicants."  />
 <p class="caption">
-Figure 1.1: The Berkeley 1973 college admissions data. This figure plots the admission rate for the 85 departments that had at least one female applicant, as a function of the percentage of applicants that were female. The plot is a redrawing of Figure 1 from Bickel et al. (1975). Circles plot departments with more than 40 applicants; the area of the circle is proportional to the total number of applicants. The crosses plot department with fewer than 40 applicants.
+Figure 1.1: The Berkeley 1973 college admissions data. This figure plots the admission rate for the 85 departments that had at least one female applicant, as a function of the percentage of applicants that were female. The plot is a redrawing of Figure 1 from Bickel et al. (1975). Circles plot departments with more than 40 applicants; the area of the circle is proportional to the total number of applicants. The crosses plot department with fewer than 40 applicants.
 </p>
 </div>
 <p>Before leaving this topic entirely, I want to point out something else really critical that is often overlooked in a research methods class. Statistics only solves <em>part</em> of the problem. Remember that we started all this with the concern that Berkeley’s admissions processes might be unfairly biased against female applicants. When we looked at the “aggregated” data, it did seem like the university was discriminating against women, but when we “disaggregate” and looked at the individual behaviour of all the departments, it turned out that the actual departments were, if anything, slightly biased in favour of women. The gender bias in total admissions was caused by the fact that women tended to self-select for harder departments. From a legal perspective, that would probably put the university in the clear. Postgraduate admissions are determined at the level of the individual department (and there are good reasons to do that), and at the level of individual departments, the decisions are more or less unbiased (the weak bias in favour of females at that level is small, and not consistent across departments). Since the university can’t dictate which departments people choose to apply to, and the decision making takes place at the level of the department it can hardly be held accountable for any biases that those choices produce.</p>
-<p>That was the basis for my somewhat glib remarks earlier, but that’s not exactly the whole story, is it? After all, if we’re interested in this from a more sociological and psychological perspective, we might want to ask <em>why</em> there are such strong gender differences in applications. Why do males tend to apply to engineering more often than females, and why is this reversed for the English department? And why is it it the case that the departments that tend to have a female-application bias tend to have lower overall admission rates than those departments that have a male-application bias? Might this not still reflect a gender bias, even though every single department is itself unbiased? It might.
-Suppose, hypothetically, that males preferred to apply to “hard sciences” and females prefer “humanities”. And suppose further that the reason for why the humanities departments have low admission rates is because the government doesn’t want to fund the humanities (spots in Ph.D. programs, for instance, are often tied to government funded research projects). Does that constitute a gender bias? Or just an unenlightened view of the value of the humanities? What if someone at a high level in the government cut the humanities funds because they felt that the humanities are “useless chick stuff”. That seems pretty <em>blatantly</em> gender biased. None of this falls within the purview of statistics, but it matters to the research project. If you’re interested in the overall structural effects of subtle gender biases, then you probably want to look at <em>both</em> the aggregated and disaggregated data. If you’re interested in the decision making process at Berkeley itself then you’re probably only interested in the disaggregated data.</p>
+<p>That was the basis for my somewhat glib remarks earlier, but that’s not exactly the whole story, is it? After all, if we’re interested in this from a more sociological and psychological perspective, we might want to ask <em>why</em> there are such strong gender differences in applications. Why do males tend to apply to engineering more often than females, and why is this reversed for the English department? And why is it it the case that the departments that tend to have a female-application bias tend to have lower overall admission rates than those departments that have a male-application bias? Might this not still reflect a gender bias, even though every single department is itself unbiased? It might. Suppose, hypothetically, that males preferred to apply to “hard sciences” and females prefer “humanities”. And suppose further that the reason for why the humanities departments have low admission rates is because the government doesn’t want to fund the humanities (spots in Ph.D. programs, for instance, are often tied to government funded research projects). Does that constitute a gender bias? Or just an unenlightened view of the value of the humanities? What if someone at a high level in the government cut the humanities funds because they felt that the humanities are “useless chick stuff”. That seems pretty <em>blatantly</em> gender biased. None of this falls within the purview of statistics, but it matters to the research project. If you’re interested in the overall structural effects of subtle gender biases, then you probably want to look at <em>both</em> the aggregated and disaggregated data. If you’re interested in the decision making process at Berkeley itself then you’re probably only interested in the disaggregated data.</p>
 <p>In short there are a lot of critical questions that you can’t answer with statistics, but the answers to those questions will have a huge impact on how you analyse and interpret data. And this is the reason why you should always think of statistics as a <em>tool</em> to help you learn about your data, no more and no less. It’s a powerful tool to that end, but there’s no substitute for careful thought.</p>
 </div>
 <div id="statistics-in-psychology" class="section level2">
 <h2><span class="header-section-number">1.3</span> Statistics in psychology</h2>
-<p>I hope that the discussion above helped explain why science in general is so focused on statistics. But I’m guessing that you have a lot more questions about what role statistics plays in psychology, and specifically why psychology classes always devote so many lectures to stats. So here’s my attempt to answer a few of them…</p>
+<p>I hope that the discussion above helped explain why science in general is so focused on statistics. But I’m guessing that you have a lot more questions about what role statistics plays in psychology, and specifically why psychology classes always devote so many lectures to stats. So here’s my attempt to answer a few of them...</p>
 <ul>
 <li><strong>Why does psychology have so much statistics?</strong></li>
 </ul>
 <p>To be perfectly honest, there’s a few different reasons, some of which are better than others. The most important reason is that psychology is a statistical science. What I mean by that is that the “things” that we study are <em>people</em>. Real, complicated, gloriously messy, infuriatingly perverse people. The “things” of physics include objects like electrons, and while there are all sorts of complexities that arise in physics, electrons don’t have minds of their own. They don’t have opinions, they don’t differ from each other in weird and arbitrary ways, they don’t get bored in the middle of an experiment, and they don’t get angry at the experimenter and then deliberately try to sabotage the data set. At a fundamental level psychology is harder than physics.</p>
-<p>Basically, we teach statistics to you as psychologists because you need to be better at stats than physicists. There’s actually a saying used sometimes in physics, to the effect that “if your experiment needs statistics, you should have done a better experiment”. They have the luxury of being able to say that because their objects of study are pathetically simple in comparison to the vast mess that confronts social scientists. It’s not just psychology, really: most social sciences are desperately reliant on statistics. Not because we’re bad experimenters, but because we’ve picked a harder problem to solve. We teach you stats because you really, really need it.</p>
+<p>Basically, we teach statistics to you as psychologists because you need to be better at stats than physicists. There’s actually a saying used sometimes in physics, to the effect that &quot;if your experiment needs statistics, you should have done a better experiment&quot;. They have the luxury of being able to say that because their objects of study are pathetically simple in comparison to the vast mess that confronts social scientists. It’s not just psychology, really: most social sciences are desperately reliant on statistics. Not because we’re bad experimenters, but because we’ve picked a harder problem to solve. We teach you stats because you really, really need it.</p>
 <ul>
 <li><strong>Can’t someone else do the statistics?</strong></li>
 </ul>
@@ -807,15 +782,14 @@ Suppose, hypothetically, that males preferred to apply to “hard sciences” an
 <ul>
 <li><strong>I don’t care about jobs, research, or clinical work. Do I need statistics?</strong></li>
 </ul>
-<p>Okay, now you’re just messing with me. Still, I think it should matter to you too. Statistics should matter to you in the same way that statistics should matter to <em>everyone</em>: we live in the 21st century, and data are <em>everywhere</em>. Frankly, given the world in which we live these days, a basic knowledge of statistics is pretty damn close to a survival tool! Which is the topic of the next section…</p>
+<p>Okay, now you’re just messing with me. Still, I think it should matter to you too. Statistics should matter to you in the same way that statistics should matter to <em>everyone</em>: we live in the 21st century, and data are <em>everywhere</em>. Frankly, given the world in which we live these days, a basic knowledge of statistics is pretty damn close to a survival tool! Which is the topic of the next section...</p>
 </div>
 <div id="statistics-in-everyday-life" class="section level2">
 <h2><span class="header-section-number">1.4</span> Statistics in everyday life</h2>
 <blockquote>
 <p><em>“We are drowning in information,<br />
 but we are starved for knowledge”</em><br />
-</p>
-<p>– Various authors, original probably John Naisbitt</p>
+– Various authors, original probably John Naisbitt</p>
 </blockquote>
 <p>When I started writing up my lecture notes I took the 20 most recent news articles posted to the ABC news website. Of those 20 articles, it turned out that 8 of them involved a discussion of something that I would call a statistical topic; 6 of those made a mistake. The most common error, if you’re curious, was failing to report baseline data (e.g., the article mentions that 5% of people in situation X have some characteristic Y, but doesn’t say how common the characteristic is for everyone else!) The point I’m trying to make here isn’t that journalists are bad at statistics (though they almost always are), it’s that a basic knowledge of statistics is very helpful for trying to figure out when someone else is either making a mistake or even lying to you. Perhaps, one of the biggest things that a knowledge of statistics does to you is cause you to get angry at the newspaper or the internet on a far more frequent basis :).</p>
 </div>
@@ -826,7 +800,7 @@ but we are starved for knowledge”</em><br />
 </div>
 <div id="a-brief-introduction-to-research-design" class="section level2">
 <h2><span class="header-section-number">1.6</span> A brief introduction to research design</h2>
-<p>In this chapter, we’re going to start thinking about the basic ideas that go into designing a study, collecting data, checking whether your data collection works, and so on. It won’t give you enough information to allow you to design studies of your own, but it will give you a lot of the basic tools that you need to assess the studies done by other people. However, since the focus of this book is much more on data analysis than on data collection, I’m only giving a very brief overview. Note that this chapter is “special” in two ways. Firstly, it’s much more psychology-specific than the later chapters. Secondly, it focuses much more heavily on the scientific problem of research methodology, and much less on the statistical problem of data analysis. Nevertheless, the two problems are related to one another, so it’s traditional for stats textbooks to discuss the problem in a little detail. This chapter relies heavily on <span class="citation">Campbell and Stanley (<a href="#ref-Campbell1963" role="doc-biblioref">1963</a>)</span> for the discussion of study design, and <span class="citation">Stevens (<a href="#ref-Stevens1946" role="doc-biblioref">1946</a>)</span> for the discussion of scales of measurement. Later versions will attempt to be more precise in the citations.</p>
+<p>In this chapter, we’re going to start thinking about the basic ideas that go into designing a study, collecting data, checking whether your data collection works, and so on. It won’t give you enough information to allow you to design studies of your own, but it will give you a lot of the basic tools that you need to assess the studies done by other people. However, since the focus of this book is much more on data analysis than on data collection, I’m only giving a very brief overview. Note that this chapter is “special” in two ways. Firstly, it’s much more psychology-specific than the later chapters. Secondly, it focuses much more heavily on the scientific problem of research methodology, and much less on the statistical problem of data analysis. Nevertheless, the two problems are related to one another, so it’s traditional for stats textbooks to discuss the problem in a little detail. This chapter relies heavily on <span class="citation">Campbell and Stanley (<a href="#ref-Campbell1963">1963</a>)</span> for the discussion of study design, and <span class="citation">Stevens (<a href="#ref-Stevens1946">1946</a>)</span> for the discussion of scales of measurement. Later versions will attempt to be more precise in the citations.</p>
 </div>
 <div id="introduction-to-psychological-measurement" class="section level2">
 <h2><span class="header-section-number">1.7</span> Introduction to psychological measurement</h2>
@@ -1143,7 +1117,7 @@ but we are starved for knowledge”</em><br />
 <div id="experimental-research" class="section level3">
 <h3><span class="header-section-number">1.11.1</span> Experimental research</h3>
 <p>The key features of <strong>experimental research</strong> is that the researcher controls all aspects of the study, especially what participants experience during the study. In particular, the researcher manipulates or varies something (IVs), and then allows the outcome variable (DV) to vary naturally. The idea here is to deliberately vary the something in the world (IVs) to see if it has any causal effects on the outcomes. Moreover, in order to ensure that there’s no chance that something other than the manipulated variable is causing the outcomes, everything else is kept constant or is in some other way “balanced” to ensure that they have no effect on the results. In practice, it’s almost impossible to <span><em>think</em></span> of everything else that might have an influence on the outcome of an experiment, much less keep it constant. The standard solution to this is <strong>randomization</strong>: that is, we randomly assign people to different groups, and then give each group a different treatment (i.e., assign them different values of the predictor variables). We’ll talk more about randomization later in this course, but for now, it’s enough to say that what randomization does is minimize (but not eliminate) the chances that there are any systematic difference between groups.</p>
-<p>Let’s consider a very simple, completely unrealistic and grossly unethical example. Suppose you wanted to find out if smoking causes lung cancer. One way to do this would be to find people who smoke and people who don’t smoke, and look to see if smokers have a higher rate of lung cancer. This is <span><em>not</em></span> a proper experiment, since the researcher doesn’t have a lot of control over who is and isn’t a smoker. And this really matters: for instance, it might be that people who choose to smoke cigarettes also tend to have poor diets, or maybe they tend to work in asbestos mines, or whatever. The point here is that the groups (smokers and non-smokers) actually differ on lots of things, not <span><em>just</em></span> smoking. So it might be that the higher incidence of lung cancer among smokers is caused by something else, not by smoking per se. In technical terms, these other things (e.g. diet) are called “confounds”, and we’ll talk about those in just a moment.</p>
+<p>Let’s consider a very simple, completely unrealistic and grossly unethical example. Suppose you wanted to find out if smoking causes lung cancer. One way to do this would be to find people who smoke and people who don’t smoke, and look to see if smokers have a higher rate of lung cancer. This is <span><em>not</em></span> a proper experiment, since the researcher doesn’t have a lot of control over who is and isn’t a smoker. And this really matters: for instance, it might be that people who choose to smoke cigarettes also tend to have poor diets, or maybe they tend to work in asbestos mines, or whatever. The point here is that the groups (smokers and non-smokers) actually differ on lots of things, not <span><em>just</em></span> smoking. So it might be that the higher incidence of lung cancer among smokers is caused by something else, not by smoking per se. In technical terms, these other things (e.g. diet) are called “confounds”, and we’ll talk about those in just a moment.</p>
 <p>In the meantime, let’s now consider what a proper experiment might look like. Recall that our concern was that smokers and non-smokers might differ in lots of ways. The solution, as long as you have no ethics, is to <span><em>control</em></span> who smokes and who doesn’t. Specifically, if we randomly divide participants into two groups, and force half of them to become smokers, then it’s very unlikely that the groups will differ in any respect other than the fact that half of them smoke. That way, if our smoking group gets cancer at a higher rate than the non-smoking group, then we can feel pretty confident that (a) smoking does cause cancer and (b) we’re murderers.</p>
 </div>
 <div id="non-experimental-research" class="section level3">
@@ -1166,7 +1140,7 @@ but we are starved for knowledge”</em><br />
 <p>To give you a quick guide as to what matters here…(1) Internal and external validity are the most important, since they tie directly to the fundamental question of whether your study really works. (2) Construct validity asks whether you’re measuring what you think you are. (3) Face validity isn’t terribly important except insofar as you care about “appearances”. (4) Ecological validity is a special case of face validity that corresponds to a kind of appearance that you might care about a lot.</p>
 <div id="internal-validity" class="section level3">
 <h3><span class="header-section-number">1.12.1</span> Internal validity</h3>
-<p><strong>Internal validity</strong> refers to the extent to which you are able draw the correct conclusions about the causal relationships between variables. It’s called “internal” because it refers to the relationships between things “inside” the study. Let’s illustrate the concept with a simple example. Suppose you’re interested in finding out whether a university education makes you write better. To do so, you get a group of first year students, ask them to write a 1000 word essay, and count the number of spelling and grammatical errors they make. Then you find some third-year students, who obviously have had more of a university education than the first-years, and repeat the exercise. And let’s suppose it turns out that the third-year students produce fewer errors. And so you conclude that a university education improves writing skills. Right? Except… the big problem that you have with this experiment is that the third-year students are older, and they’ve had more experience with writing things. So it’s hard to know for sure what the causal relationship is: Do older people write better? Or people who have had more writing experience? Or people who have had more education? Which of the above is the true <span><em>cause</em></span> of the superior performance of the third-years? Age? Experience? Education? You can’t tell. This is an example of a failure of internal validity, because your study doesn’t properly tease apart the <span><em>causal</em></span> relationships between the different variables.</p>
+<p><strong>Internal validity</strong> refers to the extent to which you are able draw the correct conclusions about the causal relationships between variables. It’s called “internal” because it refers to the relationships between things “inside” the study. Let’s illustrate the concept with a simple example. Suppose you’re interested in finding out whether a university education makes you write better. To do so, you get a group of first year students, ask them to write a 1000 word essay, and count the number of spelling and grammatical errors they make. Then you find some third-year students, who obviously have had more of a university education than the first-years, and repeat the exercise. And let’s suppose it turns out that the third-year students produce fewer errors. And so you conclude that a university education improves writing skills. Right? Except... the big problem that you have with this experiment is that the third-year students are older, and they’ve had more experience with writing things. So it’s hard to know for sure what the causal relationship is: Do older people write better? Or people who have had more writing experience? Or people who have had more education? Which of the above is the true <span><em>cause</em></span> of the superior performance of the third-years? Age? Experience? Education? You can’t tell. This is an example of a failure of internal validity, because your study doesn’t properly tease apart the <span><em>causal</em></span> relationships between the different variables.</p>
 </div>
 <div id="external-validity" class="section level3">
 <h3><span class="header-section-number">1.12.2</span> External validity</h3>
@@ -1255,16 +1229,16 @@ but we are starved for knowledge”</em><br />
 <h3><span class="header-section-number">1.13.7</span> Regression to the mean</h3>
 <p><strong>Regression to the mean</strong> is a curious variation on selection bias. It refers to any situation where you select data based on an extreme value on some measure. Because the measure has natural variation, it almost certainly means that when you take a subsequent measurement, that later measurement will be less extreme than the first one, purely by chance.</p>
 <p>Here’s an example. Suppose I’m interested in whether a psychology education has an adverse effect on very smart kids. To do this, I find the 20 psych I students with the best high school grades and look at how well they’re doing at university. It turns out that they’re doing a lot better than average, but they’re not topping the class at university, even though they did top their classes at high school. What’s going on? The natural first thought is that this must mean that the psychology classes must be having an adverse effect on those students. However, while that might very well be the explanation, it’s more likely that what you’re seeing is an example of “regression to the mean”. To see how it works, let’s take a moment to think about what is required to get the best mark in a class, regardless of whether that class be at high school or at university. When you’ve got a big class, there are going to be <span><em>lots</em></span> of very smart people enrolled. To get the best mark you have to be very smart, work very hard, and be a bit lucky. The exam has to ask just the right questions for your idiosyncratic skills, and you have to not make any dumb mistakes (we all do that sometimes) when answering them. And that’s the thing: intelligence and hard work are transferrable from one class to the next. Luck isn’t. The people who got lucky in high school won’t be the same as the people who get lucky at university. That’s the very definition of “luck”. The consequence of this is that, when you select people at the very extreme values of one measurement (the top 20 students), you’re selecting for hard work, skill and luck. But because the luck doesn’t transfer to the second measurement (only the skill and work), these people will all be expected to drop a little bit when you measure them a second time (at university). So their scores fall back a little bit, back towards everyone else. This is regression to the mean.</p>
-<p>Regression to the mean is surprisingly common. For instance, if two very tall people have kids, their children will tend to be taller than average, but not as tall as the parents. The reverse happens with very short parents: two very short parents will tend to have short children, but nevertheless those kids will tend to be taller than the parents. It can also be extremely subtle. For instance, there have been studies done that suggested that people learn better from negative feedback than from positive feedback. However, the way that people tried to show this was to give people positive reinforcement whenever they did good, and negative reinforcement when they did bad. And what you see is that after the positive reinforcement, people tended to do worse; but after the negative reinforcement they tended to do better. But! Notice that there’s a selection bias here: when people do very well, you’re selecting for “high” values, and so you should <span><em>expect</em></span> (because of regression to the mean) that performance on the next trial should be worse, regardless of whether reinforcement is given. Similarly, after a bad trial, people will tend to improve all on their own. The apparent superiority of negative feedback is an artifact caused by regression to the mean <span class="citation">(Kahneman and Tversky <a href="#ref-Kahneman1973" role="doc-biblioref">1973</a>)</span></p>
+<p>Regression to the mean is surprisingly common. For instance, if two very tall people have kids, their children will tend to be taller than average, but not as tall as the parents. The reverse happens with very short parents: two very short parents will tend to have short children, but nevertheless those kids will tend to be taller than the parents. It can also be extremely subtle. For instance, there have been studies done that suggested that people learn better from negative feedback than from positive feedback. However, the way that people tried to show this was to give people positive reinforcement whenever they did good, and negative reinforcement when they did bad. And what you see is that after the positive reinforcement, people tended to do worse; but after the negative reinforcement they tended to do better. But! Notice that there’s a selection bias here: when people do very well, you’re selecting for “high” values, and so you should <span><em>expect</em></span> (because of regression to the mean) that performance on the next trial should be worse, regardless of whether reinforcement is given. Similarly, after a bad trial, people will tend to improve all on their own. The apparent superiority of negative feedback is an artifact caused by regression to the mean <span class="citation">(Kahneman and Tversky <a href="#ref-Kahneman1973">1973</a>)</span></p>
 </div>
 <div id="experimenter-bias" class="section level3">
 <h3><span class="header-section-number">1.13.8</span> Experimenter bias</h3>
-<p><strong>Experimenter bias</strong> can come in multiple forms. The basic idea is that the experimenter, despite the best of intentions, can accidentally end up influencing the results of the experiment by subtly communicating the “right answer” or the “desired behaviour” to the participants. Typically, this occurs because the experimenter has special knowledge that the participant does not – either the right answer to the questions being asked, or knowledge of the expected pattern of performance for the condition that the participant is in, and so on. The classic example of this happening is the case study of “Clever Hans”, which dates back to 1907, <span class="citation">Pfungst (<a href="#ref-Pfungst1911" role="doc-biblioref">1911</a>; Hothersall <a href="#ref-Hothersall2004" role="doc-biblioref">2004</a>)</span>. Clever Hans was a horse that apparently was able to read and count, and perform other human like feats of intelligence. After Clever Hans became famous, psychologists started examining his behaviour more closely. It turned out that – not surprisingly – Hans didn’t know how to do maths. Rather, Hans was responding to the human observers around him. Because they did know how to count, and the horse had learned to change its behaviour when people changed theirs.</p>
-<p>The general solution to the problem of experimenter bias is to engage in double blind studies, where neither the experimenter nor the participant knows which condition the participant is in, or knows what the desired behaviour is. This provides a very good solution to the problem, but it’s important to recognize that it’s not quite ideal, and hard to pull off perfectly. For instance, the obvious way that I could try to construct a double blind study is to have one of my Ph.D. students (one who doesn’t know anything about the experiment) run the study. That feels like it should be enough. The only person (me) who knows all the details (e.g., correct answers to the questions, assignments of participants to conditions) has no interaction with the participants, and the person who does all the talking to people (the Ph.D. student) doesn’t know anything. Except, that last part is very unlikely to be true. In order for the Ph.D. student to run the study effectively, they need to have been briefed by me, the researcher. And, as it happens, the Ph.D. student also knows me, and knows a bit about my general beliefs about people and psychology (e.g., I tend to think humans are much smarter than psychologists give them credit for). As a result of all this, it’s almost impossible for the experimenter to avoid knowing a little bit about what expectations I have. And even a little bit of knowledge can have an effect: suppose the experimenter accidentally conveys the fact that the participants are expected to do well in this task. Well, there’s a thing called the “Pygmalion effect”: if you expect great things of people, they’ll rise to the occasion; but if you expect them to fail, they’ll do that too. In other words, the expectations become a self-fulfilling prophesy.</p>
+<p><strong>Experimenter bias</strong> can come in multiple forms. The basic idea is that the experimenter, despite the best of intentions, can accidentally end up influencing the results of the experiment by subtly communicating the “right answer” or the “desired behaviour” to the participants. Typically, this occurs because the experimenter has special knowledge that the participant does not – either the right answer to the questions being asked, or knowledge of the expected pattern of performance for the condition that the participant is in, and so on. The classic example of this happening is the case study of “Clever Hans”, which dates back to 1907, <span class="citation">Pfungst (<a href="#ref-Pfungst1911">1911</a>; Hothersall <a href="#ref-Hothersall2004">2004</a>)</span>. Clever Hans was a horse that apparently was able to read and count, and perform other human like feats of intelligence. After Clever Hans became famous, psychologists started examining his behaviour more closely. It turned out that – not surprisingly – Hans didn’t know how to do maths. Rather, Hans was responding to the human observers around him. Because they did know how to count, and the horse had learned to change its behaviour when people changed theirs.</p>
+<p>The general solution to the problem of experimenter bias is to engage in double blind studies, where neither the experimenter nor the participant knows which condition the participant is in, or knows what the desired behaviour is. This provides a very good solution to the problem, but it’s important to recognize that it’s not quite ideal, and hard to pull off perfectly. For instance, the obvious way that I could try to construct a double blind study is to have one of my Ph.D. students (one who doesn’t know anything about the experiment) run the study. That feels like it should be enough. The only person (me) who knows all the details (e.g., correct answers to the questions, assignments of participants to conditions) has no interaction with the participants, and the person who does all the talking to people (the Ph.D. student) doesn’t know anything. Except, that last part is very unlikely to be true. In order for the Ph.D. student to run the study effectively, they need to have been briefed by me, the researcher. And, as it happens, the Ph.D. student also knows me, and knows a bit about my general beliefs about people and psychology (e.g., I tend to think humans are much smarter than psychologists give them credit for). As a result of all this, it’s almost impossible for the experimenter to avoid knowing a little bit about what expectations I have. And even a little bit of knowledge can have an effect: suppose the experimenter accidentally conveys the fact that the participants are expected to do well in this task. Well, there’s a thing called the “Pygmalion effect”: if you expect great things of people, they’ll rise to the occasion; but if you expect them to fail, they’ll do that too. In other words, the expectations become a self-fulfilling prophesy.</p>
 </div>
 <div id="demand-effects-and-reactivity" class="section level3">
 <h3><span class="header-section-number">1.13.9</span> Demand effects and reactivity</h3>
-<p>When talking about experimenter bias, the worry is that the experimenter’s knowledge or desires for the experiment are communicated to the participants, and that these effect people’s behaviour <span class="citation">Rosenthal (<a href="#ref-Rosenthal1966" role="doc-biblioref">1966</a>)</span>. However, even if you manage to stop this from happening, it’s almost impossible to stop people from knowing that they’re part of a psychological study. And the mere fact of knowing that someone is watching/studying you can have a pretty big effect on behaviour. This is generally referred to as <strong>reactivity</strong> or <strong>demand effects</strong>. The basic idea is captured by the Hawthorne effect: people alter their performance because of the attention that the study focuses on them. The effect takes its name from a the “Hawthorne Works” factory outside of Chicago <span class="citation">(Adair <a href="#ref-Adair1984" role="doc-biblioref">1984</a>)</span>. A study done in the 1920s looking at the effects of lighting on worker productivity at the factory turned out to be an effect of the fact that the workers knew they were being studied, rather than the lighting.</p>
+<p>When talking about experimenter bias, the worry is that the experimenter’s knowledge or desires for the experiment are communicated to the participants, and that these effect people’s behaviour <span class="citation">Rosenthal (<a href="#ref-Rosenthal1966">1966</a>)</span>. However, even if you manage to stop this from happening, it’s almost impossible to stop people from knowing that they’re part of a psychological study. And the mere fact of knowing that someone is watching/studying you can have a pretty big effect on behaviour. This is generally referred to as <strong>reactivity</strong> or <strong>demand effects</strong>. The basic idea is captured by the Hawthorne effect: people alter their performance because of the attention that the study focuses on them. The effect takes its name from a the “Hawthorne Works” factory outside of Chicago <span class="citation">(Adair <a href="#ref-Adair1984">1984</a>)</span>. A study done in the 1920s looking at the effects of lighting on worker productivity at the factory turned out to be an effect of the fact that the workers knew they were being studied, rather than the lighting.</p>
 <p>To get a bit more specific about some of the ways in which the mere fact of being in a study can change how people behave, it helps to think like a social psychologist and look at some of the <span><em>roles</em></span> that people might adopt during an experiment, but might not adopt if the corresponding events were occurring in the real world:</p>
 <ul>
 <li><p>The <span><em>good participant</em></span> tries to be too helpful to the researcher: he or she seeks to figure out the experimenter’s hypotheses and confirm them.</p></li>
@@ -1285,8 +1259,7 @@ but we are starved for knowledge”</em><br />
 <h3><span class="header-section-number">1.13.12</span> Fraud, deception and self-deception</h3>
 <blockquote>
 <p><span><em>It is difficult to get a man to understand something, when his salary depends on his not understanding it.</em></span><br />
-</p>
-<p>– Upton Sinclair</p>
+– Upton Sinclair</p>
 </blockquote>
 <p>One final thing that I feel like I should mention. While reading what the textbooks often have to say about assessing the validity of the study, I couldn’t help but notice that they seem to make the assumption that the researcher is honest. I find this hilarious. While the vast majority of scientists are honest, in my experience at least, some are not. Not only that, as I mentioned earlier, scientists are not immune to belief bias – it’s easy for a researcher to end up deceiving themselves into believing the wrong thing, and this can lead them to conduct subtly flawed research, and then hide those flaws when they write it up. So you need to consider not only the (probably unlikely) possibility of outright fraud, but also the (probably quite common) possibility that the research is unintentionally “slanted”. I opened a few standard textbooks and didn’t find much of a discussion of this problem, so here’s my own attempt to list a few ways in which these issues can arise are:</p>
 <ul>
@@ -1295,7 +1268,7 @@ but we are starved for knowledge”</em><br />
 <li><p><strong>Data misrepresentation</strong>. While fraud gets most of the headlines, it’s much more common in my experience to see data being misrepresented. When I say this, I’m not referring to newspapers getting it wrong (which they do, almost always). I’m referring to the fact that often, the data don’t actually say what the researchers think they say. My guess is that, almost always, this isn’t the result of deliberate dishonesty, it’s due to a lack of sophistication in the data analyses. For instance, think back to the example of Simpson’s paradox that I discussed in the beginning of these notes. It’s very common to see people present “aggregated” data of some kind; and sometimes, when you dig deeper and find the raw data yourself, you find that the aggregated data tell a different story to the disaggregated data. Alternatively, you might find that some aspect of the data is being hidden, because it tells an inconvenient story (e.g., the researcher might choose not to refer to a particular variable). There’s a lot of variants on this; many of which are very hard to detect.</p></li>
 <li><p><strong>Study “misdesign”</strong>. Okay, this one is subtle. Basically, the issue here is that a researcher designs a study that has built-in flaws, and those flaws are never reported in the paper. The data that are reported are completely real, and are correctly analysed, but they are produced by a study that is actually quite wrongly put together. The researcher really wants to find a particular effect, and so the study is set up in such a way as to make it “easy” to (artifactually) observe that effect. One sneaky way to do this – in case you’re feeling like dabbling in a bit of fraud yourself – is to design an experiment in which it’s obvious to the participants what they’re “supposed” to be doing, and then let reactivity work its magic for you. If you want, you can add all the trappings of double blind experimentation etc. It won’t make a difference, since the study materials themselves are subtly telling people what you want them to do. When you write up the results, the fraud won’t be obvious to the reader: what’s obvious to the participant when they’re in the experimental context isn’t always obvious to the person reading the paper. Of course, the way I’ve described this makes it sound like it’s always fraud: probably there are cases where this is done deliberately, but in my experience the bigger concern has been with unintentional misdesign. The researcher <span><em>believes</em></span> …and so the study just happens to end up with a built in flaw, and that flaw then magically erases itself when the study is written up for publication.</p></li>
 <li><p><strong>Data mining &amp; post hoc hypothesising</strong>. Another way in which the authors of a study can more or less lie about what they found is by engaging in what’s referred to as “data mining”. As we’ll discuss later in the class, if you keep trying to analyse your data in lots of different ways, you’ll eventually find something that “looks” like a real effect but isn’t. This is referred to as “data mining”. It used to be quite rare because data analysis used to take weeks, but now that everyone has very powerful statistical software on their computers, it’s becoming very common. Data mining per se isn’t “wrong”, but the more that you do it, the bigger the risk you’re taking. The thing that is wrong, and I suspect is very common, is <span><em>unacknowledged</em></span> data mining. That is, the researcher run every possible analysis known to humanity, finds the one that works, and then pretends that this was the only analysis that they ever conducted. Worse yet, they often “invent” a hypothesis after looking at the data, to cover up the data mining. To be clear: it’s not wrong to change your beliefs after looking at the data, and to reanalyse your data using your new “post hoc” hypotheses. What is wrong (and, I suspect, common) is failing to acknowledge that you’ve done so. If you acknowledge that you did it, then other researchers are able to take your behaviour into account. If you don’t, then they can’t. And that makes your behaviour deceptive. Bad!</p></li>
-<li><p><strong>Publication bias &amp; self-censoring</strong>. Finally, a pervasive bias is “non-reporting” of negative results. This is almost impossible to prevent. Journals don’t publish every article that is submitted to them: they prefer to publish articles that find “something”. So, if 20 people run an experiment looking at whether reading <span><em>Finnegans Wake</em></span> causes insanity in humans, and 19 of them find that it doesn’t, which one do you think is going to get published? Obviously, it’s the one study that did find that <span><em>Finnegans Wake</em></span> causes insanity. This is an example of a <span><em>publication bias</em></span>: since no-one ever published the 19 studies that didn’t find an effect, a naive reader would never know that they existed. Worse yet, most researchers “internalize” this bias, and end up <span><em>self-censoring</em></span> their research. Knowing that negative results aren’t going to be accepted for publication, they never even try to report them. As a friend of mine says “for every experiment that you get published, you also have 10 failures”. And she’s right. The catch is, while some (maybe most) of those studies are failures for boring reasons (e.g. you stuffed something up) others might be genuine “null” results that you ought to acknowledge when you write up the “good” experiment. And telling which is which is often hard to do. A good place to start is a paper by <span class="citation">Ioannidis (<a href="#ref-Ioannidis2005" role="doc-biblioref">2005</a>)</span> with the depressing title “Why most published research findings are false”. I’d also suggest taking a look at work by <span class="citation">Kühberger, Fritz, and Scherndl (<a href="#ref-Kuhberger2014" role="doc-biblioref">2014</a>)</span> presenting statistical evidence that this actually happens in psychology.</p></li>
+<li><p><strong>Publication bias &amp; self-censoring</strong>. Finally, a pervasive bias is “non-reporting” of negative results. This is almost impossible to prevent. Journals don’t publish every article that is submitted to them: they prefer to publish articles that find “something”. So, if 20 people run an experiment looking at whether reading <span><em>Finnegans Wake</em></span> causes insanity in humans, and 19 of them find that it doesn’t, which one do you think is going to get published? Obviously, it’s the one study that did find that <span><em>Finnegans Wake</em></span> causes insanity. This is an example of a <span><em>publication bias</em></span>: since no-one ever published the 19 studies that didn’t find an effect, a naive reader would never know that they existed. Worse yet, most researchers “internalize” this bias, and end up <span><em>self-censoring</em></span> their research. Knowing that negative results aren’t going to be accepted for publication, they never even try to report them. As a friend of mine says “for every experiment that you get published, you also have 10 failures”. And she’s right. The catch is, while some (maybe most) of those studies are failures for boring reasons (e.g. you stuffed something up) others might be genuine “null” results that you ought to acknowledge when you write up the “good” experiment. And telling which is which is often hard to do. A good place to start is a paper by <span class="citation">Ioannidis (<a href="#ref-Ioannidis2005">2005</a>)</span> with the depressing title “Why most published research findings are false”. I’d also suggest taking a look at work by <span class="citation">Kühberger, Fritz, and Scherndl (<a href="#ref-Kuhberger2014">2014</a>)</span> presenting statistical evidence that this actually happens in psychology.</p></li>
 </ul>
 <p>There’s probably a lot more issues like this to think about, but that’ll do to start with. What I really want to point out is the blindingly obvious truth that real world science is conducted by actual humans, and only the most gullible of people automatically assumes that everyone else is honest and impartial. Actual scientists aren’t usually <span><em>that</em></span> naive, but for some reason the world likes to pretend that we are, and the textbooks we usually write seem to reinforce that stereotype.</p>
 </div>
@@ -1306,12 +1279,12 @@ but we are starved for knowledge”</em><br />
 <ul>
 <li><p><strong>Introduction to psychological measurement</strong>: What does it mean to operationalize a theoretical construct? What does it mean to have variables and take measurements?</p></li>
 <li><p><strong>Scales of measurement and types of variables</strong>: Remember that there are <em>two</em> different distinctions here: there’s the difference between discrete and continuous data, and there’s the difference between the four different scale types (nominal, ordinal, interval and ratio).</p></li>
-<li><p><strong>Reliability of a measurement</strong>: If I measure the “same”" thing twice, should I expect to see the same result? Only if my measure is reliable. But what does it mean to talk about doing the “same” thing? Well, that’s why we have different types of reliability. Make sure you remember what they are.</p></li>
+<li><p><strong>Reliability of a measurement</strong>: If I measure the &quot;same&quot;&quot; thing twice, should I expect to see the same result? Only if my measure is reliable. But what does it mean to talk about doing the “same” thing? Well, that’s why we have different types of reliability. Make sure you remember what they are.</p></li>
 <li><p><strong>Terminology: predictors and outcomes</strong>: What roles do variables play in an analysis? Can you remember the difference between predictors and outcomes? Dependent and independent variables? Etc.</p></li>
 <li><p><strong>Experimental and non-experimental research designs</strong>: What makes an experiment an experiment? Is it a nice white lab coat, or does it have something to do with researcher control over variables?</p></li>
 <li><p><strong>Validity and its threats</strong>: Does your study measure what you want it to? How might things go wrong? And is it my imagination, or was that a very long list of possible ways in which things can go wrong?</p></li>
 </ul>
-<p>All this should make clear to you that study design is a critical part of research methodology. I built this chapter from the classic little book by <span class="citation">Campbell and Stanley (<a href="#ref-Campbell1963" role="doc-biblioref">1963</a>)</span>, but there are of course a large number of textbooks out there on research design. Spend a few minutes with your favourite search engine and you’ll find dozens.</p>
+<p>All this should make clear to you that study design is a critical part of research methodology. I built this chapter from the classic little book by <span class="citation">Campbell and Stanley (<a href="#ref-Campbell1963">1963</a>)</span>, but there are of course a large number of textbooks out there on research design. Spend a few minutes with your favourite search engine and you’ll find dozens.</p>
 </div>
 <div id="videos" class="section level2">
 <h2><span class="header-section-number">1.15</span> Videos</h2>
@@ -1341,7 +1314,7 @@ but we are starved for knowledge”</em><br />
 <p>Hothersall, D. 2004. <em>History of Psychology</em>. McGraw-Hill.</p>
 </div>
 <div id="ref-Ioannidis2005">
-<p>Ioannidis, John P. A. 2005. “Why Most Published Research Findings Are False.” <em>PLoS Med</em> 2 (8): 697–701.</p>
+<p>Ioannidis, John P. A. 2005. “Why Most Published Research Findings Are False.” <em>PLoS Med</em> 2 (8). Public Library of Science: 697–701.</p>
 </div>
 <div id="ref-Kahneman1973">
 <p>Kahneman, D., and A. Tversky. 1973. “On the Psychology of Prediction.” <em>Psychological Review</em> 80: 237–51.</p>
@@ -1350,7 +1323,7 @@ but we are starved for knowledge”</em><br />
 <p>Kühberger, A, A Fritz, and T. Scherndl. 2014. “Publication Bias in Psychology: A Diagnosis Based on the Correlation Between Effect Size and Sample Size.” <em>Public Library of Science One</em> 9: 1–8.</p>
 </div>
 <div id="ref-Pfungst1911">
-<p>Pfungst, O. 1911. <em>Clever Hans (the Horse of Mr. Von Osten): A Contribution to Experimental Animal and Human Psychology</em>. Translated by C. L. Rahn. New York: Henry Holt.</p>
+<p>Pfungst, O. 1911. <em>Clever Hans (the Horse of Mr. von Osten): A Contribution to Experimental Animal and Human Psychology</em>. Translated by C. L. Rahn. New York: Henry Holt.</p>
 </div>
 <div id="ref-Rosenthal1966">
 <p>Rosenthal, R. 1966. <em>Experimenter Effects in Behavioral Research</em>. New York: Appleton.</p>
@@ -1384,12 +1357,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1401,6 +1373,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -1417,7 +1393,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

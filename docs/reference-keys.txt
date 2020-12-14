@@ -360,3 +360,4 @@ normal-changing-mean
 normal-changing-sd
 information-on-the-original-textbook
 lab-manual-for-psyc-292
+fig:1simpson
