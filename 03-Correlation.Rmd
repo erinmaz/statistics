@@ -725,7 +725,7 @@ ggplot(all_data,aes(x=chocolate_x,y=happiness_x))+
 
 OK, now we are ready for the movie. You are looking at the process of sampling two sets of numbers randomly, one for the X variable, and one for the Y variable. Each time we sample 10 numbers for each, plot them, then draw a line through them. Remember, these numbers are all completely random, so we should expect, on average that there should be no correlation between the numbers. However, this is not what happens. You can the line going all over the place. Sometimes we find a negative correlation (line goes down), sometimes we see a positive correlation (line goes up), and sometimes it looks like zero correlation (line is more flat). 
 
-```{r 3randcor10gif, fig.cap="Completely random data points drawn from a uniform distribution with a small sampl-size of 10. The blue line twirls around sometimes showing large correlations that are produced by chance", echo=F}
+```{r 3randcor10gif, fig.cap="Completely random data points drawn from a uniform distribution with a small sample size of 10. The blue line twirls around sometimes showing large correlations that are produced by chance", echo=F}
 knitr::include_graphics(path="gifs/corUnifn10-1.gif")
 ```
 
