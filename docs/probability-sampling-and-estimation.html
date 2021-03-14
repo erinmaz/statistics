@@ -1066,9 +1066,9 @@ Figure 4.4: Two binomial distributions, involving a scenario in which I’m flip
 <p>The <code>qbinom</code> function rounds upwards: if you ask for a percentile that doesn’t actually exist (like the 75th in this example), R finds the smallest value for which the the percentile rank is <strong>at least</strong> what you asked for. In this case, since the “true” 75th percentile (whatever that would mean) lies somewhere between 3 and 4 skulls, Rrounds up and gives you an answer of 4. This subtlety is tedious, I admit, but thankfully it’s only an issue for discrete distributions like the binomial. The other distributions that I’ll talk about (normal, <span class="math inline">\(t\)</span>, <span class="math inline">\(\chi^2\)</span> and <span class="math inline">\(F\)</span>) are all continuous, and so R can always return an exact quantile whenever you ask for it.</p>
 <p>Finally, we have the random number generator. To use the <code>rbinom</code> function, you specify how many times R should “simulate” the experiment using the <code>n</code> argument, and it will generate random outcomes from the binomial distribution. So, for instance, suppose I were to repeat my die rolling experiment 100 times. I could get R to simulate the results of these experiments by using the following command:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="probability-sampling-and-estimation.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>( <span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span> )</span></code></pre></div>
-<pre><code>##   [1] 4 4 0 3 2 7 5 6 4 3 5 2 1 4 3 5 3 3 3 2 2 5 4 2 1 3 6 6 2 3 1 6 6 6 2 8 7
-##  [38] 5 5 3 2 2 2 2 2 4 3 3 4 2 4 2 2 4 5 2 2 7 6 4 7 1 2 4 3 4 2 3 6 4 1 2 2 1
-##  [75] 4 0 3 4 1 3 4 4 1 3 4 3 3 5 4 2 2 3 3 3 4 5 3 4 3 4</code></pre>
+<pre><code>##   [1] 3 3 3 4 1 6 4 3 3 2 3 4 6 2 3 3 2 3 3 5 4 4 2 4 2 3 4 4 3 5 3 3 2 1 4 4 4
+##  [38] 2 2 1 3 4 2 3 3 4 0 5 4 1 3 2 3 3 3 2 2 4 3 2 2 3 3 4 3 3 1 3 2 0 4 4 2 5
+##  [75] 2 5 4 4 1 4 1 3 2 3 3 3 3 4 4 3 4 2 5 4 3 4 4 4 2 5</code></pre>
 <p>As you can see, these numbers are pretty much what you’d expect given the distribution shown in Figure <a href="probability-sampling-and-estimation.html#fig:4binomial1">4.3</a>. Most of the time I roll somewhere between 1 to 5 skulls. There are a lot of subtleties associated with random number generation using a computer, but for the purposes of this book we don’t need to worry too much about them.</p>
 </div>
 </div>
@@ -1227,12 +1227,12 @@ Figure 4.12: The population distribution of IQ scores (panel a) and two samples 
 <span id="cb13-2"><a href="probability-sampling-and-estimation.html#cb13-2" aria-hidden="true" tabindex="-1"></a>IQ <span class="ot">&lt;-</span> <span class="fu">round</span>(IQ) <span class="co"># make round numbers</span></span></code></pre></div>
 <p>Cool, we just generated 10,000 fake IQ scores. Where did they go? Well, they went into the variable IQ on my computer. You can do the same on your computer too by copying the above code. 10,000 numbers is too many numbers to look at. We can look at the first 100 like this:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="probability-sampling-and-estimation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(IQ[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>])</span></code></pre></div>
-<pre><code>##   [1] 125  69 117 133 105 126  81 114 102 109  79 102 103  82  84  74 105  94
-##  [19]  82 115 113 122  99  86 112 101  81 102 118 106  92  93  79 101 109 113
-##  [37]  85 114 110  89  99  58 108  88 127 118  87 112  90 114  77  73  72 104
-##  [55] 110  96  82 104 117 114  79 123  82 117  94  85  89  78 109 101  77  95
-##  [73]  96 102 110 106  79  94  95 113  89  72  93  70 104  97  92  97  89  91
-##  [91]  71  99  95 109  82 111 124  81 113 109</code></pre>
+<pre><code>##   [1] 100  74 117 104  84 118 110  98  95 104 103  86 117  97  82 103  74 117
+##  [19]  86 124 107 101  91  96  85  95  91  89  87 104 102 100 116 112  83  89
+##  [37] 107 110  91 119  71 110  62 113 118 112  89 130  86 125  83  94  81  99
+##  [55] 121 124 113 101 118 101 100 110 104  67  96 105  84 112 115  90  99 116
+##  [73]  86 121 123  91  75 124  87 121  85 105 112  97  95  96  91  98  99  94
+##  [91] 103 118  83  95  98  85  89  90  93 105</code></pre>
 <p>We can compute the mean IQ using the command <strong>mean(IQ)</strong> and the standard deviation using the command <strong>sd(IQ)</strong>, and draw a histogram using <strong>hist()</strong>. The histogram of this much larger sample is shown in Figure <a href="probability-sampling-and-estimation.html#fig:IQdist">4.12</a>c. Even a moment’s inspections makes clear that the larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics: the mean IQ for the larger sample turns out to be 99.9, and the standard deviation is 15.1. These values are now very close to the true population.</p>
 <p>I feel a bit silly saying this, but the thing I want you to take away from this is that large samples generally give you better information. I feel silly saying it because it’s so bloody obvious that it shouldn’t need to be said. In fact, it’s such an obvious point that when Jacob Bernoulli – one of the founders of probability theory – formalized this idea back in 1713, he was kind of a jerk about it. Here’s how he described the fact that we all share this intuition:</p>
 <blockquote>
@@ -1431,10 +1431,10 @@ Figure 4.22: A normal distribution. Each line represents a standard deviation fr
 <p>Here’s the general formula:</p>
 <p><span class="math inline">\(z = \frac{\text{raw score} - \text{mean}}{\text{standard deviation}}\)</span></p>
 <p>So, for example if we had these 10 scores from a normal distribution with mean = 100, and standard deviation =25</p>
-<pre><code>##  [1]  98.94 101.92 172.60  94.44  81.66 101.90  90.44  60.15 124.93  59.29</code></pre>
+<pre><code>##  [1]  85.77  81.31 108.52 133.07  69.29  76.70 138.36 111.95 115.69  77.99</code></pre>
 <p>The z-scores would be:</p>
-<pre><code>##  [1] -0.0424  0.0768  2.9040 -0.2224 -0.7336  0.0760 -0.3824 -1.5940  0.9972
-## [10] -1.6284</code></pre>
+<pre><code>##  [1] -0.5692 -0.7476  0.3408  1.3228 -1.2284 -0.9320  1.5344  0.4780  0.6276
+## [10] -0.8804</code></pre>
 <p>Once you have the z-scores, you could use them as another way to describe your data. For example, now just by looking at a score you know if it is likely or unlikely to occur, because you know how the area under the normal curve works. z-scores between -1 and 1 happen pretty often, scores greater than 1 or -1 still happen fairly often, but not as often. And, scores bigger than 2 or -2 don’t happen very often. This is a convenient thing to do if you want to look at your numbers and get a general sense of how often they happen.</p>
 <p>Usually you do not know the mean or the standard deviation of the population that you are drawing your sample scores from. So, you could use the mean and standard deviation of your sample as an estimate, and then use those to calculate z-scores.</p>
 <p>Finally, z-scores are also called <strong>standardized scores</strong>, because each raw score is described in terms of it’s standard deviation. This may well be the last time we talk about z-scores in this book. You might wonder why we even bothered telling you about them. First, it’s worth knowing they are a thing. Second, they become important as your statistical prowess becomes more advanced. Third, some statistical concepts, like correlation, can be re-written in terms of z-scores, and this illuminates aspects of those statistics. Finally, they are super useful when you are dealing with a normal distribution that has a known mean and standard deviation.</p>
@@ -1544,7 +1544,7 @@ How happy are you in the afternoons on a scale from 1 to 7?</p>
 <p>It turns out the sample standard deviation is a <strong>biased estimator</strong> of the population standard deviation. We can sort of anticipate this by what we’ve been discussing. When the sample size is 1, the standard deviation is 0, which is obviously to small. When the sample size is 2, the standard deviation becomes a number bigger than 0, but because we only have two sample, we suspect it might still be too small. Turns out this intuition is correct.</p>
 <p>It would be nice to demonstrate this somehow. There are in fact mathematical proofs that confirm this intuition, but unless you have the right mathematical background they don’t help very much. Instead, what I’ll do is use R to simulate the results of some experiments. With that in mind, let’s return to our IQ studies. Suppose the true population mean IQ is 100 and the standard deviation is 15. I can use the <strong>rnorm()</strong> function to generate the the results of an experiment in which I measure <span class="math inline">\(N=2\)</span> IQ scores, and calculate the sample standard deviation. If I do this over and over again, and plot a histogram of these sample standard deviations, what I have is the <strong>sampling distribution of the standard deviation</strong>. I’ve plotted this distribution in Figure <a href="probability-sampling-and-estimation.html#fig:sampdistsd">4.23</a>.</p>
 <div class="figure"><span id="fig:sampdistsd"></span>
-<img src="navarro_img/estimation/sampdistsd.pdf" alt="The sampling distribution of the sample standard deviation for a two IQ scores experiment. The true population standard deviation is 15 (dashed line), but as you can see from the histogram, the vast majority of experiments will produce a much smaller sample standard deviation than this. On average, this experiment would produce a sample standard deviation of only 8.5, well below the true value! In other words, the sample standard deviation is a biased estimate of the population standard deviation."  />
+<img src="navarro_img/estimation/sampdistsd.png" alt="The sampling distribution of the sample standard deviation for a two IQ scores experiment. The true population standard deviation is 15 (dashed line), but as you can see from the histogram, the vast majority of experiments will produce a much smaller sample standard deviation than this. On average, this experiment would produce a sample standard deviation of only 8.5, well below the true value! In other words, the sample standard deviation is a biased estimate of the population standard deviation."  />
 <p class="caption">
 Figure 4.23: The sampling distribution of the sample standard deviation for a two IQ scores experiment. The true population standard deviation is 15 (dashed line), but as you can see from the histogram, the vast majority of experiments will produce a much smaller sample standard deviation than this. On average, this experiment would produce a sample standard deviation of only 8.5, well below the true value! In other words, the sample standard deviation is a biased estimate of the population standard deviation.
 </p>
@@ -1553,14 +1553,14 @@ Figure 4.23: The sampling distribution of the sample standard deviation for a tw
 <p>Now let’s extend the simulation. Instead of restricting ourselves to the situation where we have a sample size of <span class="math inline">\(N=2\)</span>, let’s repeat the exercise for sample sizes from 1 to 10. If we plot the average sample mean and average sample standard deviation as a function of sample size, you get the following results.</p>
 <p>Figure <a href="probability-sampling-and-estimation.html#fig:estimatorbiasA">4.24</a> shows the sample mean as a function of sample size. Notice it’s a flat line. The sample mean doesn’t underestimate or overestimate the population mean. It is an unbiased estimate!</p>
 <div class="figure"><span id="fig:estimatorbiasA"></span>
-<img src="navarro_img/estimation/biasMean-eps-converted-to.pdf" alt="An illustration of the fact that the sample mean is an unbiased estimator of the population mean."  />
+<img src="navarro_img/estimation/biasMean-eps-converted-to.png" alt="An illustration of the fact that the sample mean is an unbiased estimator of the population mean."  />
 <p class="caption">
 Figure 4.24: An illustration of the fact that the sample mean is an unbiased estimator of the population mean.
 </p>
 </div>
 <p>Figure <a href="probability-sampling-and-estimation.html#fig:estimatorbiasB">4.25</a> shows the sample standard deviation as a function of sample size. Notice it is not a flat line. The sample standard deviation systematically underestimates the population standard deviation!</p>
 <div class="figure"><span id="fig:estimatorbiasB"></span>
-<img src="navarro_img/estimation/biasSD-eps-converted-to.pdf" alt="An illustration of the fact that the the sample standard deviation is a biased estimator of the population standard deviation"  />
+<img src="navarro_img/estimation/biasSD-eps-converted-to.png" alt="An illustration of the fact that the the sample standard deviation is a biased estimator of the population standard deviation"  />
 <p class="caption">
 Figure 4.25: An illustration of the fact that the the sample standard deviation is a biased estimator of the population standard deviation
 </p>
