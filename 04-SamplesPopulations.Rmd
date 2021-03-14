@@ -633,11 +633,11 @@ a<-round(runif(20*10000,1,10))
 df<-data.frame(a,sample=rep(1:10000,each=20))
 df2<-aggregate(a~sample,df,mean)
 
-ggplot(df2, aes(x=a)) +
-  geom_histogram(color="white") +
+ggplot(df2, aes(x=a))+
+  geom_histogram(color="white")+
+  theme_classic()+
   ggtitle("Histogram of 10,000 sample means") +
   xlab("value")
-
 
 ```
 
