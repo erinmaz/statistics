@@ -686,16 +686,6 @@ Correlation does not equal causation
 </ol>
 <p>For convenience, both the scales will go from 0 to 100. For the chocolate scale, 0 means no chocolate, 100 means lifetime supply of chocolate. Any other number is somewhere in between. For the happiness scale, 0 means no happiness, 100 means all of the happiness, and in between means some amount in between.</p>
 <p>Here is some sample data from the first 10 imaginary subjects.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Correlation.html#cb1-1" aria-hidden="true" tabindex="-1"></a>subject<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb1-2"><a href="Correlation.html#cb1-2" aria-hidden="true" tabindex="-1"></a>chocolate<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">100</span>,.<span class="dv">5</span>,<span class="dv">1</span>))</span>
-<span id="cb1-3"><a href="Correlation.html#cb1-3" aria-hidden="true" tabindex="-1"></a>happiness<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">100</span>,.<span class="dv">5</span>,<span class="dv">1</span>))</span>
-<span id="cb1-4"><a href="Correlation.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="Correlation.html#cb1-5" aria-hidden="true" tabindex="-1"></a>the_df_CC<span class="ot">&lt;-</span><span class="fu">data.frame</span>(subject,chocolate,happiness)</span>
-<span id="cb1-6"><a href="Correlation.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="Correlation.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="Correlation.html#cb1-8" aria-hidden="true" tabindex="-1"></a>the_df_short<span class="ot">&lt;-</span>the_df_CC[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
-<span id="cb1-9"><a href="Correlation.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="Correlation.html#cb1-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(the_df_short)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -713,47 +703,47 @@ Correlation does not equal causation
 <tr class="even">
 <td align="right">2</td>
 <td align="right">1</td>
-<td align="right">2</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="right">2</td>
 <td align="right">3</td>
+<td align="right">2</td>
 </tr>
 <tr class="even">
 <td align="right">4</td>
+<td align="right">3</td>
 <td align="right">4</td>
-<td align="right">2</td>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="right">5</td>
 <td align="right">4</td>
+<td align="right">5</td>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="right">6</td>
-<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="right">7</td>
-<td align="right">4</td>
+<td align="right">5</td>
 <td align="right">6</td>
 </tr>
 <tr class="even">
 <td align="right">8</td>
 <td align="right">7</td>
-<td align="right">4</td>
+<td align="right">7</td>
 </tr>
 <tr class="odd">
 <td align="right">9</td>
-<td align="right">8</td>
-<td align="right">6</td>
+<td align="right">5</td>
+<td align="right">9</td>
 </tr>
 <tr class="even">
 <td align="right">10</td>
-<td align="right">10</td>
-<td align="right">8</td>
+<td align="right">9</td>
+<td align="right">7</td>
 </tr>
 </tbody>
 </table>
@@ -796,14 +786,6 @@ Figure 3.2: Three scatterplots showing negative, positive, and zero correlation
 </div>
 <p>There’s a statistic for that, and Karl Pearson invented it. Everyone now calls it, “Pearson’s <span class="math inline">\(r\)</span>.” We will find out later that Karl Pearson was a big-wig editor at Biometrika in the 1930s. He took a hating to another big-wig statistician, Sir Ronald Fisher (who we learn about later), and they had some stats fights…why can’t we all just get along in statistics.</p>
 <p>How does Pearson’s <span class="math inline">\(r\)</span> work? Let’s look again at the first 10 subjects in our fake experiment:</p>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -821,57 +803,57 @@ Figure 3.2: Three scatterplots showing negative, positive, and zero correlation
 <tr class="even">
 <td align="left">2</td>
 <td align="left">1</td>
-<td align="left">2</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
 <td align="left">3</td>
-<td align="left">2</td>
 <td align="left">3</td>
+<td align="left">2</td>
 </tr>
 <tr class="even">
 <td align="left">4</td>
+<td align="left">3</td>
 <td align="left">4</td>
-<td align="left">2</td>
 </tr>
 <tr class="odd">
 <td align="left">5</td>
-<td align="left">5</td>
 <td align="left">4</td>
+<td align="left">5</td>
 </tr>
 <tr class="even">
 <td align="left">6</td>
-<td align="left">6</td>
-<td align="left">4</td>
+<td align="left">3</td>
+<td align="left">5</td>
 </tr>
 <tr class="odd">
 <td align="left">7</td>
-<td align="left">4</td>
+<td align="left">5</td>
 <td align="left">6</td>
 </tr>
 <tr class="even">
 <td align="left">8</td>
 <td align="left">7</td>
-<td align="left">4</td>
+<td align="left">7</td>
 </tr>
 <tr class="odd">
 <td align="left">9</td>
-<td align="left">8</td>
-<td align="left">6</td>
+<td align="left">5</td>
+<td align="left">9</td>
 </tr>
 <tr class="even">
 <td align="left">10</td>
-<td align="left">10</td>
-<td align="left">8</td>
+<td align="left">9</td>
+<td align="left">7</td>
 </tr>
 <tr class="odd">
 <td align="left">Sums</td>
-<td align="left">48</td>
-<td align="left">40</td>
+<td align="left">41</td>
+<td align="left">47</td>
 </tr>
 <tr class="even">
 <td align="left">Means</td>
-<td align="left">4.8</td>
-<td align="left">4</td>
+<td align="left">4.1</td>
+<td align="left">4.7</td>
 </tr>
 </tbody>
 </table>
@@ -910,68 +892,68 @@ Figure 3.2: Three scatterplots showing negative, positive, and zero correlation
 <tr class="even">
 <td align="left">2</td>
 <td align="left">1</td>
-<td align="left">2</td>
-<td align="left">2</td>
+<td align="left">1</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
 <td align="left">3</td>
-<td align="left">2</td>
 <td align="left">3</td>
+<td align="left">2</td>
 <td align="left">6</td>
 </tr>
 <tr class="even">
 <td align="left">4</td>
+<td align="left">3</td>
 <td align="left">4</td>
-<td align="left">2</td>
-<td align="left">8</td>
+<td align="left">12</td>
 </tr>
 <tr class="odd">
 <td align="left">5</td>
-<td align="left">5</td>
 <td align="left">4</td>
+<td align="left">5</td>
 <td align="left">20</td>
 </tr>
 <tr class="even">
 <td align="left">6</td>
-<td align="left">6</td>
-<td align="left">4</td>
-<td align="left">24</td>
+<td align="left">3</td>
+<td align="left">5</td>
+<td align="left">15</td>
 </tr>
 <tr class="odd">
 <td align="left">7</td>
-<td align="left">4</td>
+<td align="left">5</td>
 <td align="left">6</td>
-<td align="left">24</td>
+<td align="left">30</td>
 </tr>
 <tr class="even">
 <td align="left">8</td>
 <td align="left">7</td>
-<td align="left">4</td>
-<td align="left">28</td>
+<td align="left">7</td>
+<td align="left">49</td>
 </tr>
 <tr class="odd">
 <td align="left">9</td>
-<td align="left">8</td>
-<td align="left">6</td>
-<td align="left">48</td>
+<td align="left">5</td>
+<td align="left">9</td>
+<td align="left">45</td>
 </tr>
 <tr class="even">
 <td align="left">10</td>
-<td align="left">10</td>
-<td align="left">8</td>
-<td align="left">80</td>
+<td align="left">9</td>
+<td align="left">7</td>
+<td align="left">63</td>
 </tr>
 <tr class="odd">
 <td align="left">Sums</td>
-<td align="left">48</td>
-<td align="left">40</td>
-<td align="left">241</td>
+<td align="left">41</td>
+<td align="left">47</td>
+<td align="left">242</td>
 </tr>
 <tr class="even">
 <td align="left">Means</td>
-<td align="left">4.8</td>
-<td align="left">4</td>
-<td align="left">24.1</td>
+<td align="left">4.1</td>
+<td align="left">4.7</td>
+<td align="left">24.2</td>
 </tr>
 </tbody>
 </table>
@@ -982,12 +964,6 @@ Figure 3.2: Three scatterplots showing negative, positive, and zero correlation
 <p>Yes, you know all that. But, can you bend multiplication to your will, and make it do your bidding when need to solve a problem like summarizing co-variance? Multiplication is the droid you are looking for.</p>
 <p>We know how to multiple numbers, and all we have to next is think about the consequences of multiplying sets of numbers together. For example, what happens when you multiply two small numbers together, compared to multiplying two big numbers together? The first product should be smaller than the second product right? How about things like multiplying a small number by a big number? Those products should be in between right?.</p>
 <p>Then next step is to think about how the products of two measures sum together, depending on how they line up. Let’s look at another table:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Correlation.html#cb5-1" aria-hidden="true" tabindex="-1"></a>the_df_short<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">scores=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">X=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">Y=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">A=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">B=</span><span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">XY =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">*</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">AB=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">*</span><span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span>
-<span id="cb5-2"><a href="Correlation.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="Correlation.html#cb5-3" aria-hidden="true" tabindex="-1"></a>the_df_short <span class="ot">&lt;-</span> the_df_short <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="Correlation.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;Sums&quot;</span>,<span class="fu">colSums</span>(the_df_short[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>]))) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="Correlation.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;Means&quot;</span>,<span class="fu">colMeans</span>(the_df_short[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>])))</span>
-<span id="cb5-6"><a href="Correlation.html#cb5-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(the_df_short)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1114,18 +1090,6 @@ Figure 3.2: Three scatterplots showing negative, positive, and zero correlation
 <p>Look at the X and Y column. The scores for X and Y perfectly co-vary. When X is 1, Y is 1; when X is 2, Y is 2, etc. They are perfectly aligned. The scores for A and B also perfectly co-vary, just in the opposite manner. When A is 1, B is 10; when A is 2, B is 9, etc. B is a reversed copy of A.</p>
 <p>Now, look at the column <span class="math inline">\(XY\)</span>. These are the products we get when we multiply the values of X across with the values of Y. Also, look at the column <span class="math inline">\(AB\)</span>. These are the products we get when we multiply the values of A across with the values of B. So far so good.</p>
 <p>Now, look at the <code>Sums</code> for the XY and AB columns. Not the same. The sum of the XY products is 385, and the sum of the AB products is 220. For this specific set of data, the numbers 385 and 220 are very important. They represent the biggest possible sum of products (385), and the smallest possible sum of products (220). There is no way of re-ordering the numbers 1 to 10, say for X, and the numbers 1 to 10 for Y, that would ever produce larger or smaller numbers. Don’t believe me? Check this out:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="Correlation.html#cb6-1" aria-hidden="true" tabindex="-1"></a>simulated_sums<span class="ot">&lt;-</span><span class="fu">length</span>(<span class="dv">0</span>)</span>
-<span id="cb6-2"><a href="Correlation.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(sim <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
-<span id="cb6-3"><a href="Correlation.html#cb6-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb6-4"><a href="Correlation.html#cb6-4" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb6-5"><a href="Correlation.html#cb6-5" aria-hidden="true" tabindex="-1"></a>simulated_sums[sim]<span class="ot">&lt;-</span><span class="fu">sum</span>(X<span class="sc">*</span>Y)</span>
-<span id="cb6-6"><a href="Correlation.html#cb6-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-7"><a href="Correlation.html#cb6-7" aria-hidden="true" tabindex="-1"></a>sim_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">sims=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,simulated_sums)</span>
-<span id="cb6-8"><a href="Correlation.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim_df,<span class="fu">aes</span>(<span class="at">x=</span>sims,<span class="at">y=</span>simulated_sums))<span class="sc">+</span></span>
-<span id="cb6-9"><a href="Correlation.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb6-10"><a href="Correlation.html#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb6-11"><a href="Correlation.html#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">385</span>)<span class="sc">+</span></span>
-<span id="cb6-12"><a href="Correlation.html#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">220</span>)</span></code></pre></div>
 <p><img src="statistics_files/figure-html/3simsum-1.png" width="672" /></p>
 <p>The above graph shows 1000 computer simulations. I convinced my computer to randomly order the numbers 1 to 10 for X, and randomly order the numbers 1 to 10 for Y. Then, I multiplied X and Y, and added the products together. I did this 1000 times. The dots show the sum of the products for each simulation. The two black lines show the maximum possible sum (385), and the minimum possible sum (220), for this set of numbers. Notice, how all of the dots are in between the maximum and minimum possible values. Told you so.</p>
 <p>“OK fine, you told me so…So what, who cares?” We’ve been looking for a way to summarize the co-variance between two measures right? Well, for these numbers, we have found one, haven’t we. It’s the sum of the products. We know that when the sum of the products is 385, we have found a perfect, positive correlation. We know, that when the sum of the products is 220, we have found a perfect negative correlation. What about the numbers in between. What could we conclude about the correlation if we found the sum of the products to be 350. Well, it’s going to be positive, because it’s close to 385, and that’s perfectly positive. If the sum of the products was 240, that’s going to be negative, because it’s close to the perfectly negatively correlating 220. What about no correlation? Well, that’s going to be in the middle between 220 and 385 right.</p>
@@ -1154,97 +1118,97 @@ Figure 3.2: Three scatterplots showing negative, positive, and zero correlation
 <td align="left">1</td>
 <td align="left">1</td>
 <td align="left">1</td>
-<td align="left">-3.8</td>
-<td align="left">-3</td>
-<td align="left">11.4</td>
+<td align="left">-3.1</td>
+<td align="left">-3.7</td>
+<td align="left">11.47</td>
 </tr>
 <tr class="even">
 <td align="left">2</td>
 <td align="left">1</td>
-<td align="left">2</td>
-<td align="left">-3.8</td>
-<td align="left">-2</td>
-<td align="left">7.6</td>
+<td align="left">1</td>
+<td align="left">-3.1</td>
+<td align="left">-3.7</td>
+<td align="left">11.47</td>
 </tr>
 <tr class="odd">
 <td align="left">3</td>
-<td align="left">2</td>
 <td align="left">3</td>
-<td align="left">-2.8</td>
-<td align="left">-1</td>
-<td align="left">2.8</td>
+<td align="left">2</td>
+<td align="left">-1.1</td>
+<td align="left">-2.7</td>
+<td align="left">2.97</td>
 </tr>
 <tr class="even">
 <td align="left">4</td>
+<td align="left">3</td>
 <td align="left">4</td>
-<td align="left">2</td>
-<td align="left">-0.8</td>
-<td align="left">-2</td>
-<td align="left">1.6</td>
+<td align="left">-1.1</td>
+<td align="left">-0.7</td>
+<td align="left">0.77</td>
 </tr>
 <tr class="odd">
 <td align="left">5</td>
-<td align="left">5</td>
 <td align="left">4</td>
-<td align="left">0.2</td>
-<td align="left">0</td>
-<td align="left">0</td>
+<td align="left">5</td>
+<td align="left">-0.1</td>
+<td align="left">0.3</td>
+<td align="left">-0.03</td>
 </tr>
 <tr class="even">
 <td align="left">6</td>
-<td align="left">6</td>
-<td align="left">4</td>
-<td align="left">1.2</td>
-<td align="left">0</td>
-<td align="left">0</td>
+<td align="left">3</td>
+<td align="left">5</td>
+<td align="left">-1.1</td>
+<td align="left">0.3</td>
+<td align="left">-0.33</td>
 </tr>
 <tr class="odd">
 <td align="left">7</td>
-<td align="left">4</td>
+<td align="left">5</td>
 <td align="left">6</td>
-<td align="left">-0.8</td>
-<td align="left">2</td>
-<td align="left">-1.6</td>
+<td align="left">0.9</td>
+<td align="left">1.3</td>
+<td align="left">1.17</td>
 </tr>
 <tr class="even">
 <td align="left">8</td>
 <td align="left">7</td>
-<td align="left">4</td>
-<td align="left">2.2</td>
-<td align="left">0</td>
-<td align="left">0</td>
+<td align="left">7</td>
+<td align="left">2.9</td>
+<td align="left">2.3</td>
+<td align="left">6.67</td>
 </tr>
 <tr class="odd">
 <td align="left">9</td>
-<td align="left">8</td>
-<td align="left">6</td>
-<td align="left">3.2</td>
-<td align="left">2</td>
-<td align="left">6.4</td>
+<td align="left">5</td>
+<td align="left">9</td>
+<td align="left">0.9</td>
+<td align="left">4.3</td>
+<td align="left">3.87</td>
 </tr>
 <tr class="even">
 <td align="left">10</td>
-<td align="left">10</td>
-<td align="left">8</td>
-<td align="left">5.2</td>
-<td align="left">4</td>
-<td align="left">20.8</td>
+<td align="left">9</td>
+<td align="left">7</td>
+<td align="left">4.9</td>
+<td align="left">2.3</td>
+<td align="left">11.27</td>
 </tr>
 <tr class="odd">
 <td align="left">Sums</td>
-<td align="left">48</td>
-<td align="left">40</td>
+<td align="left">41</td>
+<td align="left">47</td>
 <td align="left">0</td>
 <td align="left">0</td>
 <td align="left">49</td>
 </tr>
 <tr class="even">
 <td align="left">Means</td>
-<td align="left">4.8</td>
-<td align="left">4</td>
+<td align="left">4.1</td>
+<td align="left">4.7</td>
 <td align="left">0</td>
 <td align="left">0</td>
-<td align="left">4.9</td>
+<td align="left">4.93</td>
 </tr>
 </tbody>
 </table>
@@ -1269,21 +1233,6 @@ Figure 3.2: Three scatterplots showing negative, positive, and zero correlation
 <p>It’s worth saying that there are loads of different formulas for computing Pearson’s <span class="math inline">\(r\)</span>. You can find them by Googling them. We will probably include more of them here, when we get around to it. However, they all give you the same answer. And, they are all not as pretty as each other. Some of them might even look scary. In other statistics textbook you will often find formulas that are easier to use for calculation purposes. For example, if you only had a pen and paper, you might use one or another formula because it helps you compute the answer faster by hand. To be honest, we are not very interested in teaching you how to plug numbers into formulas. We give one lesson on that here: Put the numbers into the letters, then compute the answer. Sorry to be snarky. Nowadays you have a computer that you should use for this kind of stuff. So, we are more interested in teaching you what the calculations mean, rather than how to do them. Of course, every week we are showing you how to do the calculations in lab with computers, because that is important to.</p>
 </blockquote>
 <p>Does Pearson’s <span class="math inline">\(r\)</span> really stay between -1 and 1 no matter what? It’s true, take a look at the following simulation. Here I randomly ordered the numbers 1 to 10 for an X measure, and did the same for a Y measure. Then, I computed Pearson’s <span class="math inline">\(r\)</span>, and repeated this process 1000 times. As you can see all of the dots are between -1 and 1. Neat huh.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="Correlation.html#cb7-1" aria-hidden="true" tabindex="-1"></a>simulated_sums <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="dv">0</span>)</span>
-<span id="cb7-2"><a href="Correlation.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(sim <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
-<span id="cb7-3"><a href="Correlation.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb7-4"><a href="Correlation.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb7-5"><a href="Correlation.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  simulated_sums[sim] <span class="ot">&lt;-</span> <span class="fu">cor</span>(X,Y)</span>
-<span id="cb7-6"><a href="Correlation.html#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-7"><a href="Correlation.html#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="Correlation.html#cb7-8" aria-hidden="true" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sims=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,simulated_sums)</span>
-<span id="cb7-9"><a href="Correlation.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="Correlation.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim_df, <span class="fu">aes</span>(<span class="at">x =</span> sims, <span class="at">y =</span> simulated_sums))<span class="sc">+</span></span>
-<span id="cb7-11"><a href="Correlation.html#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb7-12"><a href="Correlation.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb7-13"><a href="Correlation.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb7-14"><a href="Correlation.html#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb7-15"><a href="Correlation.html#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Simulation of 1000 r values&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:3onethousandr"></span>
 <img src="statistics_files/figure-html/3onethousandr-1.png" alt="A simulation of of correlations. Each dot represents the r-value for the correlation between an X and Y variable that each contain the numbers 1 to 10 in random orders. The figure ilustrates that many r-values can be obtained by this random process" width="672" />
 <p class="caption">
@@ -1296,32 +1245,6 @@ Figure 3.3: A simulation of of correlations. Each dot represents the r-value for
 <h2><span class="header-section-number">3.4</span> Examples with Data</h2>
 <p>In the lab for correlation you will be shown how to compute correlations in real data-sets using software. To give you a brief preview, let’s look at some data from the <a href="http://worldhappiness.report">world happiness report</a> (2018).</p>
 <p>This report measured various attitudes across people from different countries. For example, one question asked about how much freedom people thought they had to make life choices. Another question asked how confident people were in their national government. Here is a scatterplot showing the relationship between these two measures. Each dot represents means for different countries.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="Correlation.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;data.table&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     between, first, last</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Correlation.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb11-2"><a href="Correlation.html#cb11-2" aria-hidden="true" tabindex="-1"></a>whr_data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;data/WHR2018.csv&#39;</span>)</span>
-<span id="cb11-3"><a href="Correlation.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="Correlation.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># select DVs and filter for NAs</span></span>
-<span id="cb11-5"><a href="Correlation.html#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="Correlation.html#cb11-6" aria-hidden="true" tabindex="-1"></a>smaller_df <span class="ot">&lt;-</span> whr_data <span class="sc">%&gt;%</span></span>
-<span id="cb11-7"><a href="Correlation.html#cb11-7" aria-hidden="true" tabindex="-1"></a>               dplyr<span class="sc">::</span><span class="fu">select</span>(country,</span>
-<span id="cb11-8"><a href="Correlation.html#cb11-8" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">Freedom to make life choices</span><span class="st">`</span>,</span>
-<span id="cb11-9"><a href="Correlation.html#cb11-9" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">Confidence in national government</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-10"><a href="Correlation.html#cb11-10" aria-hidden="true" tabindex="-1"></a>               dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Freedom to make life choices</span><span class="st">`</span>),</span>
-<span id="cb11-11"><a href="Correlation.html#cb11-11" aria-hidden="true" tabindex="-1"></a>                      <span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Confidence in national government</span><span class="st">`</span>))</span>
-<span id="cb11-12"><a href="Correlation.html#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="Correlation.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the data with best fit line</span></span>
-<span id="cb11-14"><a href="Correlation.html#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="Correlation.html#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(smaller_df, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Freedom to make life choices</span><span class="st">`</span>,</span>
-<span id="cb11-16"><a href="Correlation.html#cb11-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y=</span><span class="st">`</span><span class="at">Confidence in national government</span><span class="st">`</span>))<span class="sc">+</span></span>
-<span id="cb11-17"><a href="Correlation.html#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
-<span id="cb11-18"><a href="Correlation.html#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb11-19"><a href="Correlation.html#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span id="fig:3hsrdata"></span>
 <img src="statistics_files/figure-html/3hsrdata-1.png" alt="Relationship between freedom to make life choices and confidence in national government. Data from the world happiness report for 2018" width="672" />
 <p class="caption">
@@ -1330,10 +1253,6 @@ Figure 3.4: Relationship between freedom to make life choices and confidence in 
 </div>
 <p>We put a blue line on the scatterplot to summarize the positive relationship. It appears that as “freedom to make life choices goes up,” so to does confidence in national government. It’s a positive correlation.</p>
 <p>The actual correlation, as measured by Pearson’s <span class="math inline">\(r\)</span> is:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Correlation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate correlation</span></span>
-<span id="cb13-2"><a href="Correlation.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="Correlation.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(smaller_df<span class="sc">$</span><span class="st">`</span><span class="at">Freedom to make life choices</span><span class="st">`</span>,</span>
-<span id="cb13-4"><a href="Correlation.html#cb13-4" aria-hidden="true" tabindex="-1"></a>    smaller_df<span class="sc">$</span><span class="st">`</span><span class="at">Confidence in national government</span><span class="st">`</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4080963</code></pre>
 <p>You will do a lot more of this kind of thing in the lab. Looking at the graph you might start to wonder: Does freedom to make life choices cause changes how confident people are in their national government? Our does it work the other way? Does being confident in your national government give you a greater sense of freedom to make life choices? Or, is this just a random relationship that doesn’t mean anything? All good questions. These data do not provide the answers, they just suggest a possible relationship.</p>
 </div>
@@ -1341,7 +1260,6 @@ Figure 3.4: Relationship between freedom to make life choices and confidence in 
 <h2><span class="header-section-number">3.5</span> Regression: A mini intro</h2>
 <p>We’re going to spend the next little bit adding one more thing to our understanding of correlation. It’s called <strong>linear regression</strong>. It sounds scary, and it really is. You’ll find out much later in your Statistics education that everything we will be soon be talking about can be thought of as a special case of regression. But, we don’t want to scare you off, so right now we just introduce the basic concepts.</p>
 <p>First, let’s look at a linear regression. This way we can see what we’re trying to learn about. Here’s some scatter plots, same one’s you’ve already seen. But, we’ve added something new! Lines.</p>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span id="fig:3regression"></span>
 <img src="statistics_files/figure-html/3regression-1.png" alt="Three scatterplots showing negative, positive, and a random correlation (where the r-value is expected to be 0), along with the best fit regression line" width="672" />
 <p class="caption">
@@ -1357,29 +1275,12 @@ Figure 3.5: Three scatterplots showing negative, positive, and a random correlat
 <p>R code for plotting residuals thanks to Simon Jackson’s blog post: <a href="https://drsimonj.svbtle.com/visualising-residuals">https://drsimonj.svbtle.com/visualising-residuals</a></p>
 </div>
 <p>Check out this next plot, it shows a line through some dots. But, it also shows some teeny tiny lines. These lines drop down from each dot, and they land on the line. Each of these little lines is called a <strong>residual</strong>. They show you how far off the line is for different dots. It’s measure of error, it shows us just how wrong the line is. After all, it’s pretty obvious that not all of the dots are on the line. This means the line does not actually represent all of the dots. The line is wrong. But, the best fit line is the least wrong of all the wrong lines.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Correlation.html#cb16-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb16-2"><a href="Correlation.html#cb16-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp, <span class="at">data =</span> d)</span>
-<span id="cb16-3"><a href="Correlation.html#cb16-3" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)   <span class="co"># Save the predicted values</span></span>
-<span id="cb16-4"><a href="Correlation.html#cb16-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>residuals <span class="ot">&lt;-</span> <span class="fu">residuals</span>(fit) <span class="co"># Save the residual values</span></span>
-<span id="cb16-5"><a href="Correlation.html#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="Correlation.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb16-7"><a href="Correlation.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span>  <span class="co"># Plot regression slope</span></span>
-<span id="cb16-8"><a href="Correlation.html#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> hp, <span class="at">yend =</span> predicted, <span class="at">color=</span><span class="st">&quot;red&quot;</span>), <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span>  <span class="co"># alpha to fade lines</span></span>
-<span id="cb16-9"><a href="Correlation.html#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-10"><a href="Correlation.html#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> predicted), <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb16-11"><a href="Correlation.html#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb16-12"><a href="Correlation.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
-<span id="cb16-13"><a href="Correlation.html#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;X&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Y&quot;</span>)</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span id="fig:3regressionResiduals"></span>
 <img src="statistics_files/figure-html/3regressionResiduals-1.png" alt="Black dots represent data points. The blue line is the best fit regression line. The white dots are repesent the predicted location of each black dot. The red lines show the error between each black dot and the regression line. The blue line is the best fit line because it minimizes the error shown by the red lines" width="672" />
 <p class="caption">
 Figure 3.6: Black dots represent data points. The blue line is the best fit regression line. The white dots are repesent the predicted location of each black dot. The red lines show the error between each black dot and the regression line. The blue line is the best fit line because it minimizes the error shown by the red lines
 </p>
 </div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Correlation.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick look at the actual, predicted, and residual values</span></span>
-<span id="cb18-2"><a href="Correlation.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(dplyr)</span></span>
-<span id="cb18-3"><a href="Correlation.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#d %&gt;% select(mpg, predicted, residuals) %&gt;% head()</span></span></code></pre></div>
 <p>There’s a lot going on in this graph. First, we are looking at a scatter plot of two variables, an X and Y variable. Each of the black dots are the actual values from these variables. You can see there is a negative correlation here, as X increases, Y tends to decrease. We drew a regression line through the data, that’s the blue line. There’s these little white dots too. This is where the line thinks the black dots should be. The red lines are the important residuals we’ve been talking about. Each black dot has a red line that drops straight down, or straight up from the location of the black dot, and lands directly on the line. We can already see that many of the dots are not on the line, so we already know the line is “off” by some amount for each dot. The red line just makes it easier to see exactly how off the line is.</p>
 <p>The important thing that is happening here, is that the the blue line is drawn is such a way, that it minimizes the total length of the red lines. For example, if we wanted to know how wrong this line was, we could simply gather up all the red lines, measure how long they are, and then add all the wrongness together. This would give us the total amount of wrongness. We usually call this the error. In fact, we’ve already talked about this idea before when we discussed standard deviation. What we will actually be doing with the red lines, is computing the sum of the squared deviations from the line. That sum is the total amount of error. Now, this blue line here minimizes the sum of the squared deviations. Any other line would produce a larger total error.</p>
 <p>Here’s an animation to see this in action. The animations compares the best fit line in blue, to some other possible lines in black. The black line moves up and down. The red lines show the error between the black line and the data points. As the black line moves toward the best fit line, the total error, depicted visually by the grey area shrinks to it’s minimum value. The total error expands as the black line moves away from the best fit line.</p>
@@ -1391,31 +1292,6 @@ Figure 3.7: The blue line is the best fit regression line explaining the co-vari
 </div>
 <p>Whenever the black line does not overlap with the blue line, it is worse than the best fit line. The blue regression line is like Goldilocks, it’s just right, and it’s in the middle.</p>
 <p>This next graph shows a little simulation of how the sum of squared deviations (the sum of the squared lengths of the red lines) behaves as we move the line up and down. What’s going on here is that we are computing a measure of the total error as the black line moves through the best fit line. This represents the sum of the squared deviations. In other words, we square the length of each red line from the above animation, then we add up all of the squared red lines, and get the total error (the total sum of the squared deviations). The graph below shows what the total error looks like as the black line approaches then moves away from the best fit line. Notice, the dots in this graph start high on the left side, then they swoop down to a minimum at the bottom middle of the graph. When they reach their minimum point, we have found a line that minimizes the total error. This is the best fit regression line.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Correlation.html#cb19-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb19-2"><a href="Correlation.html#cb19-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp, <span class="at">data =</span> d)</span>
-<span id="cb19-3"><a href="Correlation.html#cb19-3" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)   <span class="co"># Save the predicted values</span></span>
-<span id="cb19-4"><a href="Correlation.html#cb19-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>residuals <span class="ot">&lt;-</span> <span class="fu">residuals</span>(fit) <span class="co"># Save the residual values</span></span>
-<span id="cb19-5"><a href="Correlation.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="Correlation.html#cb19-6" aria-hidden="true" tabindex="-1"></a>coefs<span class="ot">&lt;-</span><span class="fu">coef</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> hp, <span class="at">data =</span> mtcars))</span>
-<span id="cb19-7"><a href="Correlation.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#coefs[1]</span></span>
-<span id="cb19-8"><a href="Correlation.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#coefs[2]</span></span>
-<span id="cb19-9"><a href="Correlation.html#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="Correlation.html#cb19-10" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span>d<span class="sc">$</span>hp</span>
-<span id="cb19-11"><a href="Correlation.html#cb19-11" aria-hidden="true" tabindex="-1"></a>move_line<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>,.<span class="dv">5</span>)</span>
-<span id="cb19-12"><a href="Correlation.html#cb19-12" aria-hidden="true" tabindex="-1"></a>total_error<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">length</span>(move_line))</span>
-<span id="cb19-13"><a href="Correlation.html#cb19-13" aria-hidden="true" tabindex="-1"></a>cnt<span class="ot">&lt;-</span><span class="dv">0</span></span>
-<span id="cb19-14"><a href="Correlation.html#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> move_line){</span>
-<span id="cb19-15"><a href="Correlation.html#cb19-15" aria-hidden="true" tabindex="-1"></a>  cnt<span class="ot">&lt;-</span>cnt<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb19-16"><a href="Correlation.html#cb19-16" aria-hidden="true" tabindex="-1"></a>  predicted_y <span class="ot">&lt;-</span> coefs[<span class="dv">2</span>]<span class="sc">*</span>x <span class="sc">+</span> coefs[<span class="dv">1</span>]<span class="sc">+</span>i</span>
-<span id="cb19-17"><a href="Correlation.html#cb19-17" aria-hidden="true" tabindex="-1"></a>  error_y <span class="ot">&lt;-</span> (predicted_y<span class="sc">-</span>d<span class="sc">$</span>mpg)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb19-18"><a href="Correlation.html#cb19-18" aria-hidden="true" tabindex="-1"></a>  total_error[cnt]<span class="ot">&lt;-</span><span class="fu">sum</span>(error_y)</span>
-<span id="cb19-19"><a href="Correlation.html#cb19-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb19-20"><a href="Correlation.html#cb19-20" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(move_line,total_error)</span>
-<span id="cb19-21"><a href="Correlation.html#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>move_line,<span class="at">y=</span>total_error))<span class="sc">+</span></span>
-<span id="cb19-22"><a href="Correlation.html#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb19-23"><a href="Correlation.html#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb19-24"><a href="Correlation.html#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;sum of squared deviations&quot;</span>)<span class="sc">+</span></span>
-<span id="cb19-25"><a href="Correlation.html#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;change to y-intercept&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:3minimizeSS"></span>
 <img src="statistics_files/figure-html/3minimizeSS-1.png" alt="A plot of the sum of the squared deviations for different lines moving up and down, through the best fit line. The best fit line occurs at the position that minimizes the sum of the sqaured deviations" width="672" />
 <p class="caption">
@@ -1432,11 +1308,6 @@ Figure 3.8: A plot of the sum of the squared deviations for different lines movi
 <p>This is the formula for a line. Another way of writing it is:</p>
 <p><span class="math inline">\(y = slope * x + \text{y-intercept}\)</span></p>
 <p>The slope is the slant of the line, and the y-intercept is where the line crosses the y-axis. Let’s look at some lines:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="Correlation.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb20-2"><a href="Correlation.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept=</span><span class="dv">5</span>,<span class="at">color=</span><span class="st">&quot;blue&quot;</span>)<span class="sc">+</span></span>
-<span id="cb20-3"><a href="Correlation.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">15</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb20-4"><a href="Correlation.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">20</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20</span>))<span class="sc">+</span></span>
-<span id="cb20-5"><a href="Correlation.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <div class="figure"><span id="fig:3twolines"></span>
 <img src="statistics_files/figure-html/3twolines-1.png" alt="Two different lines with different y-intercepts (where the line crosses the y-axis), and different slopes. A positive slope makes the line go up from left to right. A negative slope makes the line go down from left to right." width="672" />
 <p class="caption">
@@ -1460,22 +1331,6 @@ Figure 3.9: Two different lines with different y-intercepts (where the line cros
 <p><span class="math inline">\(intercept = b = \frac{\sum{y}\sum{x^2}-\sum{x}\sum{xy}}{n\sum{x^2}-(\sum{x})^2}\)</span></p>
 <p><span class="math inline">\(slope = m = \frac{n\sum{xy}-\sum{x}\sum{y}}{n\sum{x^2}-(\sum{x})^2}\)</span></p>
 <p>In these formulas, the <span class="math inline">\(x\)</span> and the <span class="math inline">\(y\)</span> refer to the individual scores. Here’s a table showing you how everything fits together.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Correlation.html#cb21-1" aria-hidden="true" tabindex="-1"></a>scores<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)</span>
-<span id="cb21-2"><a href="Correlation.html#cb21-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>)</span>
-<span id="cb21-3"><a href="Correlation.html#cb21-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
-<span id="cb21-4"><a href="Correlation.html#cb21-4" aria-hidden="true" tabindex="-1"></a>x_squared<span class="ot">&lt;-</span>x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb21-5"><a href="Correlation.html#cb21-5" aria-hidden="true" tabindex="-1"></a>y_squared<span class="ot">&lt;-</span>y<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb21-6"><a href="Correlation.html#cb21-6" aria-hidden="true" tabindex="-1"></a>xy<span class="ot">&lt;-</span>x<span class="sc">*</span>y</span>
-<span id="cb21-7"><a href="Correlation.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="Correlation.html#cb21-8" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(scores,x,y,x_squared,y_squared,xy)</span>
-<span id="cb21-9"><a href="Correlation.html#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="Correlation.html#cb21-10" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">&lt;-</span> all_df <span class="sc">%&gt;%</span></span>
-<span id="cb21-11"><a href="Correlation.html#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;Sums&quot;</span>,<span class="fu">colSums</span>(all_df[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]))) </span>
-<span id="cb21-12"><a href="Correlation.html#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-13"><a href="Correlation.html#cb21-13" aria-hidden="true" tabindex="-1"></a>slope<span class="ot">=</span>((<span class="fu">sum</span>(y)<span class="sc">*</span><span class="fu">sum</span>(x_squared))<span class="sc">-</span>(<span class="fu">sum</span>(x)<span class="sc">*</span><span class="fu">sum</span>(xy)))<span class="sc">/</span>((<span class="dv">7</span><span class="sc">*</span><span class="fu">sum</span>(x_squared))<span class="sc">-</span><span class="fu">sum</span>(x)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb21-14"><a href="Correlation.html#cb21-14" aria-hidden="true" tabindex="-1"></a>intercept<span class="ot">=</span>(<span class="dv">7</span><span class="sc">*</span><span class="fu">sum</span>(xy)<span class="sc">-</span><span class="fu">sum</span>(x)<span class="sc">*</span><span class="fu">sum</span>(y))<span class="sc">/</span>(<span class="dv">7</span><span class="sc">*</span><span class="fu">sum</span>(x_squared)<span class="sc">-</span><span class="fu">sum</span>(x)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb21-15"><a href="Correlation.html#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-16"><a href="Correlation.html#cb21-16" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(all_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1558,20 +1413,12 @@ Figure 3.9: Two different lines with different y-intercepts (where the line cros
 <p><span class="math inline">\(intercept = b = \frac{\sum{y}\sum{x^2}-\sum{x}\sum{xy}}{n\sum{x^2}-(\sum{x})^2} = \frac{39 * 200 - 34*231}{7*200-34^2} = -.221\)</span></p>
 <p><span class="math inline">\(slope = m = \frac{n\sum{xy}-\sum{x}\sum{y}}{n\sum{x^2}-(\sum{x})^2} = \frac{7*231-34*39}{7*275-34^2} = 1.19\)</span></p>
 <p>Great, now we can check our work, let’s plot the scores in a scatter plot and draw a line through it with slope = 1.19, and a y-intercept of -.221. It should go through the middle of the dots.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Correlation.html#cb22-1" aria-hidden="true" tabindex="-1"></a>plot_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(x,y)</span>
-<span id="cb22-2"><a href="Correlation.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="Correlation.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y))<span class="sc">+</span></span>
-<span id="cb22-4"><a href="Correlation.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb22-5"><a href="Correlation.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb22-6"><a href="Correlation.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span id="fig:3corwithLine"></span>
 <img src="statistics_files/figure-html/3corwithLine-1.png" alt="An example regression line with confidence bands going through a few data points in a scatterplot" width="672" />
 <p class="caption">
 Figure 3.10: An example regression line with confidence bands going through a few data points in a scatterplot
 </p>
 </div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="Correlation.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x,plot_df))</span></code></pre></div>
 <pre><code>## (Intercept)           x 
 ##  -0.2213115   1.1926230</code></pre>
 </div>
@@ -1587,17 +1434,6 @@ Figure 3.10: An example regression line with confidence bands going through a fe
 <h4><span class="header-section-number">3.6.1.1</span> Even when there is causation, there might not be obvious correlation</h4>
 <p>The first plant given no water at all would have a very hard time and eventually die. It should have the least amount of weekly growth. How about the plants given only a few teaspoons of water per day. This could be just enough water to keep the plants alive, so they will grow a little bit but not a lot. If you are imagining a scatter plot, with each dot being a snake plant, then you should imagine some dots starting in the bottom left hand corner (no water &amp; no plant growth), moving up and to the right (a bit of water, and a bit of growth). As we look at snake plants getting more and more water, we should see more and more plant growth, right? “Sure, but only up to a point.” Correct, there should be a trend for a positive correlation with increasing plant growth as amount of water per day increases. But, what happens when you give snake plants too much water? From personal experience, they die. So, at some point, the dots in the scatter plot will start moving back down again. Snake plants that get way too much water will not grow very well.</p>
 <p>The imaginary scatter plot you should be envisioning could have an upside U shape. Going from left to right, the dot’s go up, they reach a maximum, then they go down again reaching a minimum. Computing Pearson’s <span class="math inline">\(r\)</span> for data like this can give you <span class="math inline">\(r\)</span> values close to zero. The scatter plot could look something like this:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="Correlation.html#cb26-1" aria-hidden="true" tabindex="-1"></a>water<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">999</span>,<span class="dv">1</span>)</span>
-<span id="cb26-2"><a href="Correlation.html#cb26-2" aria-hidden="true" tabindex="-1"></a>growth<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,(<span class="dv">10</span><span class="sc">/</span><span class="dv">499</span>)),<span class="fu">seq</span>(<span class="dv">10</span>,<span class="dv">0</span>,<span class="sc">-</span>(<span class="dv">10</span><span class="sc">/</span><span class="dv">499</span>)))</span>
-<span id="cb26-3"><a href="Correlation.html#cb26-3" aria-hidden="true" tabindex="-1"></a>noise<span class="ot">&lt;-</span><span class="fu">runif</span>(<span class="dv">1000</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb26-4"><a href="Correlation.html#cb26-4" aria-hidden="true" tabindex="-1"></a>growth<span class="ot">&lt;-</span>growth<span class="sc">+</span>noise</span>
-<span id="cb26-5"><a href="Correlation.html#cb26-5" aria-hidden="true" tabindex="-1"></a>snake_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(growth,water)</span>
-<span id="cb26-6"><a href="Correlation.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="Correlation.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(snake_df, <span class="fu">aes</span>(<span class="at">x=</span>water,<span class="at">y=</span>growth))<span class="sc">+</span></span>
-<span id="cb26-8"><a href="Correlation.html#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb26-9"><a href="Correlation.html#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb26-10"><a href="Correlation.html#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Water (teaspoons)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb26-11"><a href="Correlation.html#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Imaginary snake plant growth </span><span class="sc">\n</span><span class="st"> as a function of water&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:3snakeplant"></span>
 <img src="statistics_files/figure-html/3snakeplant-1.png" alt="Illustration of a possible relationship between amount of water and snake plant growth. Growth goes up with water, but eventually goes back down as too much water makes snake plants die." width="672" />
 <p class="caption">
@@ -1605,8 +1441,7 @@ Figure 3.11: Illustration of a possible relationship between amount of water and
 </p>
 </div>
 <p>Granted this looks more like an inverted V, than an inverted U, but you get the picture right? There is clearly a relationship between watering and snake plant growth. But, the correlation isn’t in one direction. As a result, when we compute the correlation in terms of Pearson’s r, we get a value suggesting no relationship.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Correlation.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(growth,water)</span></code></pre></div>
-<pre><code>## [1] 0.02152531</code></pre>
+<pre><code>## [1] -0.007264174</code></pre>
 <p>What this really means is there is no linear relationship that can be described by a single straight line. When we need lines or curves going in more than one direction, we have a nonlinear relationship.</p>
 <p>This example illustrates some conundrums in interpreting correlations. We already know that water is needed for plants to grow, so we are rightly expecting there to be a relationship between our measure of amount of water and plant growth. If we look at the first half of the data we see a positive correlation, if we look at the last half of the data we see a negative correlation, and if we look at all of the data we see no correlation. Yikes. So, even when there is a causal connection between two measures, we won’t necessarily obtain clear evidence of the connection just by computing a correlation coefficient.</p>
 <blockquote>
@@ -1634,16 +1469,6 @@ Figure 3.11: Illustration of a possible relationship between amount of water and
 <p>Another very important aspect of correlations is the fact that they can be produced by random chance. This means that you can find a positive or negative correlation between two measures, even when they have absolutely nothing to do with one another. You might have hoped to find zero correlation when two measures are totally unrelated to each other. Although this certainly happens, unrelated measures can accidentally produce <strong>spurious</strong> correlations, just by chance alone.</p>
 <p>Let’s demonstrate how correlations can occur by chance when there is no causal connection between two measures. Imagine two participants. One is at the North pole with a lottery machine full of balls with numbers from 1 to 10. The other is at the south pole with a different lottery machine full of balls with numbers from 1 to 10. There are an endless supply of balls in the machine, so every number could be picked for any ball. Each participant randomly chooses 10 balls, then records the number on the ball. In this situation we will assume that there is no possible way that balls chosen by the first participant could causally influence the balls chosen by the second participant. They are on the other side of the world. We should assume that the balls will be chosen by chance alone.</p>
 <p>Here is what the numbers on each ball could look like for each participant:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Correlation.html#cb29-1" aria-hidden="true" tabindex="-1"></a>Ball<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb29-2"><a href="Correlation.html#cb29-2" aria-hidden="true" tabindex="-1"></a>North_pole<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)))</span>
-<span id="cb29-3"><a href="Correlation.html#cb29-3" aria-hidden="true" tabindex="-1"></a>South_pole<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)))</span>
-<span id="cb29-4"><a href="Correlation.html#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="Correlation.html#cb29-5" aria-hidden="true" tabindex="-1"></a>the_df_balls<span class="ot">&lt;-</span><span class="fu">data.frame</span>(Ball,North_pole,South_pole)</span>
-<span id="cb29-6"><a href="Correlation.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="Correlation.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#the_df_balls &lt;- the_df_balls %&gt;%</span></span>
-<span id="cb29-8"><a href="Correlation.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  rbind(c(&quot;Sums&quot;,colSums(the_df_balls[1:10,2:3]))) %&gt;%</span></span>
-<span id="cb29-9"><a href="Correlation.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  rbind(c(&quot;Means&quot;,colMeans(the_df_balls[1:10,2:3])))</span></span>
-<span id="cb29-10"><a href="Correlation.html#cb29-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(the_df_balls)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1656,76 +1481,76 @@ Figure 3.11: Illustration of a possible relationship between amount of water and
 <tr class="odd">
 <td align="right">1</td>
 <td align="right">8</td>
-<td align="right">9</td>
+<td align="right">6</td>
 </tr>
 <tr class="even">
 <td align="right">2</td>
 <td align="right">10</td>
-<td align="right">5</td>
+<td align="right">7</td>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="right">9</td>
-<td align="right">2</td>
+<td align="right">8</td>
+<td align="right">8</td>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="right">9</td>
-<td align="right">7</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">7</td>
-<td align="right">5</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="right">8</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="right">7</td>
-<td align="right">6</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
 <td align="right">2</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">6</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">7</td>
 <td align="right">8</td>
 </tr>
 <tr class="odd">
 <td align="right">9</td>
-<td align="right">9</td>
-<td align="right">9</td>
+<td align="right">7</td>
+<td align="right">4</td>
 </tr>
 <tr class="even">
 <td align="right">10</td>
 <td align="right">7</td>
-<td align="right">6</td>
+<td align="right">8</td>
 </tr>
 </tbody>
 </table>
-<p>In this one case, if we computed Pearson’s <span class="math inline">\(r\)</span>, we would find that <span class="math inline">\(r =\)</span> -0.2557029. But, we already know that this value does not tell us anything about the relationship between the balls chosen in the north and south pole. We know that relationship should be completely random, because that is how we set up the game.</p>
+<p>In this one case, if we computed Pearson’s <span class="math inline">\(r\)</span>, we would find that <span class="math inline">\(r =\)</span> 0.0601525. But, we already know that this value does not tell us anything about the relationship between the balls chosen in the north and south pole. We know that relationship should be completely random, because that is how we set up the game.</p>
 <p>The better question here is to ask what can random chance do? For example, if we ran our game over and over again thousands of times, each time choosing new balls, and each time computing the correlation, what would we find?First, we will find fluctuation. The r value will sometimes be positive, sometimes be negative, sometimes be big and sometimes be small. Second, we will see what the fluctuation looks like. This will give us a window into the kinds of correlations that chance alone can produce. Let’s see what happens.</p>
 <div id="monte-carlo-simulation-of-random-correlations" class="section level4" number="3.6.2.1">
 <h4><span class="header-section-number">3.6.2.1</span> Monte-carlo simulation of random correlations</h4>
 <p>It is possible to use a computer to simulate our game as many times as we want. This process is often termed <strong>monte-carlo simulation</strong>.</p>
 <p>Below is a script written for the programming language R. We won’t go into the details of the code here. However, let’s briefly explain what is going on. Notice, the part that says <code>for(sim in 1:1000)</code>. This creates a loop that repeats our game 1000 times. Inside the loop there are variables named <code>North_pole</code> and <code>South_pole</code>. During each simulation, we sample 10 random numbers (between 1 to 10) into each variable. These random numbers stand for the numbers that would have been on the balls from the lottery machine. Once we have 10 random numbers for each, we then compute the correlation using <code>cor(North_pole,South_pole)</code>. Then, we save the correlation value and move on to the next simulation. At the end, we will have 1000 individual Pearson <span class="math inline">\(r\)</span> values.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="Correlation.html#cb30-1" aria-hidden="true" tabindex="-1"></a>simulated_correlations <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="dv">0</span>)</span>
-<span id="cb30-2"><a href="Correlation.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(sim <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
-<span id="cb30-3"><a href="Correlation.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  North_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)</span>
-<span id="cb30-4"><a href="Correlation.html#cb30-4" aria-hidden="true" tabindex="-1"></a>  South_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)</span>
-<span id="cb30-5"><a href="Correlation.html#cb30-5" aria-hidden="true" tabindex="-1"></a>  simulated_correlations[sim] <span class="ot">&lt;-</span> <span class="fu">cor</span>(North_pole,South_pole)</span>
-<span id="cb30-6"><a href="Correlation.html#cb30-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb30-7"><a href="Correlation.html#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-8"><a href="Correlation.html#cb30-8" aria-hidden="true" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sims=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,simulated_correlations)</span>
-<span id="cb30-9"><a href="Correlation.html#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="Correlation.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim_df, <span class="fu">aes</span>(<span class="at">x =</span> sims, <span class="at">y =</span> simulated_correlations))<span class="sc">+</span></span>
-<span id="cb30-11"><a href="Correlation.html#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb30-12"><a href="Correlation.html#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb30-13"><a href="Correlation.html#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb30-14"><a href="Correlation.html#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb30-15"><a href="Correlation.html#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Simulation of 1000 r values&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="Correlation.html#cb4-1" aria-hidden="true" tabindex="-1"></a>simulated_correlations <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="dv">0</span>)</span>
+<span id="cb4-2"><a href="Correlation.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(sim <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb4-3"><a href="Correlation.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  North_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb4-4"><a href="Correlation.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  South_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb4-5"><a href="Correlation.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  simulated_correlations[sim] <span class="ot">&lt;-</span> <span class="fu">cor</span>(North_pole,South_pole)</span>
+<span id="cb4-6"><a href="Correlation.html#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-7"><a href="Correlation.html#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="Correlation.html#cb4-8" aria-hidden="true" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sims=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,simulated_correlations)</span>
+<span id="cb4-9"><a href="Correlation.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="Correlation.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim_df, <span class="fu">aes</span>(<span class="at">x =</span> sims, <span class="at">y =</span> simulated_correlations))<span class="sc">+</span></span>
+<span id="cb4-11"><a href="Correlation.html#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb4-12"><a href="Correlation.html#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb4-13"><a href="Correlation.html#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb4-14"><a href="Correlation.html#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb4-15"><a href="Correlation.html#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Simulation of 1000 r values&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:3anotherthousand"></span>
 <img src="statistics_files/figure-html/3anotherthousand-1.png" alt="Another figure showing a range of r-values that can be obtained by chance" width="672" />
 <p class="caption">
@@ -1735,7 +1560,6 @@ Figure 3.12: Another figure showing a range of r-values that can be obtained by 
 <p>Let’s take a look at all of the 1000 Pearson <span class="math inline">\(r\)</span> values. Does the figure below look familiar to you? It should, we have already conducted a similar kind of simulation before. Each dot in the scatter plot shows the Pearson <span class="math inline">\(r\)</span> for each simulation from 1 to 1000. As you can see the dots are all over of the place, in between the range -1 to 1. The important lesson here is that random chance produced all of these correlations. This means we can find “correlations” in the data that are completely meaningless, and do not reflect any causal relationship between one measure and another.</p>
 <p>Let’s illustrate the idea of finding “random” correlations one more time, with a little movie. This time, we will show you a scatter plot of the random values sampled for the balls chosen from the North and South pole. If there is no relationship we should see dots going everywhere. If there happens to be a positive relationship (purely by chance), we should see the dots going from the bottom left to the top right. If there happens to be a negative relationship (purely by chance), we should see the dots going from the top left down to the bottom right.</p>
 <p>On more thing to prepare you for the movie. There are three scatter plots below, showing negative, positive, and zero correlations between two variables. You’ve already seen this graph before. We are just reminding you that the blue lines are helpful for seeing the correlation.Negative correlations occur when a line goes down from the top left to bottom right. Positive correlations occur when a line goes up from the bottom left to the top right. Zero correlations occur when the line is flat (doesn’t go up or down).</p>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span id="fig:3reminder"></span>
 <img src="statistics_files/figure-html/3reminder-1.png" alt="A reminder of what positive, negative, and zero correlation looks like" width="672" />
 <p class="caption">
@@ -1751,7 +1575,6 @@ Figure 3.14: Completely random data points drawn from a uniform distribution wit
 </div>
 <p>You might be thinking this is kind of disturbing. If we know that there should be no correlation between two random variables, how come we are finding correlations? This is a big problem right? I mean, if someone showed me a correlation between two things, and then claimed one thing was related to another, how could know I if it was true. After all, it could be chance! Chance can do that too.</p>
 <p>Fortunately, all is not lost. We can look at our simulated data in another way, using a histogram. Remember, just before the movie, we simulated 1000 different correlations using random numbers. By, putting all of those <span class="math inline">\(r\)</span> values into a histogram, we can get a better sense of how chance behaves. We can see what kind of correlations chance is likely or unlikely to produce. Here is a histogram of the simulated <span class="math inline">\(r\)</span> values.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="Correlation.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(simulated_correlations,<span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,.<span class="dv">1</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:3histrandcor"></span>
 <img src="statistics_files/figure-html/3histrandcor-1.png" alt="A histogram showing the frequency distribution of r-values for completely random values between an X and Y variable (sample-size=10). A rull range of r-values can be obtained by chance alone. Larger r-values are less common than smaller r-values" width="672" />
 <p class="caption">
@@ -1769,24 +1592,6 @@ How about <span class="math inline">\(r = .5\)</span>? The bar is much smaller h
 <p>The good news is that, as a researcher, you get to make the rules of the game. You get to determine how chance can play. This is all a little bit metaphorical, so let’s make it concrete.</p>
 <p>We will see what happens in four different scenarios. First, we will repeat what we already did. Each participant will draw 10 balls, then we compute the correlation, and do this over 1000 times and look at a histogram. Second, we will change the game so each participant draws 50 balls each, and then repeat our simulation. Third, and fourth, we will change the game so each participant draws 100 balls each, and then 1000 balls each, and repeat etc.</p>
 <p>The graph below shows four different histograms of the Pearson <span class="math inline">\(r\)</span> values in each of the different scenarios. Each scenario involves a different sample-size, from, 10, 50, 100 to 1000.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="Correlation.html#cb33-1" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb33-2"><a href="Correlation.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(s_size <span class="cf">in</span>  <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">1000</span>)){</span>
-<span id="cb33-3"><a href="Correlation.html#cb33-3" aria-hidden="true" tabindex="-1"></a>  simulated_correlations <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="dv">0</span>)</span>
-<span id="cb33-4"><a href="Correlation.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(sim <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
-<span id="cb33-5"><a href="Correlation.html#cb33-5" aria-hidden="true" tabindex="-1"></a>    North_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(s_size,<span class="dv">1</span>,<span class="dv">10</span>)</span>
-<span id="cb33-6"><a href="Correlation.html#cb33-6" aria-hidden="true" tabindex="-1"></a>    South_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(s_size,<span class="dv">1</span>,<span class="dv">10</span>)</span>
-<span id="cb33-7"><a href="Correlation.html#cb33-7" aria-hidden="true" tabindex="-1"></a>    simulated_correlations[sim] <span class="ot">&lt;-</span> <span class="fu">cor</span>(North_pole,South_pole)</span>
-<span id="cb33-8"><a href="Correlation.html#cb33-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb33-9"><a href="Correlation.html#cb33-9" aria-hidden="true" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sample_size=</span><span class="fu">rep</span>(s_size,<span class="dv">1000</span>),<span class="at">sims=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,simulated_correlations)</span>
-<span id="cb33-10"><a href="Correlation.html#cb33-10" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">rbind</span>(all_df,sim_df)</span>
-<span id="cb33-11"><a href="Correlation.html#cb33-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb33-12"><a href="Correlation.html#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="Correlation.html#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-14"><a href="Correlation.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_df,<span class="fu">aes</span>(<span class="at">x=</span>simulated_correlations))<span class="sc">+</span></span>
-<span id="cb33-15"><a href="Correlation.html#cb33-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()<span class="sc">+</span></span>
-<span id="cb33-16"><a href="Correlation.html#cb33-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sample_size)<span class="sc">+</span></span>
-<span id="cb33-17"><a href="Correlation.html#cb33-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:3corrandN"></span>
 <img src="statistics_files/figure-html/3corrandN-1.png" alt="Four histograms showing the frequency distributions of r-values between completely random X and Y variables as a function of sample-size. The width of the distributions shrink as sample-size increases. Smaller sample-sizes are more likely to produce a wider range of r-values by chance. Larger sample-sizes always produce a narrow range of small r-values" width="672" />
 <p class="caption">
@@ -1814,32 +1619,6 @@ Figure 3.16: Four histograms showing the frequency distributions of r-values bet
 Figure 3.17: Animation of how correlation behaves for completely random X and Y variables as a function of sample size. The best fit line is not very stable for small sample-sizes, but becomes more reliably flat as sample-size increases
 </p>
 </div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="Correlation.html#cb35-1" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb35-2"><a href="Correlation.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(sim <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
-<span id="cb35-3"><a href="Correlation.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(n <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">1000</span>)){</span>
-<span id="cb35-4"><a href="Correlation.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  North_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(n,<span class="dv">1</span>,<span class="dv">10</span>)</span>
-<span id="cb35-5"><a href="Correlation.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  South_pole <span class="ot">&lt;-</span> <span class="fu">runif</span>(n,<span class="dv">1</span>,<span class="dv">10</span>)</span>
-<span id="cb35-6"><a href="Correlation.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  t_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">nsize=</span><span class="fu">rep</span>(n,n),</span>
-<span id="cb35-7"><a href="Correlation.html#cb35-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">simulation=</span><span class="fu">rep</span>(sim,n),</span>
-<span id="cb35-8"><a href="Correlation.html#cb35-8" aria-hidden="true" tabindex="-1"></a>                                  North_pole,</span>
-<span id="cb35-9"><a href="Correlation.html#cb35-9" aria-hidden="true" tabindex="-1"></a>                                  South_pole)</span>
-<span id="cb35-10"><a href="Correlation.html#cb35-10" aria-hidden="true" tabindex="-1"></a>  all_df<span class="ot">&lt;-</span><span class="fu">rbind</span>(all_df,t_df)</span>
-<span id="cb35-11"><a href="Correlation.html#cb35-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb35-12"><a href="Correlation.html#cb35-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-13"><a href="Correlation.html#cb35-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-14"><a href="Correlation.html#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-15"><a href="Correlation.html#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_df,<span class="fu">aes</span>(<span class="at">x=</span>North_pole,<span class="at">y=</span>South_pole))<span class="sc">+</span></span>
-<span id="cb35-16"><a href="Correlation.html#cb35-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb35-17"><a href="Correlation.html#cb35-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb35-18"><a href="Correlation.html#cb35-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb35-19"><a href="Correlation.html#cb35-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>nsize)<span class="sc">+</span></span>
-<span id="cb35-20"><a href="Correlation.html#cb35-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(</span>
-<span id="cb35-21"><a href="Correlation.html#cb35-21" aria-hidden="true" tabindex="-1"></a>    simulation,</span>
-<span id="cb35-22"><a href="Correlation.html#cb35-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">transition_length =</span> <span class="dv">2</span>,</span>
-<span id="cb35-23"><a href="Correlation.html#cb35-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">state_length =</span> <span class="dv">1</span></span>
-<span id="cb35-24"><a href="Correlation.html#cb35-24" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span><span class="fu">enter_fade</span>() <span class="sc">+</span> </span>
-<span id="cb35-25"><a href="Correlation.html#cb35-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_shrink</span>() <span class="sc">+</span></span>
-<span id="cb35-26"><a href="Correlation.html#cb35-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&#39;sine-in-out&#39;</span>)</span></code></pre></div>
 <p>Which line should you trust? Well, hopefully you can see that the line for 1000 samples is the most stable. It tends to be very flat every time, and it does not depend so much on the particular sample. The line with 10 observations per sample goes all over the place. The take home here, is that if someone told you that they found a correlation, you should want to know how many observations they hand in their sample. If they only had 10 observations, how could you trust the claim that there was a correlation? You can’t!!! Not now that you know samples that are that small can do all sorts of things by chance alone. If instead, you found out the sample was very large, then you might trust that finding a little bit more. For example, in the above movie you can see that when there are 1000 samples, we never see a strong or weak correlation; the line is always flat. This is because chance almost never produces strong correlations when the sample size is very large.</p>
 <p>In the above example, we sampled numbers random numbers from a uniform distribution. Many examples of real-world data will come from a normal or approximately normal distribution. We can repeat the above, but sample random numbers from the same normal distribution. There will still be zero actual correlation between the X and Y variables, because everything is sampled randomly. But, we still see the same behavior as above. The computed correlation for small sample-sizes fluctuate wildly, and large sample sizes do not.</p>
 <div class="figure"><span id="fig:3normCorfour"></span>

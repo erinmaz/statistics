@@ -1066,9 +1066,9 @@ Figure 4.4: Two binomial distributions, involving a scenario in which I’m flip
 <p>The <code>qbinom</code> function rounds upwards: if you ask for a percentile that doesn’t actually exist (like the 75th in this example), R finds the smallest value for which the the percentile rank is <strong>at least</strong> what you asked for. In this case, since the “true” 75th percentile (whatever that would mean) lies somewhere between 3 and 4 skulls, Rrounds up and gives you an answer of 4. This subtlety is tedious, I admit, but thankfully it’s only an issue for discrete distributions like the binomial. The other distributions that I’ll talk about (normal, <span class="math inline">\(t\)</span>, <span class="math inline">\(\chi^2\)</span> and <span class="math inline">\(F\)</span>) are all continuous, and so R can always return an exact quantile whenever you ask for it.</p>
 <p>Finally, we have the random number generator. To use the <code>rbinom</code> function, you specify how many times R should “simulate” the experiment using the <code>n</code> argument, and it will generate random outcomes from the binomial distribution. So, for instance, suppose I were to repeat my die rolling experiment 100 times. I could get R to simulate the results of these experiments by using the following command:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="probability-sampling-and-estimation.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>( <span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span> )</span></code></pre></div>
-<pre><code>##   [1] 5 2 3 4 2 5 7 1 6 5 4 2 3 2 3 4 5 4 4 5 4 1 4 7 3 1 5 3 6 3 3 4 6 6 4 3 2
-##  [38] 4 3 3 2 5 4 6 2 4 5 0 4 4 3 3 3 5 2 3 1 4 5 3 0 4 2 2 3 5 3 3 6 3 4 3 3 6
-##  [75] 2 6 6 6 3 0 4 1 3 5 5 4 0 5 4 5 3 8 7 4 2 2 3 3 4 6</code></pre>
+<pre><code>##   [1] 4 4 0 3 2 7 5 6 4 3 5 2 1 4 3 5 3 3 3 2 2 5 4 2 1 3 6 6 2 3 1 6 6 6 2 8 7
+##  [38] 5 5 3 2 2 2 2 2 4 3 3 4 2 4 2 2 4 5 2 2 7 6 4 7 1 2 4 3 4 2 3 6 4 1 2 2 1
+##  [75] 4 0 3 4 1 3 4 4 1 3 4 3 3 5 4 2 2 3 3 3 4 5 3 4 3 4</code></pre>
 <p>As you can see, these numbers are pretty much what you’d expect given the distribution shown in Figure <a href="probability-sampling-and-estimation.html#fig:4binomial1">4.3</a>. Most of the time I roll somewhere between 1 to 5 skulls. There are a lot of subtleties associated with random number generation using a computer, but for the purposes of this book we don’t need to worry too much about them.</p>
 </div>
 </div>
@@ -1227,12 +1227,12 @@ Figure 4.12: The population distribution of IQ scores (panel a) and two samples 
 <span id="cb13-2"><a href="probability-sampling-and-estimation.html#cb13-2" aria-hidden="true" tabindex="-1"></a>IQ <span class="ot">&lt;-</span> <span class="fu">round</span>(IQ) <span class="co"># make round numbers</span></span></code></pre></div>
 <p>Cool, we just generated 10,000 fake IQ scores. Where did they go? Well, they went into the variable IQ on my computer. You can do the same on your computer too by copying the above code. 10,000 numbers is too many numbers to look at. We can look at the first 100 like this:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="probability-sampling-and-estimation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(IQ[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>])</span></code></pre></div>
-<pre><code>##   [1]  89 107  70  96  70 106 111 128 102 113 104  89  70  78  67  90 115 111
-##  [19] 122 109 102 123 118 104  99 109  81 103 123 104  88 133 103  87 112 113
-##  [37] 126 115 115 134 119  88  86  90 109  91  96 125  97  93 117 104  90  93
-##  [55] 116 113  84  99  95 130 113 123  87  99  95 108  90 125 112 124  83 100
-##  [73] 102  89  93 102 105 107  85  83  75  87  69 100  87 128  85 103  90  92
-##  [91] 104 107 110  97  86 115 104 100 104 107</code></pre>
+<pre><code>##   [1] 125  69 117 133 105 126  81 114 102 109  79 102 103  82  84  74 105  94
+##  [19]  82 115 113 122  99  86 112 101  81 102 118 106  92  93  79 101 109 113
+##  [37]  85 114 110  89  99  58 108  88 127 118  87 112  90 114  77  73  72 104
+##  [55] 110  96  82 104 117 114  79 123  82 117  94  85  89  78 109 101  77  95
+##  [73]  96 102 110 106  79  94  95 113  89  72  93  70 104  97  92  97  89  91
+##  [91]  71  99  95 109  82 111 124  81 113 109</code></pre>
 <p>We can compute the mean IQ using the command <strong>mean(IQ)</strong> and the standard deviation using the command <strong>sd(IQ)</strong>, and draw a histogram using <strong>hist()</strong>. The histogram of this much larger sample is shown in Figure <a href="probability-sampling-and-estimation.html#fig:IQdist">4.12</a>c. Even a moment’s inspections makes clear that the larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics: the mean IQ for the larger sample turns out to be 99.9, and the standard deviation is 15.1. These values are now very close to the true population.</p>
 <p>I feel a bit silly saying this, but the thing I want you to take away from this is that large samples generally give you better information. I feel silly saying it because it’s so bloody obvious that it shouldn’t need to be said. In fact, it’s such an obvious point that when Jacob Bernoulli – one of the founders of probability theory – formalized this idea back in 1713, he was kind of a jerk about it. Here’s how he described the fact that we all share this intuition:</p>
 <blockquote>
@@ -1284,448 +1284,12 @@ Figure 4.14: Animiation showing histograms for different samples of size 20 from
 <p>OK, what have we got here? We have an animiation of 10 different samples. Each sample has 20 observations and these are summarized in each of histograms that show up in the animiation. Each histogram has a red line. The red line shows you where the mean of each sample is located. So, we have found the sample means for the 10 different samples from a uniform distribution.</p>
 <p>First question. Are the sample means all the same? The answer is no. They are all kind of similar to each other though, they are all around five plus or minus a few numbers. This is interesting. Although all of our samples look pretty different from one another, the means of our samples look more similar than different.</p>
 <p>Second question. What should we do with the means of our samples? Well, how about we collect them them all, and then plot a histogram of them. This would allow us to see what the distribution of the sample means looks like. The next histogram is just this. Except, rather than taking 10 samples, we will take 10,000 samples. For each of them we will compute the means. So, we will have 10,000 means. This is the histogram of the sample means:</p>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:4unifmany"></span>
 <img src="statistics_files/figure-html/4unifmany-1.png" alt="A histogram showing the sample means for 10,000 samples, each size 20, from the uniform distribution of numbers from 1 to 10. The expected mean is 5.5, and the histogram is centered on 5.5. The mean of each sample is not always 5.5 because of sampling error or chance" width="672" />
 <p class="caption">
 Figure 4.15: A histogram showing the sample means for 10,000 samples, each size 20, from the uniform distribution of numbers from 1 to 10. The expected mean is 5.5, and the histogram is centered on 5.5. The mean of each sample is not always 5.5 because of sampling error or chance
 </p>
 </div>
-<pre><code>## List of 94
-##  $ line                      :List of 6
-##   ..$ colour       : chr &quot;black&quot;
-##   ..$ size         : num 0.5
-##   ..$ linetype     : num 1
-##   ..$ lineend      : chr &quot;butt&quot;
-##   ..$ arrow        : logi FALSE
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
-##  $ rect                      :List of 5
-##   ..$ fill         : chr &quot;white&quot;
-##   ..$ colour       : chr &quot;black&quot;
-##   ..$ size         : num 0.5
-##   ..$ linetype     : num 1
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-##  $ text                      :List of 11
-##   ..$ family       : chr &quot;&quot;
-##   ..$ face         : chr &quot;plain&quot;
-##   ..$ colour       : chr &quot;black&quot;
-##   ..$ size         : num 11
-##   ..$ hjust        : num 0.5
-##   ..$ vjust        : num 0.5
-##   ..$ angle        : num 0
-##   ..$ lineheight   : num 0.9
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 0pt 0pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : logi FALSE
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ title                     : chr &quot;Histogram of 10,000 sample means&quot;
-##  $ aspect.ratio              : NULL
-##  $ axis.title                : NULL
-##  $ axis.title.x              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 2.75pt 0pt 0pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.title.x.top          :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 0
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 0pt 2.75pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.title.x.bottom       : NULL
-##  $ axis.title.y              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 1
-##   ..$ angle        : num 90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 2.75pt 0pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.title.y.left         : NULL
-##  $ axis.title.y.right        :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 0
-##   ..$ angle        : num -90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 0pt 0pt 2.75pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.text                 :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : chr &quot;grey30&quot;
-##   ..$ size         : &#39;rel&#39; num 0.8
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.text.x               :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 2.2pt 0pt 0pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.text.x.top           :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : num 0
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 0pt 2.2pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.text.x.bottom        : NULL
-##  $ axis.text.y               :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : num 1
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 2.2pt 0pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.text.y.left          : NULL
-##  $ axis.text.y.right         :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : num 0
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 0pt 0pt 2.2pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ axis.ticks                :List of 6
-##   ..$ colour       : chr &quot;grey20&quot;
-##   ..$ size         : NULL
-##   ..$ linetype     : NULL
-##   ..$ lineend      : NULL
-##   ..$ arrow        : logi FALSE
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
-##  $ axis.ticks.x              : NULL
-##  $ axis.ticks.x.top          : NULL
-##  $ axis.ticks.x.bottom       : NULL
-##  $ axis.ticks.y              : NULL
-##  $ axis.ticks.y.left         : NULL
-##  $ axis.ticks.y.right        : NULL
-##  $ axis.ticks.length         : &#39;unit&#39; num 2.75pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ axis.ticks.length.x       : NULL
-##  $ axis.ticks.length.x.top   : NULL
-##  $ axis.ticks.length.x.bottom: NULL
-##  $ axis.ticks.length.y       : NULL
-##  $ axis.ticks.length.y.left  : NULL
-##  $ axis.ticks.length.y.right : NULL
-##  $ axis.line                 :List of 6
-##   ..$ colour       : chr &quot;black&quot;
-##   ..$ size         : &#39;rel&#39; num 1
-##   ..$ linetype     : NULL
-##   ..$ lineend      : NULL
-##   ..$ arrow        : logi FALSE
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
-##  $ axis.line.x               : NULL
-##  $ axis.line.x.top           : NULL
-##  $ axis.line.x.bottom        : NULL
-##  $ axis.line.y               : NULL
-##  $ axis.line.y.left          : NULL
-##  $ axis.line.y.right         : NULL
-##  $ legend.background         :List of 5
-##   ..$ fill         : NULL
-##   ..$ colour       : logi NA
-##   ..$ size         : NULL
-##   ..$ linetype     : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-##  $ legend.margin             : &#39;margin&#39; num [1:4] 5.5pt 5.5pt 5.5pt 5.5pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ legend.spacing            : &#39;unit&#39; num 11pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ legend.spacing.x          : NULL
-##  $ legend.spacing.y          : NULL
-##  $ legend.key                : list()
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
-##  $ legend.key.size           : &#39;unit&#39; num 1.2lines
-##   ..- attr(*, &quot;valid.unit&quot;)= int 3
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;lines&quot;
-##  $ legend.key.height         : NULL
-##  $ legend.key.width          : NULL
-##  $ legend.text               :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : &#39;rel&#39; num 0.8
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ legend.text.align         : NULL
-##  $ legend.title              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : num 0
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ legend.title.align        : NULL
-##  $ legend.position           : chr &quot;right&quot;
-##  $ legend.direction          : NULL
-##  $ legend.justification      : chr &quot;center&quot;
-##  $ legend.box                : NULL
-##  $ legend.box.just           : NULL
-##  $ legend.box.margin         : &#39;margin&#39; num [1:4] 0cm 0cm 0cm 0cm
-##   ..- attr(*, &quot;valid.unit&quot;)= int 1
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;cm&quot;
-##  $ legend.box.background     : list()
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
-##  $ legend.box.spacing        : &#39;unit&#39; num 11pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ panel.background          :List of 5
-##   ..$ fill         : chr &quot;white&quot;
-##   ..$ colour       : logi NA
-##   ..$ size         : NULL
-##   ..$ linetype     : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-##  $ panel.border              : list()
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
-##  $ panel.spacing             : &#39;unit&#39; num 5.5pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ panel.spacing.x           : NULL
-##  $ panel.spacing.y           : NULL
-##  $ panel.grid                :List of 6
-##   ..$ colour       : chr &quot;grey92&quot;
-##   ..$ size         : NULL
-##   ..$ linetype     : NULL
-##   ..$ lineend      : NULL
-##   ..$ arrow        : logi FALSE
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
-##  $ panel.grid.major          : list()
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
-##  $ panel.grid.minor          : list()
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
-##  $ panel.grid.major.x        : NULL
-##  $ panel.grid.major.y        : NULL
-##  $ panel.grid.minor.x        : NULL
-##  $ panel.grid.minor.y        : NULL
-##  $ panel.ontop               : logi FALSE
-##  $ plot.background           :List of 5
-##   ..$ fill         : NULL
-##   ..$ colour       : chr &quot;white&quot;
-##   ..$ size         : NULL
-##   ..$ linetype     : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-##  $ plot.title                :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : &#39;rel&#39; num 1.2
-##   ..$ hjust        : num 0
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 0pt 5.5pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ plot.title.position       : chr &quot;panel&quot;
-##  $ plot.subtitle             :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : num 0
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 0pt 0pt 5.5pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ plot.caption              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : &#39;rel&#39; num 0.8
-##   ..$ hjust        : num 1
-##   ..$ vjust        : num 1
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 5.5pt 0pt 0pt 0pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ plot.caption.position     : chr &quot;panel&quot;
-##  $ plot.tag                  :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : &#39;rel&#39; num 1.2
-##   ..$ hjust        : num 0.5
-##   ..$ vjust        : num 0.5
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ plot.tag.position         : chr &quot;topleft&quot;
-##  $ plot.margin               : &#39;margin&#39; num [1:4] 5.5pt 5.5pt 5.5pt 5.5pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ strip.background          :List of 5
-##   ..$ fill         : chr &quot;white&quot;
-##   ..$ colour       : chr &quot;black&quot;
-##   ..$ size         : &#39;rel&#39; num 2
-##   ..$ linetype     : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
-##  $ strip.background.x        : NULL
-##  $ strip.background.y        : NULL
-##  $ strip.placement           : chr &quot;inside&quot;
-##  $ strip.text                :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : chr &quot;grey10&quot;
-##   ..$ size         : &#39;rel&#39; num 0.8
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : NULL
-##   ..$ lineheight   : NULL
-##   ..$ margin       : &#39;margin&#39; num [1:4] 4.4pt 4.4pt 4.4pt 4.4pt
-##   .. ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   .. ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ strip.text.x              : NULL
-##  $ strip.text.y              :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : num -90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ strip.switch.pad.grid     : &#39;unit&#39; num 2.75pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ strip.switch.pad.wrap     : &#39;unit&#39; num 2.75pt
-##   ..- attr(*, &quot;valid.unit&quot;)= int 8
-##   ..- attr(*, &quot;unit&quot;)= chr &quot;pt&quot;
-##  $ strip.text.y.left         :List of 11
-##   ..$ family       : NULL
-##   ..$ face         : NULL
-##   ..$ colour       : NULL
-##   ..$ size         : NULL
-##   ..$ hjust        : NULL
-##   ..$ vjust        : NULL
-##   ..$ angle        : num 90
-##   ..$ lineheight   : NULL
-##   ..$ margin       : NULL
-##   ..$ debug        : NULL
-##   ..$ inherit.blank: logi TRUE
-##   ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
-##  $ x                         : chr &quot;value&quot;
-##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;theme&quot; &quot;gg&quot;
-##  - attr(*, &quot;complete&quot;)= logi TRUE
-##  - attr(*, &quot;validate&quot;)= logi TRUE</code></pre>
 <p>“Wait what? This doesn’t look right. I thought we were taking samples from a uniform distribution. Uniform distributions are flat. THIS DOES NOT LOOK LIKE A FLAT DISTRIBTUION, WHAT IS GOING ON, AAAAAGGGHH.” We feel your pain.</p>
 <p>Remember, we are looking at the distribution of sample means. It is indeed true that the distribution of sample means does not look the same as the distribution we took the samples from. Our distribution of sample means goes up and down. In fact, this will almost always be the case for distributions of sample means. This fact is called the <strong>central limit theorem</strong>, which we talk about later.</p>
 <p>For now, let’s talk about about what’s happening. Remember, we have been sampling numbers between the range 1 to 10. We are supposed to get each number with roughly equal frequency, because we are sampling from a uniform distribution. So, let’s say we took a sample of 10 numbers, and happened to get one of each from 1 to 10.</p>
@@ -1736,37 +1300,6 @@ Figure 4.15: A histogram showing the sample means for 10,000 samples, each size 
 <h3><span class="header-section-number">4.10.3</span> Sampling distributions exist for any sample statistic!</h3>
 <p>One thing to keep in mind when thinking about sampling distributions is that <strong>any</strong> sample statistic you might care to calculate has a sampling distribution. For example, suppose that each time you sampled some numbers from an experiment you wrote down the largest number in the experiment. Doing this over and over again would give you a very different sampling distribution, namely the <strong>sampling distribution of the maximum</strong>. You could calculate the smallest number, or the mode, or the median, of the variance, or the standard deviation, or anything else from your sample. Then, you could repeat many times, and produce the sampling distribution of those statistics. Neat!</p>
 <p>Just for fun here are some different sampling distributions for different statistics. We will take a normal distribution with mean = 100, and standard deviation =20. Then, we’ll take lots of samples with n = 50 (50 observations per sample). We’ll save all of the sample statistics, then plot their histograms. Let’s do it:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="probability-sampling-and-estimation.html#cb18-1" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb18-2"><a href="probability-sampling-and-estimation.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>){</span>
-<span id="cb18-3"><a href="probability-sampling-and-estimation.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  sample<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">20</span>)</span>
-<span id="cb18-4"><a href="probability-sampling-and-estimation.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  sample_mean<span class="ot">&lt;-</span><span class="fu">mean</span>(sample)</span>
-<span id="cb18-5"><a href="probability-sampling-and-estimation.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  sample_sd<span class="ot">&lt;-</span><span class="fu">sd</span>(sample)</span>
-<span id="cb18-6"><a href="probability-sampling-and-estimation.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  sample_max<span class="ot">&lt;-</span><span class="fu">max</span>(sample)</span>
-<span id="cb18-7"><a href="probability-sampling-and-estimation.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  sample_median<span class="ot">&lt;-</span><span class="fu">median</span>(sample)</span>
-<span id="cb18-8"><a href="probability-sampling-and-estimation.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  t_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(i,sample_mean,sample_sd,sample_max,sample_median)</span>
-<span id="cb18-9"><a href="probability-sampling-and-estimation.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  all_df<span class="ot">&lt;-</span><span class="fu">rbind</span>(all_df,t_df)</span>
-<span id="cb18-10"><a href="probability-sampling-and-estimation.html#cb18-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb18-11"><a href="probability-sampling-and-estimation.html#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="probability-sampling-and-estimation.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb18-13"><a href="probability-sampling-and-estimation.html#cb18-13" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="fu">ggplot</span>(all_df,<span class="fu">aes</span>(<span class="at">x=</span>sample_mean))<span class="sc">+</span></span>
-<span id="cb18-14"><a href="probability-sampling-and-estimation.html#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
-<span id="cb18-15"><a href="probability-sampling-and-estimation.html#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb18-16"><a href="probability-sampling-and-estimation.html#cb18-16" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span><span class="fu">ggplot</span>(all_df,<span class="fu">aes</span>(<span class="at">x=</span>sample_sd))<span class="sc">+</span></span>
-<span id="cb18-17"><a href="probability-sampling-and-estimation.html#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
-<span id="cb18-18"><a href="probability-sampling-and-estimation.html#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb18-19"><a href="probability-sampling-and-estimation.html#cb18-19" aria-hidden="true" tabindex="-1"></a>c<span class="ot">&lt;-</span><span class="fu">ggplot</span>(all_df,<span class="fu">aes</span>(<span class="at">x=</span>sample_max))<span class="sc">+</span></span>
-<span id="cb18-20"><a href="probability-sampling-and-estimation.html#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
-<span id="cb18-21"><a href="probability-sampling-and-estimation.html#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb18-22"><a href="probability-sampling-and-estimation.html#cb18-22" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">ggplot</span>(all_df,<span class="fu">aes</span>(<span class="at">x=</span>sample_median))<span class="sc">+</span></span>
-<span id="cb18-23"><a href="probability-sampling-and-estimation.html#cb18-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
-<span id="cb18-24"><a href="probability-sampling-and-estimation.html#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb18-25"><a href="probability-sampling-and-estimation.html#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-26"><a href="probability-sampling-and-estimation.html#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(a,b,c,d,</span>
-<span id="cb18-27"><a href="probability-sampling-and-estimation.html#cb18-27" aria-hidden="true" tabindex="-1"></a>          <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:4samplestats"></span>
 <img src="statistics_files/figure-html/4samplestats-1.png" alt="Each panel shows a histogram of a different sampling statistic" width="672" />
 <p class="caption">
@@ -1789,90 +1322,10 @@ Figure 4.16: Each panel shows a histogram of a different sampling statistic
 Figure 4.17: Animation of samples (grey histogram shows frequency counts of data in each sample), and the sampling distribution of the mean (histogram of the sampling means for many samples). Each sample is taken from the normal distribution shown in red. The moving red line is the mean of an individual sample. The blue line is the mean of the blue histogram, which represents the sampling distribution of the mean for many samples
 </p>
 </div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="probability-sampling-and-estimation.html#cb20-1" aria-hidden="true" tabindex="-1"></a>get_sampling_means<span class="ot">&lt;-</span><span class="cf">function</span>(m,sd,s_size){</span>
-<span id="cb20-2"><a href="probability-sampling-and-estimation.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  save_means<span class="ot">&lt;-</span><span class="fu">length</span>(s_size)</span>
-<span id="cb20-3"><a href="probability-sampling-and-estimation.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>s_size){</span>
-<span id="cb20-4"><a href="probability-sampling-and-estimation.html#cb20-4" aria-hidden="true" tabindex="-1"></a>    save_means[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">rnorm</span>(s_size,m,sd))</span>
-<span id="cb20-5"><a href="probability-sampling-and-estimation.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-6"><a href="probability-sampling-and-estimation.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(save_means)</span>
-<span id="cb20-7"><a href="probability-sampling-and-estimation.html#cb20-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-8"><a href="probability-sampling-and-estimation.html#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="probability-sampling-and-estimation.html#cb20-9" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb20-10"><a href="probability-sampling-and-estimation.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(sims <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
-<span id="cb20-11"><a href="probability-sampling-and-estimation.html#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(n <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">1000</span>)){</span>
-<span id="cb20-12"><a href="probability-sampling-and-estimation.html#cb20-12" aria-hidden="true" tabindex="-1"></a>    sample<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb20-13"><a href="probability-sampling-and-estimation.html#cb20-13" aria-hidden="true" tabindex="-1"></a>    sample_means<span class="ot">&lt;-</span><span class="fu">get_sampling_means</span>(<span class="dv">0</span>,<span class="dv">1</span>,n)</span>
-<span id="cb20-14"><a href="probability-sampling-and-estimation.html#cb20-14" aria-hidden="true" tabindex="-1"></a>    t_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">sims=</span><span class="fu">rep</span>(sims,n),</span>
-<span id="cb20-15"><a href="probability-sampling-and-estimation.html#cb20-15" aria-hidden="true" tabindex="-1"></a>                     sample,</span>
-<span id="cb20-16"><a href="probability-sampling-and-estimation.html#cb20-16" aria-hidden="true" tabindex="-1"></a>                     sample_means,</span>
-<span id="cb20-17"><a href="probability-sampling-and-estimation.html#cb20-17" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_size=</span><span class="fu">rep</span>(n,n),</span>
-<span id="cb20-18"><a href="probability-sampling-and-estimation.html#cb20-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample),n),</span>
-<span id="cb20-19"><a href="probability-sampling-and-estimation.html#cb20-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sampling_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample_means),n)</span>
-<span id="cb20-20"><a href="probability-sampling-and-estimation.html#cb20-20" aria-hidden="true" tabindex="-1"></a>                     )</span>
-<span id="cb20-21"><a href="probability-sampling-and-estimation.html#cb20-21" aria-hidden="true" tabindex="-1"></a>    all_df<span class="ot">&lt;-</span><span class="fu">rbind</span>(all_df,t_df)</span>
-<span id="cb20-22"><a href="probability-sampling-and-estimation.html#cb20-22" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-23"><a href="probability-sampling-and-estimation.html#cb20-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-24"><a href="probability-sampling-and-estimation.html#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-25"><a href="probability-sampling-and-estimation.html#cb20-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-26"><a href="probability-sampling-and-estimation.html#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_df, <span class="fu">aes</span>(<span class="at">x=</span>sample))<span class="sc">+</span></span>
-<span id="cb20-27"><a href="probability-sampling-and-estimation.html#cb20-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span>(..density..)<span class="sc">/</span><span class="fu">max</span>(..density..)<span class="sc">^</span>.<span class="dv">8</span>),<span class="at">color=</span><span class="st">&quot;white&quot;</span>,<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
-<span id="cb20-28"><a href="probability-sampling-and-estimation.html#cb20-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>sample_means,<span class="at">y=</span>(..density..)<span class="sc">/</span><span class="fu">max</span>(..density..)),<span class="at">fill=</span><span class="st">&quot;blue&quot;</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
-<span id="cb20-29"><a href="probability-sampling-and-estimation.html#cb20-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, </span>
-<span id="cb20-30"><a href="probability-sampling-and-estimation.html#cb20-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>), </span>
-<span id="cb20-31"><a href="probability-sampling-and-estimation.html#cb20-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">lwd =</span> .<span class="dv">75</span>, </span>
-<span id="cb20-32"><a href="probability-sampling-and-estimation.html#cb20-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)<span class="sc">+</span></span>
-<span id="cb20-33"><a href="probability-sampling-and-estimation.html#cb20-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span>sample_mean,<span class="at">frame=</span>sims),<span class="at">color=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb20-34"><a href="probability-sampling-and-estimation.html#cb20-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span>sampling_mean,<span class="at">frame=</span>sims),<span class="at">color=</span><span class="st">&quot;blue&quot;</span>)<span class="sc">+</span></span>
-<span id="cb20-35"><a href="probability-sampling-and-estimation.html#cb20-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sample_size)<span class="sc">+</span><span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb20-36"><a href="probability-sampling-and-estimation.html#cb20-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">&quot;Population (red), Samples (grey), </span><span class="sc">\n</span><span class="st"> and Sampling distribution of the mean (blue)&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Rough likelihoods&quot;</span>)<span class="sc">+</span></span>
-<span id="cb20-37"><a href="probability-sampling-and-estimation.html#cb20-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;value&quot;</span>)<span class="sc">+</span></span>
-<span id="cb20-38"><a href="probability-sampling-and-estimation.html#cb20-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(</span>
-<span id="cb20-39"><a href="probability-sampling-and-estimation.html#cb20-39" aria-hidden="true" tabindex="-1"></a>    sims,</span>
-<span id="cb20-40"><a href="probability-sampling-and-estimation.html#cb20-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">transition_length =</span> <span class="dv">2</span>,</span>
-<span id="cb20-41"><a href="probability-sampling-and-estimation.html#cb20-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">state_length =</span> <span class="dv">1</span></span>
-<span id="cb20-42"><a href="probability-sampling-and-estimation.html#cb20-42" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span><span class="fu">enter_fade</span>() <span class="sc">+</span> </span>
-<span id="cb20-43"><a href="probability-sampling-and-estimation.html#cb20-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_shrink</span>() <span class="sc">+</span></span>
-<span id="cb20-44"><a href="probability-sampling-and-estimation.html#cb20-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&#39;sine-in-out&#39;</span>)</span></code></pre></div>
 <p>What should you notice? Notice that the range of the blue bars shrinks as sample size increases. The sampling distribution of the mean is quite wide when the sample-size is 10, it narrows as sample-size increases to 50 and 100, and it’s just one bar, right in the middle when sample-size goes to 1000. What we are seeing is that the mean of the sampling distribution approaches the mean of the population as sample-size increases.</p>
 <p>So, the sampling distribution of the mean is another distribution, and it has some variance. It varies more when sample-size is small, and varies less when sample-size is large. We can quantify this effect by calculating the standard deviation of the sampling distribution, which is referred to as the <strong>standard error</strong>. The standard error of a statistic is often denoted SE, and since we’re usually interested in the standard error of the sample <strong>mean</strong>, we often use the acronym SEM. As you can see just by looking at the movie, as the sample size <span class="math inline">\(N\)</span> increases, the SEM decreases.</p>
 <p>Okay, so that’s one part of the story. However, there’s something we’ve been glossing over a little bit. We’ve seen it already, but it’s worth looking at it one more time. Here’s the thing: <strong>no matter what shape your population distribution is, as <span class="math inline">\(N\)</span> increases the sampling distribution of the mean starts to look more like a normal distribution</strong>. This is the central limit theorem.</p>
 <p>To see the central limit theorem in action, we are going to look at some histograms of sample means different kinds of distributions. It is very important to recognize that you are looking at distributions of sample means, not distributions of individual samples! Here we go, starting with sampling from a normal distribution. The red line is the distribution, the blue bars are the histogram for the sample means. They both look normal!</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="probability-sampling-and-estimation.html#cb21-1" aria-hidden="true" tabindex="-1"></a>get_sampling_means<span class="ot">&lt;-</span><span class="cf">function</span>(m,sd,s_size,iter){</span>
-<span id="cb21-2"><a href="probability-sampling-and-estimation.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  save_means<span class="ot">&lt;-</span><span class="fu">length</span>(iter)</span>
-<span id="cb21-3"><a href="probability-sampling-and-estimation.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
-<span id="cb21-4"><a href="probability-sampling-and-estimation.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    save_means[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">rnorm</span>(s_size,m,sd))</span>
-<span id="cb21-5"><a href="probability-sampling-and-estimation.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb21-6"><a href="probability-sampling-and-estimation.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(save_means)</span>
-<span id="cb21-7"><a href="probability-sampling-and-estimation.html#cb21-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-8"><a href="probability-sampling-and-estimation.html#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="probability-sampling-and-estimation.html#cb21-9" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb21-10"><a href="probability-sampling-and-estimation.html#cb21-10" aria-hidden="true" tabindex="-1"></a>sims<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb21-11"><a href="probability-sampling-and-estimation.html#cb21-11" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">50</span></span>
-<span id="cb21-12"><a href="probability-sampling-and-estimation.html#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-13"><a href="probability-sampling-and-estimation.html#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">50</span>)){</span>
-<span id="cb21-14"><a href="probability-sampling-and-estimation.html#cb21-14" aria-hidden="true" tabindex="-1"></a>    sample<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb21-15"><a href="probability-sampling-and-estimation.html#cb21-15" aria-hidden="true" tabindex="-1"></a>    sample_means<span class="ot">&lt;-</span><span class="fu">get_sampling_means</span>(<span class="dv">0</span>,<span class="dv">1</span>,n,<span class="dv">1000</span>)</span>
-<span id="cb21-16"><a href="probability-sampling-and-estimation.html#cb21-16" aria-hidden="true" tabindex="-1"></a>    t_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">sims=</span><span class="fu">rep</span>(sims,<span class="dv">1000</span>),</span>
-<span id="cb21-17"><a href="probability-sampling-and-estimation.html#cb21-17" aria-hidden="true" tabindex="-1"></a>                     sample,</span>
-<span id="cb21-18"><a href="probability-sampling-and-estimation.html#cb21-18" aria-hidden="true" tabindex="-1"></a>                     sample_means,</span>
-<span id="cb21-19"><a href="probability-sampling-and-estimation.html#cb21-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_size=</span><span class="fu">rep</span>(n,<span class="dv">1000</span>),</span>
-<span id="cb21-20"><a href="probability-sampling-and-estimation.html#cb21-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample),<span class="dv">1000</span>),</span>
-<span id="cb21-21"><a href="probability-sampling-and-estimation.html#cb21-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sampling_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample_means),<span class="dv">1000</span>)</span>
-<span id="cb21-22"><a href="probability-sampling-and-estimation.html#cb21-22" aria-hidden="true" tabindex="-1"></a>                     )</span>
-<span id="cb21-23"><a href="probability-sampling-and-estimation.html#cb21-23" aria-hidden="true" tabindex="-1"></a>    all_df<span class="ot">&lt;-</span><span class="fu">rbind</span>(all_df,t_df)</span>
-<span id="cb21-24"><a href="probability-sampling-and-estimation.html#cb21-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-25"><a href="probability-sampling-and-estimation.html#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-26"><a href="probability-sampling-and-estimation.html#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_df, <span class="fu">aes</span>(<span class="at">x=</span>sample))<span class="sc">+</span></span>
-<span id="cb21-27"><a href="probability-sampling-and-estimation.html#cb21-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>sample_means,<span class="at">y=</span>(..density..)<span class="sc">/</span><span class="fu">max</span>(..density..)),<span class="at">fill=</span><span class="st">&quot;blue&quot;</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>,<span class="at">bins=</span><span class="dv">75</span>)<span class="sc">+</span></span>
-<span id="cb21-28"><a href="probability-sampling-and-estimation.html#cb21-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, </span>
-<span id="cb21-29"><a href="probability-sampling-and-estimation.html#cb21-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>), </span>
-<span id="cb21-30"><a href="probability-sampling-and-estimation.html#cb21-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">lwd =</span> .<span class="dv">75</span>, </span>
-<span id="cb21-31"><a href="probability-sampling-and-estimation.html#cb21-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)<span class="sc">+</span></span>
-<span id="cb21-32"><a href="probability-sampling-and-estimation.html#cb21-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_vline(aes(xintercept=sampling_mean,frame=sims),color=&quot;blue&quot;)+</span></span>
-<span id="cb21-33"><a href="probability-sampling-and-estimation.html#cb21-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sample_size)<span class="sc">+</span><span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb21-34"><a href="probability-sampling-and-estimation.html#cb21-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">&quot;Sampling distribution of mean </span><span class="sc">\n</span><span class="st"> for Normal Distribution&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Rough likelihoods&quot;</span>)<span class="sc">+</span></span>
-<span id="cb21-35"><a href="probability-sampling-and-estimation.html#cb21-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;value&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 4 rows containing missing values (geom_bar).</code></pre>
 <div class="figure"><span id="fig:4sampledistmeannorm"></span>
 <img src="statistics_files/figure-html/4sampledistmeannorm-1.png" alt="Comparison of two normal distributions, and histograms for the sampling distribution of the mean for different samples-sizes. The range  of sampling distribution of the mean shrinks as sample-size increases" width="672" />
 <p class="caption">
@@ -1880,38 +1333,6 @@ Figure 4.18: Comparison of two normal distributions, and histograms for the samp
 </p>
 </div>
 <p>Let’s do it again. This time we sample from a flat uniform distribution. Again, we see that the distribution of the sample means is not flat, it looks like a normal distribution.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="probability-sampling-and-estimation.html#cb23-1" aria-hidden="true" tabindex="-1"></a>get_sampling_means<span class="ot">&lt;-</span><span class="cf">function</span>(mn,mx,s_size,iter){</span>
-<span id="cb23-2"><a href="probability-sampling-and-estimation.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  save_means<span class="ot">&lt;-</span><span class="fu">length</span>(iter)</span>
-<span id="cb23-3"><a href="probability-sampling-and-estimation.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
-<span id="cb23-4"><a href="probability-sampling-and-estimation.html#cb23-4" aria-hidden="true" tabindex="-1"></a>    save_means[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">runif</span>(s_size,mn,mx))</span>
-<span id="cb23-5"><a href="probability-sampling-and-estimation.html#cb23-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb23-6"><a href="probability-sampling-and-estimation.html#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(save_means)</span>
-<span id="cb23-7"><a href="probability-sampling-and-estimation.html#cb23-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-8"><a href="probability-sampling-and-estimation.html#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="probability-sampling-and-estimation.html#cb23-9" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb23-10"><a href="probability-sampling-and-estimation.html#cb23-10" aria-hidden="true" tabindex="-1"></a>sims<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb23-11"><a href="probability-sampling-and-estimation.html#cb23-11" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">50</span></span>
-<span id="cb23-12"><a href="probability-sampling-and-estimation.html#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="probability-sampling-and-estimation.html#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">50</span>)){</span>
-<span id="cb23-14"><a href="probability-sampling-and-estimation.html#cb23-14" aria-hidden="true" tabindex="-1"></a>    sample<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb23-15"><a href="probability-sampling-and-estimation.html#cb23-15" aria-hidden="true" tabindex="-1"></a>    sample_means<span class="ot">&lt;-</span><span class="fu">get_sampling_means</span>(<span class="dv">0</span>,<span class="dv">1</span>,n,<span class="dv">1000</span>)</span>
-<span id="cb23-16"><a href="probability-sampling-and-estimation.html#cb23-16" aria-hidden="true" tabindex="-1"></a>    t_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">sims=</span><span class="fu">rep</span>(sims,<span class="dv">1000</span>),</span>
-<span id="cb23-17"><a href="probability-sampling-and-estimation.html#cb23-17" aria-hidden="true" tabindex="-1"></a>                     sample,</span>
-<span id="cb23-18"><a href="probability-sampling-and-estimation.html#cb23-18" aria-hidden="true" tabindex="-1"></a>                     sample_means,</span>
-<span id="cb23-19"><a href="probability-sampling-and-estimation.html#cb23-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_size=</span><span class="fu">rep</span>(n,<span class="dv">1000</span>),</span>
-<span id="cb23-20"><a href="probability-sampling-and-estimation.html#cb23-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample),<span class="dv">1000</span>),</span>
-<span id="cb23-21"><a href="probability-sampling-and-estimation.html#cb23-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sampling_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample_means),<span class="dv">1000</span>)</span>
-<span id="cb23-22"><a href="probability-sampling-and-estimation.html#cb23-22" aria-hidden="true" tabindex="-1"></a>                     )</span>
-<span id="cb23-23"><a href="probability-sampling-and-estimation.html#cb23-23" aria-hidden="true" tabindex="-1"></a>    all_df<span class="ot">&lt;-</span><span class="fu">rbind</span>(all_df,t_df)</span>
-<span id="cb23-24"><a href="probability-sampling-and-estimation.html#cb23-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-25"><a href="probability-sampling-and-estimation.html#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-26"><a href="probability-sampling-and-estimation.html#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_df, <span class="fu">aes</span>(<span class="at">x=</span>sample))<span class="sc">+</span></span>
-<span id="cb23-27"><a href="probability-sampling-and-estimation.html#cb23-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>sample_means,<span class="at">y=</span>(..density..)<span class="sc">/</span><span class="fu">max</span>(..density..)),<span class="at">fill=</span><span class="st">&quot;blue&quot;</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>,<span class="at">bins=</span><span class="dv">75</span>)<span class="sc">+</span></span>
-<span id="cb23-28"><a href="probability-sampling-and-estimation.html#cb23-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span>.<span class="dv">1</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb23-29"><a href="probability-sampling-and-estimation.html#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sample_size)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb23-30"><a href="probability-sampling-and-estimation.html#cb23-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">&quot;Sampling distribution of mean </span><span class="sc">\n</span><span class="st"> for samples taken from Uniform Distribution&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Rough likelihoods&quot;</span>)<span class="sc">+</span></span>
-<span id="cb23-31"><a href="probability-sampling-and-estimation.html#cb23-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;value&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 4 rows containing missing values (geom_bar).</code></pre>
 <div class="figure"><span id="fig:4samplemeanunif"></span>
 <img src="statistics_files/figure-html/4samplemeanunif-1.png" alt="Illustration that the shape of the sampling distribution of the mean is normal, even when the samples come from a non-normal (uniform in this case) distribution" width="672" />
 <p class="caption">
@@ -1919,43 +1340,6 @@ Figure 4.19: Illustration that the shape of the sampling distribution of the mea
 </p>
 </div>
 <p>One more time with an exponential distribution. Even though way more of the numbers should be smaller than bigger, then sampling distribution of the mean again does not look the red line. Instead, it looks more normal-ish. That’s the central limit theorem. It just works like that.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="probability-sampling-and-estimation.html#cb25-1" aria-hidden="true" tabindex="-1"></a>get_sampling_means<span class="ot">&lt;-</span><span class="cf">function</span>(s_size,r,iter){</span>
-<span id="cb25-2"><a href="probability-sampling-and-estimation.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  save_means<span class="ot">&lt;-</span><span class="fu">length</span>(iter)</span>
-<span id="cb25-3"><a href="probability-sampling-and-estimation.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
-<span id="cb25-4"><a href="probability-sampling-and-estimation.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    save_means[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">rexp</span>(s_size,r))</span>
-<span id="cb25-5"><a href="probability-sampling-and-estimation.html#cb25-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb25-6"><a href="probability-sampling-and-estimation.html#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(save_means)</span>
-<span id="cb25-7"><a href="probability-sampling-and-estimation.html#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb25-8"><a href="probability-sampling-and-estimation.html#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-9"><a href="probability-sampling-and-estimation.html#cb25-9" aria-hidden="true" tabindex="-1"></a>all_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb25-10"><a href="probability-sampling-and-estimation.html#cb25-10" aria-hidden="true" tabindex="-1"></a>sims<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb25-11"><a href="probability-sampling-and-estimation.html#cb25-11" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">50</span></span>
-<span id="cb25-12"><a href="probability-sampling-and-estimation.html#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-13"><a href="probability-sampling-and-estimation.html#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">50</span>)){</span>
-<span id="cb25-14"><a href="probability-sampling-and-estimation.html#cb25-14" aria-hidden="true" tabindex="-1"></a>    sample<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb25-15"><a href="probability-sampling-and-estimation.html#cb25-15" aria-hidden="true" tabindex="-1"></a>    sample_means<span class="ot">&lt;-</span><span class="fu">get_sampling_means</span>(n,<span class="dv">2</span>,<span class="dv">1000</span>)</span>
-<span id="cb25-16"><a href="probability-sampling-and-estimation.html#cb25-16" aria-hidden="true" tabindex="-1"></a>    t_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">sims=</span><span class="fu">rep</span>(sims,<span class="dv">1000</span>),</span>
-<span id="cb25-17"><a href="probability-sampling-and-estimation.html#cb25-17" aria-hidden="true" tabindex="-1"></a>                     sample,</span>
-<span id="cb25-18"><a href="probability-sampling-and-estimation.html#cb25-18" aria-hidden="true" tabindex="-1"></a>                     sample_means,</span>
-<span id="cb25-19"><a href="probability-sampling-and-estimation.html#cb25-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_size=</span><span class="fu">rep</span>(n,<span class="dv">1000</span>),</span>
-<span id="cb25-20"><a href="probability-sampling-and-estimation.html#cb25-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sample_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample),<span class="dv">1000</span>),</span>
-<span id="cb25-21"><a href="probability-sampling-and-estimation.html#cb25-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sampling_mean=</span><span class="fu">rep</span>(<span class="fu">mean</span>(sample_means),<span class="dv">1000</span>)</span>
-<span id="cb25-22"><a href="probability-sampling-and-estimation.html#cb25-22" aria-hidden="true" tabindex="-1"></a>                     )</span>
-<span id="cb25-23"><a href="probability-sampling-and-estimation.html#cb25-23" aria-hidden="true" tabindex="-1"></a>    all_df<span class="ot">&lt;-</span><span class="fu">rbind</span>(all_df,t_df)</span>
-<span id="cb25-24"><a href="probability-sampling-and-estimation.html#cb25-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb25-25"><a href="probability-sampling-and-estimation.html#cb25-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-26"><a href="probability-sampling-and-estimation.html#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_df, <span class="fu">aes</span>(<span class="at">x=</span>sample))<span class="sc">+</span></span>
-<span id="cb25-27"><a href="probability-sampling-and-estimation.html#cb25-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>sample_means,<span class="at">y=</span>(..density..)<span class="sc">/</span><span class="fu">max</span>(..density..)),<span class="at">fill=</span><span class="st">&quot;blue&quot;</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>,<span class="at">bins=</span><span class="dv">75</span>)<span class="sc">+</span></span>
-<span id="cb25-28"><a href="probability-sampling-and-estimation.html#cb25-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dexp, </span>
-<span id="cb25-29"><a href="probability-sampling-and-estimation.html#cb25-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">list</span>(<span class="at">rate=</span><span class="dv">2</span>), </span>
-<span id="cb25-30"><a href="probability-sampling-and-estimation.html#cb25-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">lwd =</span> .<span class="dv">75</span>, </span>
-<span id="cb25-31"><a href="probability-sampling-and-estimation.html#cb25-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)<span class="sc">+</span></span>
-<span id="cb25-32"><a href="probability-sampling-and-estimation.html#cb25-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_vline(aes(xintercept=sampling_mean,frame=sims),color=&quot;blue&quot;)+</span></span>
-<span id="cb25-33"><a href="probability-sampling-and-estimation.html#cb25-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sample_size)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb25-34"><a href="probability-sampling-and-estimation.html#cb25-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">&quot;Sampling distribution of mean </span><span class="sc">\n</span><span class="st"> for samples from exponential Distribution&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Rough likelihoods&quot;</span>)<span class="sc">+</span></span>
-<span id="cb25-35"><a href="probability-sampling-and-estimation.html#cb25-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;value&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 3 rows containing non-finite values (stat_bin).</code></pre>
-<pre><code>## Warning: Removed 4 rows containing missing values (geom_bar).</code></pre>
 <div class="figure"><span id="fig:4samplemeanExp"></span>
 <img src="statistics_files/figure-html/4samplemeanExp-1.png" alt="Illustration that the shape of the sampling distribution of the mean is normal, even when the samples come from a non-normal (exponential in this case) distribution" width="672" />
 <p class="caption">
@@ -1975,42 +1359,6 @@ Figure 4.20: Illustration that the shape of the sampling distribution of the mea
 <h2><span class="header-section-number">4.12</span> z-scores</h2>
 <p>We are now in a position to combine some of things we’ve been talking about in this chapter, and introduce you to a new tool, <strong>z-scores</strong>. It turns out we won’t use <strong>z-scores</strong> very much in this textbook. However, you can’t take a class on statistics and not learn about <strong>z-scores</strong>.</p>
 <p>The first thing we show you seems to be something that many students remember from their statistics class. This thing is probably remembered because instructors may test this knowledge many times, so students have to learn it for the test. Let’s look at this thing. We are going to look at a normal distribution, and we are going to draw lines through the distribution at 0, +/- 1, +/-2, and +/- 3 standard deviations from the mean:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="probability-sampling-and-estimation.html#cb28-1" aria-hidden="true" tabindex="-1"></a>dnorm_vec <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>,.<span class="dv">1</span>),<span class="at">mean=</span><span class="dv">0</span>,<span class="at">sd=</span><span class="dv">1</span>)</span>
-<span id="cb28-2"><a href="probability-sampling-and-estimation.html#cb28-2" aria-hidden="true" tabindex="-1"></a>x_range   <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>,.<span class="dv">1</span>)</span>
-<span id="cb28-3"><a href="probability-sampling-and-estimation.html#cb28-3" aria-hidden="true" tabindex="-1"></a>t_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(x_range,dnorm_vec)</span>
-<span id="cb28-4"><a href="probability-sampling-and-estimation.html#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="probability-sampling-and-estimation.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(t_df, <span class="fu">aes</span>(<span class="at">x=</span>x_range,<span class="at">y=</span>dnorm_vec))<span class="sc">+</span></span>
-<span id="cb28-6"><a href="probability-sampling-and-estimation.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb28-7"><a href="probability-sampling-and-estimation.html#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb28-8"><a href="probability-sampling-and-estimation.html#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))<span class="sc">+</span></span>
-<span id="cb28-9"><a href="probability-sampling-and-estimation.html#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb28-10"><a href="probability-sampling-and-estimation.html#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Density&quot;</span>)<span class="sc">+</span></span>
-<span id="cb28-11"><a href="probability-sampling-and-estimation.html#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb28-12"><a href="probability-sampling-and-estimation.html#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb28-13"><a href="probability-sampling-and-estimation.html#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="sc">-</span>.<span class="dv">5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-14"><a href="probability-sampling-and-estimation.html#cb28-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-15"><a href="probability-sampling-and-estimation.html#cb28-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label))<span class="sc">+</span></span>
-<span id="cb28-16"><a href="probability-sampling-and-estimation.html#cb28-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span>.<span class="dv">5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-17"><a href="probability-sampling-and-estimation.html#cb28-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-18"><a href="probability-sampling-and-estimation.html#cb28-18" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label))<span class="sc">+</span></span>
-<span id="cb28-19"><a href="probability-sampling-and-estimation.html#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">1.5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-20"><a href="probability-sampling-and-estimation.html#cb28-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-21"><a href="probability-sampling-and-estimation.html#cb28-21" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label))<span class="sc">+</span></span>
-<span id="cb28-22"><a href="probability-sampling-and-estimation.html#cb28-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fl">1.5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-23"><a href="probability-sampling-and-estimation.html#cb28-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-24"><a href="probability-sampling-and-estimation.html#cb28-24" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label)) <span class="sc">+</span> </span>
-<span id="cb28-25"><a href="probability-sampling-and-estimation.html#cb28-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">2.5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-26"><a href="probability-sampling-and-estimation.html#cb28-26" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-27"><a href="probability-sampling-and-estimation.html#cb28-27" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label))<span class="sc">+</span></span>
-<span id="cb28-28"><a href="probability-sampling-and-estimation.html#cb28-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fl">2.5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-29"><a href="probability-sampling-and-estimation.html#cb28-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-30"><a href="probability-sampling-and-estimation.html#cb28-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label))<span class="sc">+</span> </span>
-<span id="cb28-31"><a href="probability-sampling-and-estimation.html#cb28-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">3.5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-32"><a href="probability-sampling-and-estimation.html#cb28-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-33"><a href="probability-sampling-and-estimation.html#cb28-33" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label))<span class="sc">+</span></span>
-<span id="cb28-34"><a href="probability-sampling-and-estimation.html#cb28-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fl">3.5</span>, <span class="at">y=</span>.<span class="dv">3</span>,</span>
-<span id="cb28-35"><a href="probability-sampling-and-estimation.html#cb28-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="fu">round</span>(<span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">2</span>]<span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">0</span>,<span class="dv">1</span>)[<span class="dv">1</span>], <span class="at">digits=</span><span class="dv">3</span>)), </span>
-<span id="cb28-36"><a href="probability-sampling-and-estimation.html#cb28-36" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> label))</span></code></pre></div>
 <div class="figure"><span id="fig:4normalSDspercents"></span>
 <img src="statistics_files/figure-html/4normalSDspercents-1.png" alt="A normal distribution. Each line represents a standard deviation from the mean. The labels show the proportions of scores that fall between each bar." width="672" />
 <p class="caption">
@@ -2083,13 +1431,10 @@ Figure 4.22: A normal distribution. Each line represents a standard deviation fr
 <p>Here’s the general formula:</p>
 <p><span class="math inline">\(z = \frac{\text{raw score} - \text{mean}}{\text{standard deviation}}\)</span></p>
 <p>So, for example if we had these 10 scores from a normal distribution with mean = 100, and standard deviation =25</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="probability-sampling-and-estimation.html#cb29-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="dv">100</span>,<span class="dv">25</span>),<span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb29-2"><a href="probability-sampling-and-estimation.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(scores)</span></code></pre></div>
-<pre><code>##  [1]  93.35 122.96 107.58 152.92  77.48  99.07  82.03 129.05 114.27  46.64</code></pre>
+<pre><code>##  [1]  98.94 101.92 172.60  94.44  81.66 101.90  90.44  60.15 124.93  59.29</code></pre>
 <p>The z-scores would be:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="probability-sampling-and-estimation.html#cb31-1" aria-hidden="true" tabindex="-1"></a>(scores<span class="dv">-100</span>)<span class="sc">/</span><span class="dv">25</span></span></code></pre></div>
-<pre><code>##  [1] -0.2660  0.9184  0.3032  2.1168 -0.9008 -0.0372 -0.7188  1.1620  0.5708
-## [10] -2.1344</code></pre>
+<pre><code>##  [1] -0.0424  0.0768  2.9040 -0.2224 -0.7336  0.0760 -0.3824 -1.5940  0.9972
+## [10] -1.6284</code></pre>
 <p>Once you have the z-scores, you could use them as another way to describe your data. For example, now just by looking at a score you know if it is likely or unlikely to occur, because you know how the area under the normal curve works. z-scores between -1 and 1 happen pretty often, scores greater than 1 or -1 still happen fairly often, but not as often. And, scores bigger than 2 or -2 don’t happen very often. This is a convenient thing to do if you want to look at your numbers and get a general sense of how often they happen.</p>
 <p>Usually you do not know the mean or the standard deviation of the population that you are drawing your sample scores from. So, you could use the mean and standard deviation of your sample as an estimate, and then use those to calculate z-scores.</p>
 <p>Finally, z-scores are also called <strong>standardized scores</strong>, because each raw score is described in terms of it’s standard deviation. This may well be the last time we talk about z-scores in this book. You might wonder why we even bothered telling you about them. First, it’s worth knowing they are a thing. Second, they become important as your statistical prowess becomes more advanced. Third, some statistical concepts, like correlation, can be re-written in terms of z-scores, and this illuminates aspects of those statistics. Finally, they are super useful when you are dealing with a normal distribution that has a known mean and standard deviation.</p>
