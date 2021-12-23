@@ -402,3 +402,12 @@ fig:4normalSDspercentsB
 fig:sampdistsd
 fig:estimatorbiasA
 fig:estimatorbiasB
+fig:7fnull
+fig:7criticalF
+fig:7manyDiffs
+fig:7manyDiffsBar
+fig:7flesshthanone
+fig:7sigdiffs
+fig:7tetrisData
+ss_
+multiple-comparisons-a-teaser
