@@ -122,13 +122,11 @@ This is a mildly opinionated, non-traditional introduction to statistics. It ack
 
 ### Hypothes.is
 
-Hypothesis is a web-browser plug-in that lets you make comments on websites by highlighting text, and then making comments. Feel free to use hypothesis with this textbook. We will read your comments.
-
-1. Use Hypothes.is, an amazing tool for annotating the web.
+Hypothes.is is a web browser plug-in that lets you make comments on websites. You simply highlight text and then making comments. Feel free to use Hypothesis with this textbook. We will read your comments.
   
-  a. Go to [Hypothes.is](https://web.hypothes.is/), and "get-started"
+  a. Go to [Hypothes.is](https://web.hypothes.is/), and click "Get Started."
   
-  b. Install the the add-on for chrome, or other browser
+  b. Install the the add-on for Chrome.
   
   c. That's it, turn on Hypothes.is when you are reading this textbook, and you will see all public annotations made by anyone else.
   

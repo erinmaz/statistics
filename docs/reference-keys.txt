@@ -411,3 +411,4 @@ fig:7sigdiffs
 fig:7tetrisData
 ss_
 multiple-comparisons-a-teaser
+fig:1simpson
