@@ -520,7 +520,10 @@ An important type of history effect is the effect of **repeated testing**. Suppo
 
 ### Selection bias
 
-**Selection bias** is a pretty broad term. Suppose that you’re running an experiment with two groups of participants, where each group gets a different “treatment”, and you want to see if the different treatments lead to different outcomes. However, suppose that, despite your best efforts, you’ve ended up with a gender imbalance across groups (say, group A has 80% women and group B has 50% women). It might sound like this could never happen, but trust me, it can. This is an example of a selection bias, in which the people “selected into” the two groups have different characteristics. If any of those characteristics turns out to be relevant (say, your treatment works better on women than men), then you’re in a lot of trouble.
+**Selection bias** is a pretty broad term. Suppose that you’re running an experiment with two groups of participants, where each group gets a different “treatment”, and you want to see if the different treatments lead to different outcomes. However, suppose that, despite your best efforts, you’ve ended up with a gender imbalance across groups (say, group A has 80% women and group B has 50% women). It might sound like this could never happen, but trust me, it can. This is an example of a selection bias, in which the people “selected into” the two groups have different characteristics. If any of those characteristics turns out to be relevant (say, your treatment works better on women than men), then you’re in a lot of trouble. For example, if Group A was our treatment group and Group B was our control group, we might overestimate how well our treatment works on average.
+
+One thing to note is that this could even happen if a researcher did random assignment to the groups. It's very unlikely that such a larger gender bias would result from random assignment, but not impossible. Even if that case, the impact of the gender discrepancy between groups is important to keep in mind when interpreting the results.
+
 
 ### Differential attrition
 
