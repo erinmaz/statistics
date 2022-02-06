@@ -6,7 +6,7 @@ bookdown::gitbook:
         <li><a href="./">Statistics</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/CrumpLab/statistics/blob/master/%s
+    edit: https://github.com/erinmaz/statistics/blob/master/%s
     download: ["pdf"]
 bookdown::pdf_book:
   includes:

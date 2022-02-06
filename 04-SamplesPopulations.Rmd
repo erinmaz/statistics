@@ -1,9 +1,5 @@
 # Probability, Sampling, and Estimation
 
-```{r global-options, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE)
-```
-
 <span class="newthought">
 I have studied many languages-French, Spanish and a little Italian, but no one told me that Statistics was a foreign language.
 ---Charmaine J. Forde
