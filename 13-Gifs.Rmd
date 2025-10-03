@@ -1086,7 +1086,7 @@ image_animate(new_gif, fps = 10,dispose="none")
 
 ### Normal changing mean
 
-```{r, echo=F,eval=T}
+```{r, echo=F,eval=T, out.width="300px"}
 knitr::include_graphics(path="gifs/normalMovingMean-1.gif")
 ```
 
